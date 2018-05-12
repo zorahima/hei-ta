@@ -1,26 +1,22 @@
 <?php 
  
  
-class Periode extends CI_Controller{
+class Invitation extends CI_Controller{
  
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('Periode_model');
+		$this->load->model('Invitation_model');
 		$this->load->helper('url');
  
 	}
  	
 	function index(){
-		$data['periode'] = $this->Periode_model->tampil_data();
-		$this->load->view('all_periode',$data);
+		$data['invitation'] = $this->Invitation_model->tampil_data();
+		$this->load->view('all_invitation',$data);
 	}
  
 	function tambah(){
-		$this->load->view('add_periode');
-	}
-
-	function dasboard(){
-		$this->load->view('dasboard');
+		$this->load->view('add_invitation');
 	}
 
 	function tambah_data(){

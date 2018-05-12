@@ -6,6 +6,7 @@ class ProgramKerja extends CI_Controller{
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('Proker_model');
+		$this->load->model('Pengurus_model');
 		$this->load->helper('url');
  
 	}
