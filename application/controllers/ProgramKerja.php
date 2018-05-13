@@ -87,11 +87,10 @@ class ProgramKerja extends CI_Controller{
 		redirect('ProgramKerja/index');
 	}
 
-	// Function to Delete selected record from database.
-	function delete_proker() {
-		$id = $this->uri->segment(3);
-		$this->Proker_model->delete_proker($id);
-		$this->show_student_id();
+	public function hapus($id) 
+	{ 
+		$this->Proker_model->hapus_data($id); 
+		redirect('ProgramKerja/index'); 
 	}
 
 

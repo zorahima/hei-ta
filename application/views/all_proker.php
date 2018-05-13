@@ -45,7 +45,9 @@ $this->load->view('head_admin');
                  <td class="text-center">
                    <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $prokers->proker_id ?>" style="background:#1a75ff; border-color:#fff" onclick="edit_proker('.$row['proker_id'].')"><i class="fa fa-pencil"></i>
                    </button>
-                   <a class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-trash"></i></a>
+                   <button type="button" class="btn btn-sm btn-info" data-toogle="modal" data-target=" #hapus_proker<?php echo $prokers->proker_id;?>  style="background: #d41912; border-color: #fff"><i class="fa fa-trash"></i></a>
+                   <a href="<?php base_url() ?>hapus/<?=$prokers->proker_id ?> ">Hapus</a>
+
 
                   
                   
@@ -103,6 +105,32 @@ $this->load->view('head_admin');
             <!-- /.modal-dialog -->
           </div>
           <!-- /.modal -->
+        <div class="modal fade" id="hapus_proker<?php echo $prokers->proker_id ?>">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title"> Hapus Data Proker</h4>
+                </div>
+                <div class="modal-body">
+                  <form method ="post"  id="formhapusproker" action="<?php echo base_url('ProgramKerja/hapus'); ?>" role="form">
+                    <!-- <?php foreach ($proker as $proker)?> -->
+                    <input type="hidden" name='proker_id' id='proker_id'>
+                    <div class="box-body">
+                    <p>Apakah anda akan menghapus data ini ?</p>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
 
           <?php $i++; }  ?>
         </tfoot>

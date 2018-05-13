@@ -23,11 +23,15 @@ class Proker_model extends CI_Model{
         return $query->result();
     }
 
-    function deleteProker($proker_id){
+    public function hapus_data($id) 
+    { 
         $this->db->where('proker_id', $id);
-        $this->db->delete('proker');
-    } 
-       
+        $delete = $this->db->delete('proker');
+        return $delete; 
+    }
+
+
+
 
 
 }
