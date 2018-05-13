@@ -26,6 +26,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/dist/js/demo.js') ?>"></script>
 
+<!-- Select2 -->
+<script src="<?php echo base_url('assets/bower_components/select2/dist/js/select2.full.min.js') ?>"></script>
+
 <!-- fullCalendar -->
 <script src="<?php echo base_url('assets/bower_components/moment/moment.js') ?>"></script>
 <script src="<?php echo base_url('assets/bower_components/fullcalendar/dist/fullcalendar.min.js') ?>"></script>

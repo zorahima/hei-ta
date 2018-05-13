@@ -15,6 +15,9 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/AdminLTE.min.css') ?>">
 
+    <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/select2/dist/css/select2.min.css') ?>">
+
   <!-- fullCalendar -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/fullcalendar/dist/fullcalendar.min.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/fullcalendar/dist/fullcalendar.print.min.css') ?> " media="print">
@@ -45,7 +48,7 @@
         <span class="logo-lg"><b>HEI</b></span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top">
+      <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
           <span class="sr-only">Toggle navigation</span>
@@ -124,19 +127,8 @@
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-          </div>
-        </form>
-        <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu" data-widget="tree">
+        <ul class="sidebar-menu tree" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
           <li class="treeview">
             <a href=" <?php echo site_url('Pengurus/index') ?>">
@@ -145,7 +137,7 @@
             <li>
               <li class="treeview">
                 <a href="<?php echo site_url('ProgramKerja/index') ?>">
-                  <i class="fa fa-tasks"></i> Program Kegiatan
+                  <i class="fa fa-tasks"></i> <span>Program Kegiatan</span>
 
 
                   <span class="pull-right-container">
@@ -183,7 +175,7 @@
             </li>
             <li class="treeview">
               <a href="<?php echo site_url('ProgramKerja/index') ?>">
-                <i class="fa  fa-list"></i> Periode
+                <i class="fa  fa-list"></i><span>Periode</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
