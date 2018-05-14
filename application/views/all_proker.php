@@ -43,10 +43,9 @@ $this->load->view('head_admin');
                  <td> <?php echo $prokers->proker_date ?> </td>
                  <td> <?php echo $prokers->user_name ?> </td>
                  <td class="text-center">
-                   <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $prokers->proker_id ?>" style="background:#1a75ff; border-color:#fff" onclick="edit_proker('.$row['proker_id'].')"><i class="fa fa-pencil"></i>
+                   <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $prokers->proker_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
                    </button>
-                   <button type="button" class="btn btn-sm btn-info" data-toogle="modal" data-target=" #hapus_proker<?php echo $prokers->proker_id;?>  style="background: #d41912; border-color: #fff"><i class="fa fa-trash"></i></a>
-                   <a href="<?php base_url() ?>hapus/<?=$prokers->proker_id ?> ">Hapus</a>
+                   <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$prokers->proker_id ?> "> <i class="fa fa-trash"></i></a>
 
 
                   
@@ -65,14 +64,18 @@ $this->load->view('head_admin');
                   <h4 class="modal-title"> Ubah data Program Kerja</h4>
                 </div>
                 <div class="modal-body">
-                  <form method ="post"  id="formubahproker" action="<?php echo base_url('ProgramKerja/update'); ?>" role="form">
+                  <form method ="post"  id="formubahproker<?php echo $prokers->proker_id ?>" action="<?php echo base_url('ProgramKerja/updateProker'); ?>" role="form">
                     <!-- <?php foreach ($proker as $proker)?> -->
                     <input type="hidden" name='proker_id' id='proker_id'>
                     <div class="box-body">
+                    <input type="hidden" class="form-control" name="proker_id" value="<?php echo $prokers->proker_id ?>" required>
+
+
                       <div class="form-group">
                         <label> Nama  Program Kerja </label>
                         <input type="text" class="form-control" name ="proker_name" id="proker_name" placeholder="Nama Program Kerja" value="<?php echo $prokers->proker_name ?>" >
                       </div>
+
                       <div class="form-group">
                         <label> Tanggal Kegiatan </label>
                         <input type="date" class="form-control"  name ="proker_date" id="proker_date" value="<?php echo $prokers->proker_date ?>">
@@ -93,13 +96,14 @@ $this->load->view('head_admin');
                       </div>
 
                     </div>
-                  </form>
+                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                  <button type="button" id="butSave" class="btn btn-primary">Save changes</button>
+                  <input type="submit"  class="btn btn-primary" value=" Save changes ">
                 </div>
               </div>
+              </form>
               <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
@@ -145,19 +149,19 @@ $this->load->view('head_admin');
 </div>
 <script type="text/javascript">
   function edit_proker(id){
-    $('#butSave').attr("onclick","update_proker("+id+")");
+    $('#butSave'+id+'').attr("onclick","update_proker("+id+")");
+    // $('#formubahproker'+id+' input[name=proker_id]').val(id);
     $('#ubah_proker').modal('show');
-    detail_data_proker(id);
+    // detail_proker(id);
   }
 
   function update_proker(id){
-    var fd = new FormData(document.getElementById('formubahproker'));
+
+    var fd = $("#formubahproker"+id+"").serialize();
     $.ajax({
-      url : "<?php echo base_url("ProgramKerja/update"); ?>",
+      url : "<?php echo base_url("ProgramKerja/update_proker"); ?>",
       type: "POST",
       data: fd,
-      processData: false,
-      contentType: false,
       dataType: "JSON",
       success: function(data){
         if (data.status == true) {
@@ -174,7 +178,7 @@ $this->load->view('head_admin');
   }
   function detail_proker(id) {
     $.ajax({
-      url : "<?php echo base_url('ProgramKerja/detail_proker')?>"+id,
+      url : "<?php echo base_url('ProgramKerja/detail_proker')?>/"+id,
       type: "GET",
       dataType: "JSON",
       success: function(data){

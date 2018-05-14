@@ -30,6 +30,11 @@ class Proker_model extends CI_Model{
         return $delete; 
     }
 
+    function update_proker($id,$data){
+        $this->db->where('proker_id', $id);
+        $this->db->update('proker', $data);
+    }
+
 
 
 
