@@ -45,8 +45,8 @@ $this->load->view('head_admin');
                 </div>
                    <div class="form-group">
                    <label  class="col-sm-2 control-label"> Kirim Undangan </label>
-                  <select class="form-control select2" name="user_id" id="user_id" style="width: 80%;">
-                   <option selected="selected"> </option>
+                  <select class="form-control select2" multiple="multiple" name="user_id[]"  id="user_id" style="width: 80%;">
+                   
                    <?php  foreach ($users as $user) {
                     ?>
                    <option value="<?php echo $user->user_id ?>"> <?php echo $user->user_name ?> </option> 
@@ -66,8 +66,9 @@ $this->load->view('head_admin');
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right"> Submit </button>
+                <input type="submit" class="btn btn-info pull-right" value="Submit">  
               </div>  </div>
+              </form>
   <!-- /.content-wrapper -->
 
   <?php

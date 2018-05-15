@@ -10,7 +10,12 @@ class activity_model extends CI_Model{
     }
  
     function input_data($data,$table){
+        //
+        $this->db->trans_start();
         $this->db->insert($table,$data);
+        $id=$this->db->insert_id(); //get id yang barusan dibuat yang membuat act
+        $this->db->trans_complete();
+        return $id;
     }
      function getUser() {
         $this->db->select('*');
@@ -20,6 +25,17 @@ class activity_model extends CI_Model{
         $query =$this->db->get();
         return $query->result();
     } 
+
+    function getTamu()
+    {
+        $this->db->select_count('*');
+        $this->db->from('invitation');
+        $this->db->order_by('activity_id');
+
+        return $query->result();
+
+
+    }
 }
 
 

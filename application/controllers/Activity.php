@@ -41,7 +41,8 @@ class Activity extends CI_Controller{
 		$activity_name = $this->input->post('activity_name');
 		$activity_time = $this->input->post('activity_time');
 		$activity_desc = $this->input->post('activity_desc');
-		$user_id = $this->input->post('user_id');
+		$tamu_undangan = $this->input->post('user_id') ;
+		$user_id = 1;
  
 		$data = array(
 			'activity_name' => $activity_name,
@@ -49,7 +50,23 @@ class Activity extends CI_Controller{
 			'activity_desc' => $activity_desc,
 			'user_id' =>$user_id
 			);
-		$this->Activity_model->input_data($data,'activity');
+		
+		$activity_id = $this->Activity_model->input_data($data,'activity');
+		foreach ($tamu_undangan as $tamu) 
+		{
+			$data2 = array(
+			'activity_id' => $activity_id,
+			'user_id' => $tamu
+
+			);
+		$this->Activity_model->input_data($data2,'invitation');
+		 }
+
+
+
+
+		
+
 		redirect('Activity/index');
 	}
  
