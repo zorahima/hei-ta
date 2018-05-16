@@ -3,7 +3,7 @@ if(!defined('BASEPATH')) exit('No direct script allowed') ;
  
 class activity_model extends CI_Model{
     function tampil_data(){
-        $this->db->select('activity_name,activity_time,activity_desc');
+        $this->db->select('activity_name,activity_times,activity_desc');
         $this->db->from('activity');
         $query = $this->db->get();
         return $query->result();

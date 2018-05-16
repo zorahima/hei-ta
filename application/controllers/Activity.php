@@ -39,14 +39,16 @@ class Activity extends CI_Controller{
 
 	function tambah_data(){
 		$activity_name = $this->input->post('activity_name');
-		$activity_time = $this->input->post('activity_time');
+		$activity_date = $this->input->post('activity_date');
+		$activity_times = $this->input->post('activity_times');
 		$activity_desc = $this->input->post('activity_desc');
 		$tamu_undangan = $this->input->post('user_id') ;
 		$user_id = 1;
  
 		$data = array(
 			'activity_name' => $activity_name,
-			'activity_time' => $activity_time,
+			'activity_date' => $activity_date,
+			'activity_times' => $activity_times,
 			'activity_desc' => $activity_desc,
 			'user_id' =>$user_id
 			);

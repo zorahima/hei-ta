@@ -39,7 +39,7 @@ $this->load->view('head_admin');
               </div>
             </div>
             <div class="box-body">
-             <h5 class="box-title"><?php echo $activity->activity_time ?></h3>
+             <h5 class="box-title"><?php echo $activity->activity_times ?></h3>
              <?php echo $activity->activity_desc ?>
            </div>
 
