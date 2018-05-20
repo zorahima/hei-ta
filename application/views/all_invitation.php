@@ -34,6 +34,7 @@ $this->load->view('head_admin');
                   <tr>
                     <th>No</th>
                     <th>Invitation Name</th>
+                    <th>Invitation Desciption </th>
                     <th>Invitation Confirmation</th>
                     <th> Operation </th>
 
@@ -43,12 +44,12 @@ $this->load->view('head_admin');
                   <tr>
                    <td> <?php echo $i; ?> </td>
                    <td> <?php echo $u->activity_name ?> </td>
+                   <td> <?php echo $u->activity_desc ?> </td>
                    <td> <?php echo $u->invitation_status ?> </td>
                    <td class="text-center">
-                     <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah-user" style="background:#1a75ff; border-color:#fff" onclick="ubah-produk"><i class="fa fa-pencil"></i>
-                     </button>
-                     <a class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa fa-check"></i></a>
-                     <a class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-remove"></i></a>
+                  
+                     <a href="<?php echo base_url ('Invitation/update_accept_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
+                     <a href="<?php echo base_url ('Invitation/update_decline_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-remove"></i></a>
                    </td>
                  </tr>
 

@@ -44,77 +44,11 @@ $this->load->view('head_admin');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <?php
+$this->load->view('foot_admin');
+?>
 
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-
- 
-          <!-- /.form-group -->
-
-          
-          <!-- /.form-group -->
-
-          
-          <!-- /.form-group -->
-
-          
-          <!-- /.form-group -->
-
-          
-          <!-- /.form-group -->
-
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?> "></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?php echo base_url('assets/bower_components/jquery-ui/jquery-ui.min.js') ?>"></script>
-<!-- Slimscroll -->
-<script src="<?php echo base_url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') ?>"></script>
-<!-- FastClick -->
-<script src="<?php echo base_url('assets/bower_components/fastclick/lib/fastclick.js') ?>"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url('assets/dist/js/adminlte.min.js') ?>"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url('assets/dist/js/demo.js') ?>"></script>
-<!-- fullCalendar -->
-<script src="<?php echo base_url('assets/bower_components/moment/moment.js') ?>"></script>
-<script src="<?php echo base_url('assets/bower_components/fullcalendar/dist/fullcalendar.min.js') ?>"></script>
 <!-- Page specific script -->
 <script>
   $(function () {

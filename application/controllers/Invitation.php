@@ -32,5 +32,14 @@ class Invitation extends CI_Controller{
 		$this->Periode_model->input_data($data,'periode');
 		redirect('Periode/index');
 	}
+	function update_accept_invitation($invitation_id){
+		$result= $this->Invitation_model->update_accept_invitation($invitation_id);
+		redirect('Invitation/index');
+	}
+
+	function update_decline_invitation($invitation_id){
+		$result= $this->Invitation_model->update_decline_invitation($invitation_id);
+		redirect('Invitation/index');
+	}
  
 }

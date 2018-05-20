@@ -44,10 +44,12 @@ class Activity extends CI_Controller{
 		$activity_desc = $this->input->post('activity_desc');
 		$tamu_undangan = $this->input->post('user_id') ;
 		$user_id = 1;
- 
+ 		
+
+
 		$data = array(
 			'activity_name' => $activity_name,
-			'activity_date' => $activity_date,
+			'activity_date' => date('Y-m-d',strtotime($activity_date)),
 			'activity_times' => $activity_times,
 			'activity_desc' => $activity_desc,
 			'user_id' =>$user_id

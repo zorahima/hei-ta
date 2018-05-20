@@ -38,6 +38,8 @@ $this->load->view('head_admin');
                   <th>Deadline</th>
                  <th>Program Kerja </th>
                  <th> PIC </th>
+                 <th> Operation </th>
+
                 </tr>
                 <?php $i=1; foreach ($todo as $todos) {?>
                  <tr>
@@ -46,6 +48,11 @@ $this->load->view('head_admin');
                     <td> <?php echo $todos->todo_deadline ?> </td>
                     <td> <?php echo $todos->proker_name ?> </td>
                     <td> <?php echo $todos->user_name ?> </td>
+                    <td class="text-center">
+                   <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $todos->todo_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
+                   </button>
+                   <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$todos->todo_id ?> "> <i class="fa fa-trash"></i></a>
+</td>
                     
                  </tr>
                 <?php $i++; }  ?>

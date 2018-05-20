@@ -40,10 +40,6 @@ $this->load->view('head_admin');
         <div class="bootstrap-timepicker">
           <div class="form-group">
             <label for="date" class="col-sm-2 control-label">Waktu Kegiatan</label>
-
-         <!--  <div class="col-sm-10">
-            <input type="time" class="form-control" id="activity_times" name="activity_time">
-          </div> -->
           <div class="input-group">
             <input type="text" id="timepicker" class="form-control timepicker" name="activity_times" id="activity_times">
             <div class="input-group-addon">
