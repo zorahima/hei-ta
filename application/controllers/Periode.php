@@ -19,6 +19,10 @@ class Periode extends CI_Controller{
 		$this->load->view('add_periode');
 	}
 
+	function dasboard(){
+		$this->load->view('dasboard');
+	}
+
 	function tambah_data(){
 		$periode = $this->input->post('periode');
 		$periode_tahun = $this->input->post('periode_tahun');

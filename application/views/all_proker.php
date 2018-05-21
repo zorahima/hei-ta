@@ -1,271 +1,201 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Blank Page</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/font-awesome/css/font-awesome.min.css') ?>">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/Ionicons/css/ionicons.min.css') ?>">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/AdminLTE.min.css') ?>">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/skins/_all-skins.min.css') ?>">
+<?php
+$this->load->view('head_admin');
+?>
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+<!-- =============================================== -->
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+  </section>
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="<?php echo base_url('assets/index2.html') ?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-   
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <ul class="dropdown-menu">
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <!-- end message -->
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-          
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-          
-            <ul class="dropdown-menu">
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image">
-
-                <p>
-                  Alexander Pierce - Web Developer
-                 
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- =============================================== -->
-
-  <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="<?php echo site_url('Profil/home') ?>"">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        <li>
-           <li>
-          <li class="treeview">
-              <a href="<?php echo site_url('ProgramKerja/index') ?>">
-              <i class="fa fa-circle-o"></i> Program Kerja
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                    <li><a href="<?php echo site_url('Todo/index') ?>"><i class="fa fa-circle-o"></i> Todo </a></li>
-                    <li><a href="<?php echo site_url('Activity/index') ?>"><i class="fa fa-circle-o"></i> Activity </a></li>
-                  </ul>
-              <ul class="treeview-menu">
-                <li><a href="<?php echo site_url('Todo/index') ?>"><i class="fa fa-circle-o"></i> Todo </a></li>
-                <li class="treeview">
-                  <a href="<?php echo site_url('ProgramKerja/index') ?>"><i class="fa fa-circle-o"></i> Program Kerja
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                                </li>
-              </ul>
-            </li>
-        </li>
-        </li>
-        <li>
-          <a href="<?php echo site_url('profil/timeline') ?>">
-            <i class="fa fa-th"></i> <span>Timelime</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo site_url('Pengurus/index') ?>">
-            <i class="fa fa-th"></i> <span>Pengurus</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- =============================================== -->
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-    </section>
-
-    <!-- Main content -->
-   <!--  Main content --> 
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Tabel data program kerja</h3>
-              <!-- <a href ="<?php echo site_url('profil/input_todo') ?>"  > -->
-               <a href ="<?php echo site_url('ProgramKerja/tambah') ?>"  >
+  <!-- Main content -->
+  <!--  Main content --> 
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <h3 class="box-title">Tabel data program kerja</h3>
+            <!-- <a href ="<?php echo site_url('profil/input_todo') ?>"  > -->
+            <a href ="<?php echo site_url('ProgramKerja/tambah') ?>"  >
               <button type="submit"  class="btn btn-info pull-right"> Tambah Program Kerja </button>
-              </a>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-            <!--   <?php var_dump($proker); ?> -->
-                <thead>
+            </a>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="example2" class="table table-bordered table-hover">
+              <!--   <?php var_dump($proker); ?> -->
+              <thead>
                 <tr>
                   <th>NO</th>
                   <th>Nama Program Kerja</th>
                   <th>Tanggal</th>
                   <th>Penganggung Jawab</th>
                   <th> Operation </th>
-                  
-                </tr>
-                <?php $i=1; foreach ($proker as $proker) {?>
+
+                </tr> 
+                <?php $i=1; foreach ($proker as $prokers) {?>
                 <tr>
                  <td> <?php echo $i; ?> </td>
-                    <td> <?php echo $proker->proker_name ?> </td>
-                    <td> <?php echo $proker->proker_date ?> </td>
-                    <td> <?php echo $proker->user_name ?> </td>
-                 </tr>
-                  <?php $i++; }  ?>
-                </tfoot>
-              </table>
+                 <td> <?php echo $prokers->proker_name ?> </td>
+                 <td> <?php echo $prokers->proker_date ?> </td>
+                 <td> <?php echo $prokers->user_name ?> </td>
+                 <td class="text-center">
+                   <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $prokers->proker_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
+                   </button>
+                   <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$prokers->proker_id ?> "> <i class="fa fa-trash"></i></a>
+
+
+                  
+                  
+               <!-- <a class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa fa-check"></i></a>
+             -->
+           </td>
+
+         </tr> 
+         <div class="modal fade" id="ubah_proker<?php echo $prokers->proker_id ?>">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title"> Ubah data Program Kerja</h4>
+                </div>
+                <div class="modal-body">
+                  <form method ="post"  id="formubahproker<?php echo $prokers->proker_id ?>" action="<?php echo base_url('ProgramKerja/updateProker'); ?>" role="form">
+                    <!-- <?php foreach ($proker as $proker)?> -->
+                    <input type="hidden" name='proker_id' id='proker_id'>
+                    <div class="box-body">
+                    <input type="hidden" class="form-control" name="proker_id" value="<?php echo $prokers->proker_id ?>" required>
+
+
+                      <div class="form-group">
+                        <label> Nama  Program Kerja </label>
+                        <input type="text" class="form-control" name ="proker_name" id="proker_name" placeholder="Nama Program Kerja" value="<?php echo $prokers->proker_name ?>" >
+                      </div>
+
+                      <div class="form-group">
+                        <label> Tanggal Kegiatan </label>
+                        <input type="date" class="form-control"  name ="proker_date" id="proker_date" value="<?php echo $prokers->proker_date ?>">
+                      </div>
+                      <div class="form-group">
+                        <label > Penganggung Jawab </label>
+                        <!-- <select class="form-control select2" name="user_id" id="user_id" style="width: 80%;"> -->
+
+                        <select class="form-control select2"  name="user_id" id="user_id" style="width: 100%;">
+                          <?php /*var_dump($users);*/ foreach ($user as $users){
+                            ?>
+                            <option <?php if ($users->user_id == $prokers->user_id) {echo 'selected';} ?> value="<?php echo $users->user_id ?>"> <?php echo $users->user_name ?> </option> 
+                            <?php
+                          } 
+                          ?>
+                        </select>
+
+                      </div>
+
+                    </div>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                  <input type="submit"  class="btn btn-primary" value=" Save changes ">
+                </div>
+              </div>
+              </form>
+              <!-- /.modal-content -->
             </div>
-            <!-- /.box-body -->
+            <!-- /.modal-dialog -->
           </div>
-          <!-- /.box -->
+          <!-- /.modal -->
+        <div class="modal fade" id="hapus_proker<?php echo $prokers->proker_id ?>">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title"> Hapus Data Proker</h4>
+                </div>
+                <div class="modal-body">
+                  <form method ="post"  id="formhapusproker" action="<?php echo base_url('ProgramKerja/hapus'); ?>" role="form">
+                    <!-- <?php foreach ($proker as $proker)?> -->
+                    <input type="hidden" name='proker_id' id='proker_id'>
+                    <div class="box-body">
+                    <p>Apakah anda akan menghapus data ini ?</p>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+          <?php $i++; }  ?>
+        </tfoot>
+      </table>
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
 
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+</section>
+<!-- /.content -->
 </div>
-<!-- ./wrapper -->
+<script type="text/javascript">
+  function edit_proker(id){
+    $('#butSave'+id+'').attr("onclick","update_proker("+id+")");
+    // $('#formubahproker'+id+' input[name=proker_id]').val(id);
+    $('#ubah_proker').modal('show');
+    // detail_proker(id);
+  }
 
-<!-- jQuery 3 -->
-<script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
-<!-- SlimScroll -->
-<script src="<?php echo base_url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') ?>"></script>
-<!-- FastClick -->
-<script src="<?php echo base_url('assets/bower_components/fastclick/lib/fastclick.js') ?>"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url('assets/dist/js/adminlte.min.js') ?>"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url('assets/dist/js/demo.js') ?>"></script>
-<script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
-  })
+  function update_proker(id){
+
+    var fd = $("#formubahproker"+id+"").serialize();
+    $.ajax({
+      url : "<?php echo base_url("ProgramKerja/update_proker"); ?>",
+      type: "POST",
+      data: fd,
+      dataType: "JSON",
+      success: function(data){
+        if (data.status == true) {
+          $('#ubah_proker').modal('hide');
+          alert("Data berhasil diubah");
+        }else{
+          alert("Perubahan gagal");
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+        alert(errorThrown);
+      }
+    });
+  }
+  function detail_proker(id) {
+    $.ajax({
+      url : "<?php echo base_url('ProgramKerja/detail_proker')?>/"+id,
+      type: "GET",
+      dataType: "JSON",
+      success: function(data){
+        if (data.status==true){
+          var val = data.data;
+          $('input[name="proker_id"]').val(val.proker_id);
+          $('input[name="proker_name"]').val(val.proker_name);
+          $('input[name="proker_date"]').val(val.proker_date);
+          $('input[name="user_id"]').val(val.user_id);
+        }
+      }
+    });
+  }
+
+
 </script>
-</body>
-</html>
+<!-- /.content-wrapper -->
+<?php
+$this->load->view('foot_admin');
+?>

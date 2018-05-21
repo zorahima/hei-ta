@@ -3,7 +3,7 @@ if(!defined('BASEPATH')) exit('No direct script allowed') ;
  
 class Todo_model extends CI_Model{
     function tampil_data(){
-        $this->db->select('todo_name, todo_deadline, proker_name,user_name ');
+        $this->db->select('*');
         $this->db->from('todo');
         $this->db->join('proker', 'todo.proker_id = proker.proker_id');
         $this->db->join('user', 'todo.user_id = user.user_id');
