@@ -178,6 +178,14 @@
 
               </li>
 
+                <li>
+                <a href="<?php echo site_url('Invitation/index_confirmation') ?>">
+                  <i class="fa fa-th"></i> <span>Confirmation </span>
+                </a>
+
+
+              </li>
+
 
             </li>
             <li class="treeview">

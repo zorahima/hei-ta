@@ -14,6 +14,17 @@ class Invitation extends CI_Controller{
 		$data['invitation'] = $this->Invitation_model->tampil_data();
 		$this->load->view('all_invitation',$data);
 	}
+
+	//Index Confirmation
+	function index_confirmation() {
+		$data = array (
+			'confirmation'  => $this->Invitation_model->tampil_data_confirmation(),
+			'user' => $this->Invitation_model->getInvite()	
+			);
+
+		$this->load->view('all_confirmation',$data);
+		
+	}
  
 	function tambah(){
 		$this->load->view('add_invitation');
@@ -40,6 +51,16 @@ class Invitation extends CI_Controller{
 	function update_decline_invitation($invitation_id){
 		$result= $this->Invitation_model->update_decline_invitation($invitation_id);
 		redirect('Invitation/index');
+	}
+
+	function update_present_invitation($invitation_id){
+		$result= $this->Invitation_model->update_present_invitation($invitation_id);
+		redirect('Invitation/index_confirmation');
+	}
+
+	function update_absent_invitation($invitation_id){
+		$result= $this->Invitation_model->update_absent_invitation($invitation_id);
+		redirect('Invitation/index_confirmation');
 	}
  
 }

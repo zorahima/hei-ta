@@ -18,8 +18,10 @@ $this->load->view('head_admin');
               <div class="box-header">
 
 
-                <h3 class="box-title">Tabel Undangan </h3>
-                
+                <h3 class="box-title">Tabel data pengurus</h3>
+                <a href ="<?php echo site_url('Pengurus/tambah') ?>"  >
+                  <button type="submit"  class="btn btn-info pull-right"> Tambah Pengurus </button>
+                </a>
               </div> 
 
 
@@ -31,25 +33,25 @@ $this->load->view('head_admin');
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Invitation Name</th>
-                    <th>Invitation Desciption </th>
-                    <th>Invitation Confirmation</th>
-                    
+                    <th>Activity name</th>
+                    <th>People Invited </th>
+                    <th>Invitation Status</th>
+                    <th>Invitation Confirmation </th>
                     <th> Operation </th>
 
                     
                   </tr>
-                  <?php $i=1; foreach ($invitation as $u) {?>
+                  <?php $i=1; foreach ($confirmation as $u) {?>
                   <tr>
                    <td> <?php echo $i; ?> </td>
                    <td> <?php echo $u->activity_name ?> </td>
-                   <td> <?php echo $u->activity_desc ?> </td>
+                   <td> <?php echo $u->invited ?> </td>
                    <td> <?php echo $u->invitation_status ?> </td>
-                   
+                   <td> <?php echo $u->invitation_confirmation ?> </td>
                    <td class="text-center">
                   
-                     <a href="<?php echo base_url ('Invitation/update_accept_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
-                     <a href="<?php echo base_url ('Invitation/update_decline_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-remove"></i></a>
+                     <a href="<?php echo base_url ('Invitation/update_present_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
+                     <a href="<?php echo base_url ('Invitation/update_absent_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-remove"></i></a>
                    </td>
                  </tr>
 
@@ -64,7 +66,6 @@ $this->load->view('head_admin');
                         </div>
                         <div class="modal-body">
                           <form method ="post" action="<?php echo base_url('index.php/Pengurus/tambah_data'); ?>" role="form">
-              
           </form>
                         </div>
                         <div class="modal-footer">
