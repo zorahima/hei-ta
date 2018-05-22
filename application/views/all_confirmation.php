@@ -18,10 +18,8 @@ $this->load->view('head_admin');
               <div class="box-header">
 
 
-                <h3 class="box-title">Tabel data pengurus</h3>
-                <a href ="<?php echo site_url('Pengurus/tambah') ?>"  >
-                  <button type="submit"  class="btn btn-info pull-right"> Tambah Pengurus </button>
-                </a>
+                <h3 class="box-title">Tabel Check Kehadiran </h3>
+               
               </div> 
 
 

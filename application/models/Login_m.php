@@ -1,71 +1,107 @@
-<?php
-
-Class Login_m extends CI_Model {
-
-// Insert registration data in database
-
-	public function prosesLogin() {
-		$this->db->where('email', $user);
-		$this->db->where('password', $pass);
-		/*$this->db->where('status','aktif');*/
-		return $this->db->get('user')->row();
-	}
-
-	public function registration_insert($data) {
-
-// Query to check whether email already exist or not
-		$condition = "email =" . "'" . $data['email'] . "'";
-		$this->db->select('*');
-		$this->db->from('user');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
-		if ($query->num_rows() == 0) {
-
-// Query to insert data in database
-			$this->db->insert('user', $data);
-			if ($this->db->affected_rows() > 0) {
-				return true;
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
+	
+	class Login_m extends CI_Model
+	{
+    
+    /**
+			* This function used to check the login credentials of the user
+			* @param string $email : This is email of the user
+			* @param string $password : This is encrypted password of the user
+		*/
+    function loginMe($username, $password)
+    {
+			$this->db->where('email', $username);
+			//$this->db->where('status', 'aktif');
+			$query = $this->db->get('user');
+			
+			$user = $query->result();
+			
+			if(!empty($user)){
+				if(password_verify($password, $user[0]->password)){
+					return $user;
+					} else {
+					return array();
+				}
+        } else {
+				return array();
 			}
-		} else {
-			return false;
 		}
-	}
-
-// Read data using email and password
-	public function login($data) {
-
-		$condition = "email =" . "'" . $data['email'] . "' AND " . "user_password =" . "'" . $data['password'] . "'";
-		$this->db->select('*');
-		$this->db->from('user');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
-
-		if ($query->num_rows() == 1) {
-			return true;
-		} else {
-			return false;
+		
+    /**
+			* This function used to check email exists or not
+			* @param {string} $email : This is users email id
+			* @return {boolean} $result : TRUE/FALSE
+		*/
+    function checkEmailExist($email)
+    {
+			$this->db->select('userId');
+			$this->db->where('email', $email);
+			$this->db->where('isDeleted', 0);
+			$query = $this->db->get('tbl_users');
+			
+			if ($query->num_rows() > 0){
+				return true;
+        } else {
+				return false;
+			}
 		}
-	}
-
-// Read data from database to show data in admin page
-	public function read_user_information($email) {
-
-		$condition = "email =" . "'" . $email . "'";
-		$this->db->select('*');
-		$this->db->from('user');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
-
-		if ($query->num_rows() == 1) {
+		
+		
+    /**
+			* This function used to insert reset password data
+			* @param {array} $data : This is reset password data
+			* @return {boolean} $result : TRUE/FALSE
+		*/
+    function resetPasswordUser($data)
+    {
+			$result = $this->db->insert('tbl_reset_password', $data);
+			
+			if($result) {
+				return TRUE;
+        } else {
+				return FALSE;
+			}
+		}
+		
+    /**
+			* This function is used to get customer information by email-id for forget password email
+			* @param string $email : Email id of customer
+			* @return object $result : Information of customer
+		*/
+    function getCustomerInfoByEmail($email)
+    {
+			$this->db->select('userId, email, name');
+			$this->db->from('tbl_users');
+			$this->db->where('isDeleted', 0);
+			$this->db->where('email', $email);
+			$query = $this->db->get();
+			
 			return $query->result();
-		} else {
-			return false;
+		}
+		
+    /**
+			* This function used to check correct activation deatails for forget password.
+			* @param string $email : Email id of user
+			* @param string $activation_id : This is activation string
+		*/
+    function checkActivationDetails($email, $activation_id)
+    {
+			$this->db->select('id');
+			$this->db->from('tbl_reset_password');
+			$this->db->where('email', $email);
+			$this->db->where('activation_id', $activation_id);
+			$query = $this->db->get();
+			return $query->num_rows;
+		}
+		
+    // This function used to create new password by reset link
+    function createPasswordUser($email, $password)
+    {
+			$this->db->where('email', $email);
+			$this->db->where('isDeleted', 0);
+			$this->db->update('tbl_users', array('password'=>getHashedPassword($password)));
+			$this->db->delete('tbl_reset_password', array('email'=>$email));
 		}
 	}
-
-}
-
+	
 ?>
