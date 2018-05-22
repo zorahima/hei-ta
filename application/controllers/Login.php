@@ -22,7 +22,7 @@
     /**
 			* This function used to check the user is logged in or not
 		*/
-    function isLoggedIn()
+    public function isLoggedIn()
     {
 			$isLoggedIn = $this->session->userdata('isLoggedIn');
 			
@@ -32,6 +32,7 @@
 			}
 			else
 			{
+				//Ini ke controller dasboard atau gimana?
 				redirect('dashboard');
 			}
 		}
@@ -55,7 +56,7 @@
 			{
 				$username = $this->input->post('email');
 				$password = $this->input->post('password');
-				
+
 				$result = $this->Login_m->loginMe($username, $password);
 				
 				if(count($result) > 0)
@@ -70,14 +71,14 @@
 						
 						$this->session->set_userdata($sessionArray);
 						
-						redirect('admin');
+						redirect('Admin');
 					}
 				}
 				else
 				{
 					$this->session->set_flashdata('error', 'Email or password mismatch');
 					
-					redirect('admin');
+					redirect('Admin');
 				}
 			}
 		}

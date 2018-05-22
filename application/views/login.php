@@ -34,7 +34,7 @@
 			<div class="wrap-login100">
 				<form action="<?php echo site_url('Login/loginMe') ?>" method="post" class="login100-form validate-form">
 					<span class="login100-form-title p-b-43">
-						Login to continue
+						Login 
 					</span>
 					
 					

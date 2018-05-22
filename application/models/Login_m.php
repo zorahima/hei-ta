@@ -11,20 +11,11 @@
     function loginMe($username, $password)
     {
 			$this->db->where('email', $username);
+			$this->db->where('password', md5($password));
 			//$this->db->where('status', 'aktif');
 			$query = $this->db->get('user');
 			
-			$user = $query->result();
-			
-			if(!empty($user)){
-				if(password_verify($password, $user[0]->password)){
-					return $user;
-					} else {
-					return array();
-				}
-        } else {
-				return array();
-			}
+			return $query->result();
 		}
 		
     /**
