@@ -22,14 +22,14 @@ $this->load->view('head_admin');
 					<!-- Profile Image -->
 					<div class="box box-warning">
 						<div class="box-body box-profile">
-							<img class="profile-user-img img-responsive img-circle" src="<?php echo site_url('/assets/users/klien/').$data->foto ?>" alt="User profile picture">
+							<img class="profile-user-img img-responsive img-circle" src="" alt="User profile picture">
 
 							<h3 class="profile-username text-center"> </h3>
 
-							<?php if($data->nama_roles=='klien') {
+							<!-- <?php if($data->nama_roles=='klien') {
 								?>
 								<p class="text-muted text-center">Klien</p>
-								<?php }?>
+								<?php }?> -->
 							</div>
 							<!-- /.box-body -->
 						</div>
@@ -43,34 +43,30 @@ $this->load->view('head_admin');
 							<div class="box-body">
 								<strong><i class="fa fa-book margin-r-5"></i> Nama</strong>
 
-								<p class="text-muted"><<!-- ?php echo $data->nama_users?> --></p>
+								<p class="text-muted"> </p>
 
 								<hr>
 
 								<strong><i class="fa fa-intersex margin-r-5"></i>Jenis Kelamin</strong>
 
-								<!-- <p class="text-muted"><?php echo $data->jenis_kelamin?></p> -->
 								<p class="text-muted"> </p>
 
 								<hr>
 
 								<strong><i class="fa fa-pencil margin-r-5"></i> Email</strong>
 
-								<!-- <p class="text-muted"><?php echo $data->email?></p> -->
 								<p class="text-muted"> </p>
 
 								<hr>
 
 								<strong><i class="fa fa-map-marker margin-r-5"></i> No Telfon</strong>
 
-								<!-- <p class="text-muted"><?php echo $data->no_telpon?></p> -->
 								<p class="text-muted"> </p>
 
 								<hr>
 
 								<strong><i class="fa fa-building margin-r-5"></i> Nama Instansi</strong>
 
-								<!-- <p class="text-muted"><?php echo $data->instansi?></p> -->
 								<p class="text-muted"> </p>
 
 							</div>
@@ -79,8 +75,8 @@ $this->load->view('head_admin');
 						<!-- /.box-warning-->
 					</div>
 					<!-- /.col-md-4 -->
-					<?php } ?>
-
+					<!-- <?php } ?>
+ -->
 					<!-- TAB PANE -->
 					<div class="col-md-8">
 						<div class="nav-tabs-custom">
@@ -91,24 +87,23 @@ $this->load->view('head_admin');
 							<div class="tab-content">
 								<div class="active tab-pane" id="ubahData">
 									<form action="<?php echo site_url('Klien_profile/ubahKlien') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
-										<input type="hidden" class="form-control" name="id_users" value="<?php echo $data->id_users; ?>">
+										<input type="hidden" class="form-control" name="id_users" value=" ">
 
 										<div class="form-group">
 											<label for="inputName" class="col-sm-2 control-label">Nama</label>
 
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputName" name="nama_users" >
-												<!-- value="<?php echo $data->nama_users; ?>" -->
+												<input type="text" class="form-control" id="inputName" name="nama_users" value=" ">
 											</div>
 										</div>
 
 										<div class="form-group">
-											<label class="col-sm-2 control-label">Jenis Kelamin</label> 
+											<label class="col-sm-2 control-label">Jenis Kelamin</label>
 
 											<div class="col-sm-10"> 
 												<select class="form-control" name="jenis_kelamin">
-													<option value="Pria" </option>
-													<option value="Wanita" </option>
+													<option value="Pria">Pria</option>
+													<option value="Wanita">Wanita</option>
 												</select>
 											</div>
 										</div>
@@ -117,7 +112,7 @@ $this->load->view('head_admin');
 											<label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
 											<div class="col-sm-10">
-												<input type="email" class="form-control" name="email" value="<?php echo $data->email; ?>">
+												<input type="email" class="form-control" name="email" value="">
 											</div>
 										</div>
 
@@ -125,7 +120,7 @@ $this->load->view('head_admin');
 											<label for="inputTelp" class="col-sm-2 control-label">No Telpon</label>
 
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputName" name="no_telpon" value="<?php echo $data->no_telpon; ?>">
+												<input type="text" class="form-control" id="inputName" name="no_telpon" value="">
 											</div>
 										</div>
 
@@ -133,7 +128,7 @@ $this->load->view('head_admin');
 											<label for="inputTelp" class="col-sm-2 control-label">Instansi</label>
 
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputName" name="instansi" value="<?php echo $data->instansi; ?>">
+												<input type="text" class="form-control" id="inputName" name="instansi" value="">
 											</div>
 										</div>
 
@@ -141,7 +136,7 @@ $this->load->view('head_admin');
 											<label class="col-sm-2 control-label">Upload Foto</label>
 
 											<div class="col-sm-10">
-												<input type="file" name="foto" value="<?php echo $data->foto; ?>">
+												<input type="file" name="foto" value="">
 											</div>
 										</div>
 
