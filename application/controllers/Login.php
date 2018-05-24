@@ -70,8 +70,16 @@
 						);
 						
 						$this->session->set_userdata($sessionArray);
+						foreach ($result as $key) {
+							$tipe = $key->type;
+						}
+						if($tipe == 2){
+							
+							redirect('Admin');
+						} else {
+							redirect('User');
+						}
 						
-						redirect('Admin');
 					}
 				}
 				else
