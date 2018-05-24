@@ -28,6 +28,10 @@ class Pengurus extends CI_Controller{
 		//
 	}
 
+	function profil(){
+		$this->load->view('user_profil');
+	}
+
 	function tambah_data(){
 		
 		/*$config['upload_path']          = './assets/avatar/';
