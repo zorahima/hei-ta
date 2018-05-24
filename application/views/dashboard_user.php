@@ -1,5 +1,5 @@
 <?php
-$this->load->view('head_admin');
+$this->load->view('User/head_user');
 ?>
 
 <!-- Content Wrapper. Contains page content -->
