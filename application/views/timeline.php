@@ -1,5 +1,15 @@
 <?php
+$user_data = $this->session->userdata();
+
+
 $this->load->view('head_admin');
+
+
+if ($user_data['type']=='pengurus') {
+  $this->load->view('User/sidebar_user');
+} elseif ($user_data['type']=='admin') {
+  $this->load->view('sidebar_admin');
+}
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

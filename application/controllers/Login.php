@@ -67,6 +67,7 @@
 						'user_id'=>$res->user_id,
 						'user_name'=>$res->user_name,
 						'email'=>$res->email,
+						'type'=>$res->type,
 						'isLoggedIn' => TRUE
 						);
 						
@@ -74,7 +75,7 @@
 						foreach ($result as $key) {
 							$tipe = $key->type;
 						}
-						if($tipe == 2){
+						if($tipe == 'admin'){
 							
 							redirect('Admin');
 						} else {

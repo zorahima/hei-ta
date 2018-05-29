@@ -1,18 +1,14 @@
 <?php
 $this->load->view('User/head_user');
+$this->load->view('User/sidebar_user')
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-      </ol>
+    
     </section>
 
 	<!-- Main content -->
@@ -101,5 +97,5 @@ $this->load->view('User/head_user');
 <!-- /.content-wrapper -->
 
 <?php
-$this->load->view('foot_admin');
+$this->load->view('User/foot_user');
 ?>

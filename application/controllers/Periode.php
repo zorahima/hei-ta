@@ -1,4 +1,5 @@
 <?php 
+require APPPATH. '/libraries/BaseController.php'; 
  
  
 class Periode extends CI_Controller{

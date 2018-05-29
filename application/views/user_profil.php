@@ -1,6 +1,15 @@
 <?php
+$user_data = $this->session->userdata();
+
+
 $this->load->view('head_admin');
-?>
+
+
+if ($user_data['type']=='1') {
+  $this->load->view('User/sidebar_user');
+} elseif ($user_data['type']=='2') {
+  $this->load->view('sidebar_admin');
+}?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -32,6 +41,14 @@ $this->load->view('head_admin');
 								<?php }?> -->
 							</div>
 							<!-- /.box-body -->
+							 <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Activity <span class="pull-right badge bg-blue">31</span></a></li>
+                <li><a href="#">Present <span class="pull-right badge bg-aqua">5</span></a></li>
+                <li><a href="#">Absent <span class="pull-right badge bg-green">12</span></a></li>
+                <li><a href="#">Todo Finish <span class="pull-right badge bg-red">842</span></a></li>
+              </ul>
+            </div>
 						</div>
 
 						<!-- About Me Box -->

@@ -1,5 +1,15 @@
 <?php
+$user_data = $this->session->userdata();
+
+
 $this->load->view('head_admin');
+
+
+if ($user_data['type']=='pengurus') {
+  $this->load->view('User/sidebar_user');
+} elseif ($user_data['type']=='admin') {
+  $this->load->view('sidebar_admin');
+}
 ?>
 <!-- =============================================== -->
 
@@ -48,6 +58,16 @@ $this->load->view('head_admin');
           </div>
         </div>
       </div>
+      <div class="form-group">
+        <label for="text" class="col-sm-2 control-label"> Lokasi  Kegiatan</label>
+
+        <div class="col-sm-10">
+          <input type="text_area" class="form-control" id="activity_loc"  name="activity_loc" placeholder="Lokasi">
+        </div>
+      </div>
+
+
+    </div>
       <div class="form-group">
         <label for="text" class="col-sm-2 control-label">Deskripsi Kegiatan</label>
 

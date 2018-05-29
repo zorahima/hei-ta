@@ -1,4 +1,5 @@
 <?php 
+require APPPATH. '/libraries/BaseController.php'; 
 
 
 class Pengurus extends CI_Controller{

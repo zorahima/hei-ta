@@ -1,5 +1,5 @@
 <?php 
-
+require APPPATH. '/libraries/BaseController.php'; 
 
 class ProgramKerja extends CI_Controller{
 

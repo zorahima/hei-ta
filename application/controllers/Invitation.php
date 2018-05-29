@@ -1,4 +1,5 @@
 <?php 
+require APPPATH. '/libraries/BaseController.php'; 
  
  
 class Invitation extends CI_Controller{
