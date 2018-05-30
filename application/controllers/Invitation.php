@@ -1,4 +1,5 @@
 <?php 
+require APPPATH. '/libraries/BaseController.php'; 
  
  
 class Invitation extends CI_Controller{
@@ -11,14 +12,18 @@ class Invitation extends CI_Controller{
 	}
  	
 	function index(){
-		$data['invitation'] = $this->Invitation_model->tampil_data();
+
+		$id = $this->session->userdata('user_id');
+		$data['invitation'] = $this->Invitation_model->tampil_data($id);
+
 		$this->load->view('all_invitation',$data);
 	}
 
 	//Index Confirmation
 	function index_confirmation() {
+		$id = $this->session->userdata('user_id');
 		$data = array (
-			'confirmation'  => $this->Invitation_model->tampil_data_confirmation(),
+			'confirmation'  => $this->Invitation_model->tampil_data_confirmation($id),
 			'user' => $this->Invitation_model->getInvite()	
 			);
 

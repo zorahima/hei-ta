@@ -65,13 +65,23 @@
 					{
 						$sessionArray = array(
 						'user_id'=>$res->user_id,
+						'user_name'=>$res->user_name,
 						'email'=>$res->email,
+						'type'=>$res->type,
 						'isLoggedIn' => TRUE
 						);
 						
 						$this->session->set_userdata($sessionArray);
+						foreach ($result as $key) {
+							$tipe = $key->type;
+						}
+						if($tipe == 'admin'){
+							
+							redirect('Admin');
+						} else {
+							redirect('User');
+						}
 						
-						redirect('Admin');
 					}
 				}
 				else
@@ -86,6 +96,7 @@
 		public function logout() {
 			$this->session->unset_userdata('user_id');
 			$this->session->unset_userdata('email');
+			$this->session->unset_userdata('user_name');
 
 			$this->session->unset_userdata('isLoggedIn');
 			

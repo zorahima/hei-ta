@@ -1,21 +1,27 @@
 <?php 
- require APPPATH. '/libraries/BaseController.php'; 
+require APPPATH. '/libraries/BaseController.php'; 
  
-class Todo extends CI_Controller{
+class User extends BaseController{
  
+
 	function __construct(){
-		parent::__construct();		
+		parent::__construct();
+		$this->isLoggedIn();
+		$this->load->model('login_m');
 		$this->load->model('Todo_model');
-		$this->load->helper('url');
- 
+		 
 	}
  	
 	function index(){
-		$data['todo'] = $this->Todo_model->tampil_data();
-		$this->load->view('all_todo',$data);
+		$this->load->view('User/dashboard_user');
 	}
- 
-	function tambah(){
+
+	function getAllTodo(){
+		$data['todo'] = $this->Todo_model->tampil_data();
+		$this->load->view('User/us_all_todo',$data);
+	}
+
+	function tambahTodo(){
 		$data = array(
 		'users' => $this->Todo_model->getUser(),
 		'prokers' => $this->Todo_model->getProker(),
@@ -29,7 +35,7 @@ class Todo extends CI_Controller{
 		//
 	}
 
-	function tambah_data(){
+	function tambah_data_todo(){
 		$todo_name = $this->input->post('todo_name');
 		$todo_deadline = $this->input->post('todo_deadline');
 		$proker_id = $this->input->post('proker_id');
@@ -45,5 +51,6 @@ class Todo extends CI_Controller{
 		$this->Todo_model->input_data($data,'todo');
 		redirect('Todo/index');
 	}
+ 
  
 }

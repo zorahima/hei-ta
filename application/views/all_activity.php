@@ -1,5 +1,15 @@
 <?php
+$user_data = $this->session->userdata();
+
+
 $this->load->view('head_admin');
+
+
+if ($user_data['type']=='pengurus') {
+  $this->load->view('User/sidebar_user');
+} elseif ($user_data['type']=='admin') {
+  $this->load->view('sidebar_admin');
+}
 ?>
       <!-- =============================================== -->
 
@@ -17,17 +27,44 @@ $this->load->view('head_admin');
 
        </section>
 
+
        <!-- Main content -->
        <section class="content">
 
+       
         <!-- Default box -->
         <?php $i=1; foreach ($activity as $activity) {?>  
         <div class="box">
 
-          <div class="box-header with-border">
-           <td> <?php echo $i; ?> </td>
 
-            <h3 class="box-title"><?php echo $activity->activity_name ?></h3>
+          <div class="box-header with-border">
+
+          <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="<?php echo base_url('assets/dist/img/user1-128x128.jpg') ?>" alt="user image">
+                        <span class="username">
+                          <a href="#"> <?php echo $activity->user_name ?> </a>
+                         
+                        </span>
+                    <span class="description"><i class="fa fa fa-calendar"></i> <?php echo $activity->activity_date ?> <i class="fa fa fa-clock-o"></i> <?php echo $activity->activity_times ?></span>
+                    <span class="description"><i class="fa fa fa-map-marker"></i> <?php echo $activity->activity_loc ?></span>
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+              <?php echo $activity->activity_desc ?>
+                  </p>
+                  <ul class="list-inline">
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-map-marker"></i> People </a></li>
+                    <!-- <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+                    </li> -->
+                  
+                  </ul>
+                </div>
+
+           <!-- <td> <?php echo $i; ?> </td> -->
+
+            <!-- <h3 class="box-title"><?php echo $activity->activity_name ?></h3> -->
+            <!-- <span class="description"><?php echo $activity->activity_times ?></span> -->
 
 
             <div class="box-tools pull-right">
@@ -38,11 +75,13 @@ $this->load->view('head_admin');
                 <i class="fa fa-times"></i></button>
               </div>
             </div>
-            <div class="box-body">
+            <!-- <div class="box-body">
              <h5 class="box-title"><?php echo $activity->activity_times ?></h3>
              <?php echo $activity->activity_desc ?>
+              <div> <?php echo $activity->activity_loc ?></div>
+             
            </div>
-
+ -->
            <?php $i++; }  ?>
            <!-- /.box-body -->
          </div>

@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require APPPATH. '/libraries/BaseController.php'; 
 
 class Profil extends CI_Controller {
 

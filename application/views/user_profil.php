@@ -1,12 +1,21 @@
 <?php
+$user_data = $this->session->userdata();
+
+
 $this->load->view('head_admin');
-?>
+
+
+if ($user_data['type']=='1') {
+  $this->load->view('User/sidebar_user');
+} elseif ($user_data['type']=='2') {
+  $this->load->view('sidebar_admin');
+}?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>Profil<small>Klien</small></h1>
+		<h1>Profil</h1>
 	</section>
 
 	<?php 
@@ -32,6 +41,14 @@ $this->load->view('head_admin');
 								<?php }?> -->
 							</div>
 							<!-- /.box-body -->
+							 <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Activity <span class="pull-right badge bg-blue">31</span></a></li>
+                <li><a href="#">Present <span class="pull-right badge bg-aqua">5</span></a></li>
+                <li><a href="#">Absent <span class="pull-right badge bg-green">12</span></a></li>
+                <li><a href="#">Todo Finish <span class="pull-right badge bg-red">842</span></a></li>
+              </ul>
+            </div>
 						</div>
 
 						<!-- About Me Box -->
@@ -65,7 +82,7 @@ $this->load->view('head_admin');
 
 								<hr>
 
-								<strong><i class="fa fa-building margin-r-5"></i> Nama Instansi</strong>
+								<strong><i class="fa fa-calendar"></i> Periode Kepengurusan </strong>
 
 								<p class="text-muted"> </p>
 
@@ -76,16 +93,19 @@ $this->load->view('head_admin');
 					</div>
 					<!-- /.col-md-4 -->
 					<!-- <?php } ?>
- -->
-					<!-- TAB PANE -->
-					<div class="col-md-8">
-						<div class="nav-tabs-custom">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#ubahData" data-toggle="tab">Ubah Data</a></li>
+				-->
+				<!-- TAB PANE -->
+				<div class="col-md-8">
+					<div class="nav-tabs-custom">
+						<ul class="nav nav-tabs">
+							<li class="active"> 
+								<a href="#activity" data-toggle="tab">Activity </a></li>
+								<li><a href="#ubahData" data-toggle="tab"> Ubah Data </a></li>
 								<li><a href="#ubahPassword" data-toggle="tab">Ubah Password</a></li>
 							</ul>
+
 							<div class="tab-content">
-								<div class="active tab-pane" id="ubahData">
+								<div class="tab-pane" id="ubahData">
 									<form action="<?php echo site_url('Klien_profile/ubahKlien') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
 										<input type="hidden" class="form-control" name="id_users" value=" ">
 
@@ -148,54 +168,89 @@ $this->load->view('head_admin');
 									</form>
 								</div> 
 
-								<div class="tab-pane" id="ubahPassword">
-									<form class="form-horizontal">
-										<div class="box-body">
-											<div class="form-group">
-												<div class="col-sm-3">
-													<label for="inputName">Password Baru</label>
-												</div>
-
-												<div class="col-sm-12">
-													<input type="email" class="form-control" id="inputName" placeholder="Masukkan Password Baru">
-												</div>
-											</div>
-
-											<div class="form-group">
-												<div class="col-sm-3">
-													<label for="inputEmail">Re-type Password</label>
-												</div>
-
-												<div class="col-sm-12">
-													<input type="email" class="form-control" id="inputEmail" placeholder="Re-type Password">
-												</div>
-											</div>
-
-											<div class="form-group">
-												<div class="col-sm-offset-10 col-sm-12">
-													<input type="submit" class="btn btn-success" value="Simpan">
-												</div>
-											</div>
+								
+								<div  class=" active tab-pane" id="activity">
+									<!-- Post -->
+									<div class="post">
+										<div class="user-block">
+											<img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+											<span class="username">
+												<a href="#">Jonathan Burke Jr.</a>
+												<a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+											</span>
+											<span class="description">Shared publicly - 7:30 PM today</span>
 										</div>
-									</form>
+										<!-- /.user-block -->
+										<p>
+											Lorem ipsum represents a long-held tradition for designers,
+											typographers and the like. Some people hate it and argue for
+											its demise, but others ignore the hate as they create awesome
+											tools to help create filler text for everyone from bacon lovers
+											to Charlie Sheen fans.
+										</p>
+										<ul class="list-inline">
+											<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+											<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+											</li>
+											<li class="pull-right">
+												<a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
+													(5)</a></li>
+												</ul>
+
+												<input class="form-control input-sm" type="text" placeholder="Type a comment">
+											</div>
+											<!-- /.post -->
+
+										</div>
+
+										<div class="tab-pane" id="ubahPassword">
+											<form class="form-horizontal">
+												<div class="box-body">
+													<div class="form-group">
+														<div class="col-sm-3">
+															<label for="inputName">Password Baru</label>
+														</div>
+
+														<div class="col-sm-12">
+															<input type="email" class="form-control" id="inputName" placeholder="Masukkan Password Baru">
+														</div>
+													</div>
+
+													<div class="form-group">
+														<div class="col-sm-3">
+															<label for="inputEmail">Re-type Password</label>
+														</div>
+
+														<div class="col-sm-12">
+															<input type="email" class="form-control" id="inputEmail" placeholder="Re-type Password">
+														</div>
+													</div>
+
+													<div class="form-group">
+														<div class="col-sm-offset-10 col-sm-12">
+															<input type="submit" class="btn btn-success" value="Simpan">
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+										<!-- /.tab-pane -->
+									</div>
+									<!-- /.tab-content -->
 								</div>
-								<!-- /.tab-pane -->
+								<!-- /.nav-tabs-custom -->
 							</div>
-							<!-- /.tab-content -->
+							<!-- /.col -->
+							<!-- /.TAB PANE END -->
+
 						</div>
-						<!-- /.nav-tabs-custom -->
-					</div>
-					<!-- /.col -->
-					<!-- /.TAB PANE END -->
-
+						<!-- /.row -->
+					</section>
+					<!-- /.content -->
 				</div>
-				<!-- /.row -->
-			</section>
-			<!-- /.content -->
-		</div>
-		<!-- /.content-wrapper -->
+				<!-- /.content-wrapper -->
 
 
-		<?php
-		$this->load->view('foot_admin');
-		?>
+				<?php
+				$this->load->view('foot_admin');
+				?>

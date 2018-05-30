@@ -1,5 +1,7 @@
 <?php
 $this->load->view('head_admin');
+$this->load->view('sidebar_admin');
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->

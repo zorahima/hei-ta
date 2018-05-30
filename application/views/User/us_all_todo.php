@@ -1,13 +1,6 @@
 <?php
-$user_data = $this->session->userdata();
-
-
-$this->load->view('head_admin');
-if ($user_data['type']=='pengurus') {
-  $this->load->view('User/sidebar_user');
-} elseif ($user_data['type']=='admin') {
-  $this->load->view('sidebar_admin');
-}
+$this->load->view('User/head_user');
+$this->load->view('User/sidebar_user');
 ?>
   <!-- =============================================== -->
 
@@ -78,5 +71,5 @@ if ($user_data['type']=='pengurus') {
   </div>
   <!-- /.content-wrapper -->
 <?php
-$this->load->view('foot_admin');
+$this->load->view('User/foot_user');
 ?>

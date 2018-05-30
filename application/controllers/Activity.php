@@ -12,7 +12,8 @@ class Activity extends CI_Controller{
 	}
  	
 	function index(){
-		$data['activity'] = $this->Activity_model->tampil_data();
+		$id = $this->session->userdata('user_id');
+		$data['activity'] = $this->Activity_model->tampil_data($id);
 		$this->load->view('all_activity',$data);
 	}
  
@@ -42,8 +43,9 @@ class Activity extends CI_Controller{
 		$activity_date = $this->input->post('activity_date');
 		$activity_times = $this->input->post('activity_times');
 		$activity_desc = $this->input->post('activity_desc');
+		$activity_loc = $this->input->post('activity_loc');
 		$tamu_undangan = $this->input->post('user_id') ;
-		$user_id = 1;
+		$user_id = $this->session->userdata('user_id');;
  		
 
 
@@ -52,6 +54,7 @@ class Activity extends CI_Controller{
 			'activity_date' => date('Y-m-d',strtotime($activity_date)),
 			'activity_times' => $activity_times,
 			'activity_desc' => $activity_desc,
+			'activity_loc' => $activity_loc,
 			'user_id' =>$user_id
 			);
 		
