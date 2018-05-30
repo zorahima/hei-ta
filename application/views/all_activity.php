@@ -46,15 +46,19 @@ if ($user_data['type']=='pengurus') {
                           <a href="#"> <?php echo $activity->user_name ?> </a>
                          
                         </span>
-                    <span class="description"><i class="fa fa fa-calendar"></i> <?php echo $activity->activity_date ?> <i class="fa fa fa-clock-o"></i> <?php echo $activity->activity_times ?></span>
+                    
                     <span class="description"><i class="fa fa fa-map-marker"></i> <?php echo $activity->activity_loc ?></span>
                   </div>
                   <!-- /.user-block -->
+                  <h4><?php echo $activity->activity_name ?></h4>
                   <p>
               <?php echo $activity->activity_desc ?>
                   </p>
+                  <span class="description"><i class="fa fa fa-calendar"></i> <?php echo $activity->activity_date ?> <i class="fa fa fa-clock-o"></i> <?php echo $activity->activity_times ?></span>
+                  <span class="description"><i class="fa fa fa-map-marker"></i> <?php echo $activity->activity_loc ?></span>
                   <ul class="list-inline">
-                    <li><a href="#" class="link-black text-sm"><i class="fa fa-map-marker"></i> People </a></li>
+                    <li><a class="link-black text-sm" data-toggle="modal" data-target="#tampil_invitation" ><i class="fa fa-user-circle"></i> 15 People </a></li>
+
                     <!-- <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
                     </li> -->
                   
