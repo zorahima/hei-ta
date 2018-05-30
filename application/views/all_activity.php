@@ -43,23 +43,20 @@ if ($user_data['type']=='pengurus') {
                   <div class="user-block">
                     <img class="img-circle img-bordered-sm" src="<?php echo base_url('assets/dist/img/user1-128x128.jpg') ?>" alt="user image">
                         <span class="username">
-                          <a href="#"> <?php echo $this->session->userdata('user_name');?> </a>
+                          <a href="#"> <?php echo $activity->user_name ?> </a>
                          
                         </span>
-                    <span class="description"><?php echo $activity->activity_date ?></span>
+                    <span class="description"><i class="fa fa fa-calendar"></i> <?php echo $activity->activity_date ?> <i class="fa fa fa-clock-o"></i> <?php echo $activity->activity_times ?></span>
+                    <span class="description"><i class="fa fa fa-map-marker"></i> <?php echo $activity->activity_loc ?></span>
                   </div>
                   <!-- /.user-block -->
                   <p>
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
+              <?php echo $activity->activity_desc ?>
                   </p>
                   <ul class="list-inline">
-                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-                    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-                    </li>
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-map-marker"></i> People </a></li>
+                    <!-- <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+                    </li> -->
                   
                   </ul>
                 </div>
