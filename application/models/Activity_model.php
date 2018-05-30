@@ -38,6 +38,13 @@ class activity_model extends CI_Model{
 
 
     }
+
+    function modalGet($id)
+    {
+        return $this->db->where('invitation_id',$id)->get('invitation')->result();
+
+
+    }
 }
 
 
