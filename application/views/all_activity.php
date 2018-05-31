@@ -50,14 +50,14 @@ if ($user_data['type']=='pengurus') {
 
         </div>
         <!-- /.user-block -->
-        <h4><?php echo $activity->activity_id ?></h4>
+        <h4><?php echo $activity->activity_name ?></h4>
         <p>
           <?php echo $activity->activity_desc ?>
         </p>
         <span class="description"><i class="fa fa fa-calendar"></i> <?php echo $activity->activity_date ?> <i class="fa fa fa-clock-o"></i> <?php echo $activity->activity_times ?></span>
         <span class="description"><i class="fa fa fa-map-marker"></i> <?php echo $activity->activity_loc ?></span>
         <ul class="list-inline">
-          <li><a data-toggle="modal" class="link-black text-sm"  data-target="#tampil_invitation" ><i class="fa fa-user-circle"></i> 15 People </a></li>
+          <li><a data-toggle="modal" class="link-black text-sm"  data-target="#tampil_invitation<?php echo $activity->activity_id ?>" ><i class="fa fa-user-circle"></i> 15 People </a></li>
 
                     <!-- <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
                   </li> -->
@@ -87,65 +87,70 @@ if ($user_data['type']=='pengurus') {
            </div>
          -->
          <!--- modals -->
-         <div class="modal fade" id="tampil_invitation">
+         <div class="modal fade" id="tampil_invitation<?php echo $activity->activity_id ?>">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title"> Ubah data User</h4>
+                  <h4 class="modal-title"> Undangan  </h4>
                 </div>
                 <div class="modal-body">
-                <form method ="post" action="<?php echo base_url(''); ?>" role="form">
-                    <div class="box-body">
+                  <form method ="post" action="<?php echo base_url(''); ?>" role="form">
+                    <div class="box-body"><!-- 
                     <?php 
 
                     $this->load->model('Activity_model');
-
-                    $tamu=$this->activity_model->modelGet($activity->activity_id );
+                    $tamu=$this->Activity_model->modelGet($activity->activity_id);                    
                     foreach ($tamu as $t) {
                       echo $t->user_id;
                     }
 
+                    ?> -->
+                    <table id="example2" class="table table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Name</th>
+
+                        </tr>
+                        <?php 
+                        $this->load->model('Activity_model');
+                        $tamu=$this->Activity_model->modelGet($activity->activity_id);                    
+
+                        $i=1; foreach ($tamu as $t) {?>
+                        <tr>
+                         <td> <?php echo $i; ?> </td>
+                         <td> <?php echo $t->user_name ?> </td>
+                       </tr>
+                       <?php $i++; }  ?>
+                     </thead>
+                     <tbody>
+                     </tfoot>
+                   </table>
 
 
+                 </div>
+               </form>
+             </div>
+             <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 
-
-
-
-
-                     ?>
-
-
-
-
-
-
-
-
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                  
-                </div>
-              </div>
-              <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
           </div>
-
-
-          <?php $i++; }  ?>
-          <!-- /.box-body -->
+          <!-- /.modal-content -->
         </div>
-        <!-- /.box -->
-
-      </section>
-      <!-- /.content -->
+        <!-- /.modal-dialog -->
+      </div>
+      <?php $i++; }  ?>
+      <!-- /.box-body -->
     </div>
-    <!-- /.content-wrapper -->
-    <?php
-    $this->load->view('foot_admin');
-    ?>
+    <!-- /.box -->
+
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<?php
+$this->load->view('foot_admin');
+?>

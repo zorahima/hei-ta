@@ -41,6 +41,7 @@ if ($user_data['type']=='pengurus') {
                 <thead>
                   <tr>
                     <th>No</th>
+                    <th>Activity ID</th>
                     <th>Activity name</th>
                     <th>People Invited </th>
                     <th>Invitation Status</th>
@@ -52,6 +53,7 @@ if ($user_data['type']=='pengurus') {
                   <?php $i=1; foreach ($confirmation as $u) {?>
                   <tr>
                    <td> <?php echo $i; ?> </td>
+                    <td> <?php echo $u->activity_id ?> </td>
                    <td> <?php echo $u->activity_name ?> </td>
                    <td> <?php echo $u->invited ?> </td>
                    <td> <?php echo $u->invitation_status ?> </td>

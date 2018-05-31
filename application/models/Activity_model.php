@@ -39,9 +39,12 @@ class activity_model extends CI_Model{
 
     }
 
-    function modalGet($id)
+    function modelGet($id)
     {
-        return $this->db->where('invitation_id',$id)->get('invitation')->result();
+        //Kodingan mirip kayak query biasa 
+        return $this->db->join('user','user.user_id=invitation.user_id')->where('activity_id',$id)->get('invitation')->result();
+        
+
 
 
     }

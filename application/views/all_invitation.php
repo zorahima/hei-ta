@@ -42,10 +42,12 @@ if ($user_data['type']=='pengurus') {
                 <thead>
                   <tr>
                     <th>No</th>
+                    
                     <th>Invitation Name</th>
                     <th>Invitation Desciption </th>
+                    <th>Invitation Time</th>
+                    <th>Invitation Loc</th>
                     <th>Invitation Confirmation</th>
-                    
                     <th> Operation </th>
 
                     
@@ -55,6 +57,8 @@ if ($user_data['type']=='pengurus') {
                    <td> <?php echo $i; ?> </td>
                    <td> <?php echo $u->activity_name ?> </td>
                    <td> <?php echo $u->activity_desc ?> </td>
+                   <td> <?php echo $u->activity_times ?> </td>
+                   <td> <?php echo $u->activity_loc ?> </td>
                    <td> <?php echo $u->invitation_status ?> </td>
                    
                    <td class="text-center">
