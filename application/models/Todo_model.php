@@ -43,7 +43,13 @@ class Todo_model extends CI_Model{
     function update_finish_todo($todo_id) {
         $this->db->where('todo_id',$todo_id);
         $this->db->update('todo', array('todo_status'=> 'finish'));
-    } 
+    }
+
+     function update_todo($id,$data){
+        $this->db->where('todo_id', $id);
+        $this->db->update('todo', $data);
+    }
+ 
 }
 
 

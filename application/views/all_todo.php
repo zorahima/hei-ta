@@ -81,7 +81,7 @@ if ($user_data['type']=='pengurus') {
                       <h4 class="modal-title"> Ubah data Todo </h4>
                     </div>
                     <div class="modal-body">
-                      <form class="form-horizontal" method ="post"  id="formubahproker<?php echo $todos->todo_id ?>" action="<?php echo base_url('ProgramKerja/updateProker'); ?>" role="form">
+                      <form class="form-horizontal" method ="post"  id="formubahtodo<?php echo $todos->todo_id ?>" action="<?php echo base_url('Todo/updateTodo'); ?>" role="form">
                         <input type="hidden" name='proker_id' id='proker_id'>
 
                         <div class="box-body">
