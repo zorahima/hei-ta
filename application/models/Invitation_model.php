@@ -19,6 +19,7 @@ class Invitation_model extends CI_Model{
         $this->db->join('activity', 'invitation.activity_id = activity.activity_id ');
         $this->db->join('user', 'invitation.user_id = user.user_id ');
         $this->db->where('activity.user_id', $id);
+        //$this->db->group_by('activity.activity_id');
 
         $query = $this->db->get();
         return $query->result();

@@ -59,7 +59,7 @@ if ($user_data['type']=='pengurus') {
                <td> <?php echo $todos->user_name ?> </td>
                <td> <?php echo $todos->todo_status ?> </td>
                <td class="text-center">
-               <a href="<?php echo base_url ('Todo/update_finish_todo/'.$todos->todo_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
+                 <a href="<?php echo base_url ('Todo/update_finish_todo/'.$todos->todo_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
                  
                  <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_todo<?php echo $todos->todo_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
                  </button>
@@ -71,7 +71,7 @@ if ($user_data['type']=='pengurus') {
 
 
 
-            <!-- Modal -->
+             <!-- Modal -->
              <div class="modal fade" id="ubah_todo<?php echo $todos->todo_id ?>">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -81,196 +81,198 @@ if ($user_data['type']=='pengurus') {
                       <h4 class="modal-title"> Ubah data Todo </h4>
                     </div>
                     <div class="modal-body">
-                      <form method ="post"  id="formubahproker<?php echo $todos->todo_id ?>" action="<?php echo base_url('ProgramKerja/updateProker'); ?>" role="form">
-                        <!-- <?php foreach ($proker as $proker)?> -->
+                      <form class="form-horizontal" method ="post"  id="formubahproker<?php echo $todos->todo_id ?>" action="<?php echo base_url('ProgramKerja/updateProker'); ?>" role="form">
                         <input type="hidden" name='proker_id' id='proker_id'>
-                        <div class="box-body">
-                          <input type="hidden" class="form-control" name="todo_id" value="<?php echo $todos->todo_id ?>" required>
 
+                        <div class="box-body">
                           <label class="col-sm-2 control-label">Nama todo </label>
                           <div class="col-sm-10">
                             <input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Nama Todo" value="<?php echo $todos->todo_name ?>" >
+                            <input type="hidden" class="form-control" name="todo_id" value="<?php echo $todos->todo_id ?>" required>
                           </div>
                         </div>
-                        <div class="form-group">
-                          <label  class="col-sm-2 control-label">Tanggal deadline</label>
+
+                        <div class="box-body">
+                          <label class="col-sm-2 control-label">Tanggal deadline</label>
                           <div class="col-sm-10">
                             <input type="date" class="form-control" id="todo_deadline" name="todo_deadline" value="<?php echo $todos->todo_deadline ?>">
                           </div>
                         </div>
 
-                        
-                        <label > Program Kerja </label>
-                        <select class="form-control select2"  name="proker_id" id="proker_id" style="width: 80%;">
-                        <div class="col-sm-10">
-                          <?php /*var_dump($users);*/ foreach ($prokers as $proker){
-                            ?>
-                            <option <?php if ($todos->proker_id == $proker->proker_id) {echo 'selected';} ?> value="<?php echo $proker->proker_id ?>"> <?php echo $proker->proker_name ?> </option> 
-                            <?php
-                          } 
-                          ?>
+                        <div class="box-body">
+                          <label class="col-sm-2 control-label"> Program Kerja </label>
+                          <div class="col-sm-10">
+                            <select class="form-control select2"  name="proker_id" id="proker_id" style="width: 80%;">
+                                <?php /*var_dump($users);*/ foreach ($prokers as $proker){
+                                  ?>
+                                  <option <?php if ($todos->proker_id == $proker->proker_id) {echo 'selected';} ?> value="<?php echo $proker->proker_id ?>"> <?php echo $proker->proker_name ?> </option> 
+                                  <?php
+                                } 
+                                ?>
+                            </select>
                           </div>
-                        </select>
+                        </div>
 
-                        <div class="form-group">
-                        <label > PIC </label>
-                        <!-- <select class="form-control select2" name="user_id" id="user_id" style="width: 80%;"> -->
+                        
 
-                        <select class="form-control select2"  name="user_id" id="user_id" style="width: 100%;">
-                          <?php /*var_dump($users);*/ foreach ($user as $users){
-                            ?>
-                            <option <?php if ($todos->user_id == $users->user_id) {echo 'selected';} ?> value="<?php echo $users->user_id ?>"> <?php echo $users->user_name ?> </option> 
-                            <?php
-                          } 
-                          ?>
-                        </select>
+                        <div class="box-body">
+                          <label class="col-sm-2 control-label"> PIC </label>
+                          <div class="col-sm-10">
+                            <select class="form-control select2"  name="user_id" id="user_id" style="width: 100%;">
+                              <?php /*var_dump($users);*/ foreach ($user as $users){
+                                ?>
+                                <option <?php if ($todos->user_id == $users->user_id) {echo 'selected';} ?> value="<?php echo $users->user_id ?>"> <?php echo $users->user_name ?> </option> 
+                                <?php
+                              } 
+                              ?>
+                            </select>
+                          </div>
+                        </div>
 
                       </div>
-                      
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                      <input type="submit"  class="btn btn-primary" value=" Save changes ">
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <input type="submit"  class="btn btn-primary" value=" Save changes ">
+                      </div>
                     </div>
                   </div>
-                </div>
-              </form>
-              <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-          </div>
-          <!-- /.modal -->
-
-
-
-          <?php $i++; }  ?>
-        </thead>
-        <tbody>
-        </tfoot>
-      </table>
-
-                <!-- TO DO List -->
-          <div class="box box-primary">
-            <div class="box-header">
-              <i class="ion ion-clipboard"></i>
-
-              <h3 class="box-title">To Do List</h3>
-
-
-                <!-- Ini buat yang kayak page, hal 1 2 3 -->
-              <div class="box-tools pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
+                </form>
+                <!-- /.modal-content -->
               </div>
+              <!-- /.modal-dialog -->
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-              <ul class="todo-list">
-                <li>
-                  <!-- drag handle -->
-                  <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <!-- checkbox -->
-                  <input type="checkbox" value="">
-                  <!-- todo text -->
-                  <span class="text">Design a nice theme</span>
-                  <!-- Emphasis label -->
-                  <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Make the theme responsive</span>
-                  <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Check your messages and notifications</span>
-                  <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
+            <!-- /.modal -->
+
+
+
+            <?php $i++; }  ?>
+          </thead>
+          <tbody>
+          </tfoot>
+        </table>
+
+        <!-- TO DO List -->
+        <div class="box box-primary">
+          <div class="box-header">
+            <i class="ion ion-clipboard"></i>
+
+            <h3 class="box-title">To Do List</h3>
+
+
+            <!-- Ini buat yang kayak page, hal 1 2 3 -->
+            <div class="box-tools pull-right">
+              <ul class="pagination pagination-sm inline">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">&raquo;</a></li>
               </ul>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix no-border">
-              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
-            </div>
           </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+            <ul class="todo-list">
+              <li>
+                <!-- drag handle -->
+                <span class="handle">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <i class="fa fa-ellipsis-v"></i>
+                </span>
+                <!-- checkbox -->
+                <input type="checkbox" value="">
+                <!-- todo text -->
+                <span class="text">Design a nice theme</span>
+                <!-- Emphasis label -->
+                <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                <!-- General tools such as edit or delete-->
+                <div class="tools">
+                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-trash-o"></i>
+                </div>
+              </li>
+              <li>
+                <span class="handle">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <i class="fa fa-ellipsis-v"></i>
+                </span>
+                <input type="checkbox" value="">
+                <span class="text">Make the theme responsive</span>
+                <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+                <div class="tools">
+                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-trash-o"></i>
+                </div>
+              </li>
+              <li>
+                <span class="handle">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <i class="fa fa-ellipsis-v"></i>
+                </span>
+                <input type="checkbox" value="">
+                <span class="text">Let theme shine like a star</span>
+                <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+                <div class="tools">
+                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-trash-o"></i>
+                </div>
+              </li>
+              <li>
+                <span class="handle">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <i class="fa fa-ellipsis-v"></i>
+                </span>
+                <input type="checkbox" value="">
+                <span class="text">Let theme shine like a star</span>
+                <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
+                <div class="tools">
+                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-trash-o"></i>
+                </div>
+              </li>
+              <li>
+                <span class="handle">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <i class="fa fa-ellipsis-v"></i>
+                </span>
+                <input type="checkbox" value="">
+                <span class="text">Check your messages and notifications</span>
+                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+                <div class="tools">
+                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-trash-o"></i>
+                </div>
+              </li>
+              <li>
+                <span class="handle">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <i class="fa fa-ellipsis-v"></i>
+                </span>
+                <input type="checkbox" value="">
+                <span class="text">Let theme shine like a star</span>
+                <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
+                <div class="tools">
+                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-trash-o"></i>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer clearfix no-border">
+            <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+          </div>
+        </div>
+      </div>
+      <!-- /.box-body -->
+
+
     </div>
-    <!-- /.box-body -->
+    <!-- /.box -->
 
-
-  </div>
-  <!-- /.box -->
-
-</section>
-<!-- /.content -->
+  </section>
+  <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 <?php
