@@ -35,6 +35,7 @@ class Pengurus extends CI_Controller{
 		$id = $this->session->userdata('user_id');
 		$data = array (
 			'bio'  => $this->Pengurus_model->getUserData($id),
+			'activity'  => $this->Activity_model->tampil_data($id),
 			/*'user' => $this->Invitation_model->getInvite()	*/
 			);
 

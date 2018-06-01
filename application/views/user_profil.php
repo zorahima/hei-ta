@@ -171,31 +171,28 @@ if ($user_data['type']=='pengurus') {
 									</form>
 								</div> 
 
-								
+								<?php $i=1; foreach ($activity as $b) {?>
 								<div  class=" active tab-pane" id="activity">
 									<!-- Post -->
 									<div class="post">
 										<div class="user-block">
-											<img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+											<img class="img-circle img-bordered-sm" src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" alt="user image">
 											<span class="username">
-												<a href="#">Jonathan Burke Jr.</a>
+												<a href="#"><?php echo $b->user_name ?></a>
 												<a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
 											</span>
-											<span class="description">Shared publicly - 7:30 PM today</span>
+											
 										</div>
 										<!-- /.user-block -->
 										<p>
-											Lorem ipsum represents a long-held tradition for designers,
-											typographers and the like. Some people hate it and argue for
-											its demise, but others ignore the hate as they create awesome
-											tools to help create filler text for everyone from bacon lovers
-											to Charlie Sheen fans.
+											<?php echo $b->activity_desc ?>
 										</p>
 										
 									</div>
 									<!-- /.post -->
 
 								</div>
+								<?php $i++; }  ?>
 
 								<div class="tab-pane" id="ubahPassword">
 									<form class="form-horizontal">
