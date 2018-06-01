@@ -24,6 +24,20 @@ class Pengurus_model extends CI_Model{
         $query =$this->db->get();
         return $query->result();
     } 
+
+        function getUserData($id){
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->join('periode', 'periode.periode_id = user.periode_id');
+        $this->db->where('user.user_id', $id);
+        
+        $query = $this->db->get();
+        return $query->result();
+        
+    }
+
+
+ 
 }
 
 

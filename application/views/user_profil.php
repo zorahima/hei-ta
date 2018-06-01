@@ -6,9 +6,9 @@ $this->load->view('head_admin');
 
 
 if ($user_data['type']=='pengurus') {
-  $this->load->view('User/sidebar_user');
+	$this->load->view('User/sidebar_user');
 } elseif ($user_data['type']=='admin') {
-  $this->load->view('sidebar_admin');
+	$this->load->view('sidebar_admin');
 }
 ?>
 
@@ -21,7 +21,7 @@ if ($user_data['type']=='pengurus') {
 
 	<?php 
 
-	/*foreach ($profile as $data)*/ {
+	{
 # code...
 		?>
 
@@ -32,9 +32,9 @@ if ($user_data['type']=='pengurus') {
 					<!-- Profile Image -->
 					<div class="box box-warning">
 						<div class="box-body box-profile">
-							<img class="profile-user-img img-responsive img-circle" src="" alt="User profile picture">
+							<img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" alt="User profile picture">
 
-							<h3 class="profile-username text-center"> </h3>
+							<h3 class="profile-username text-center"> <!-- <?php echo $data->nama_users ?> --> </h3>
 
 							<!-- <?php if($data->nama_roles=='klien') {
 								?>
@@ -42,14 +42,14 @@ if ($user_data['type']=='pengurus') {
 								<?php }?> -->
 							</div>
 							<!-- /.box-body -->
-							 <div class="box-footer no-padding">
-              <ul class="nav nav-stacked">
-                <li><a href="#">Activity <span class="pull-right badge bg-blue">31</span></a></li>
-                <li><a href="#">Present <span class="pull-right badge bg-aqua">5</span></a></li>
-                <li><a href="#">Absent <span class="pull-right badge bg-green">12</span></a></li>
-                <li><a href="#">Todo Finish <span class="pull-right badge bg-red">842</span></a></li>
-              </ul>
-            </div>
+							<div class="box-footer no-padding">
+								<ul class="nav nav-stacked">
+									<li><a href="#">Activity <span class="pull-right badge bg-blue">31</span></a></li>
+									<li><a href="#">Present <span class="pull-right badge bg-aqua">5</span></a></li>
+									<li><a href="#">Absent <span class="pull-right badge bg-green">12</span></a></li>
+									<li><a href="#">Todo Finish <span class="pull-right badge bg-red">842</span></a></li>
+								</ul>
+							</div>
 						</div>
 
 						<!-- About Me Box -->
@@ -57,38 +57,40 @@ if ($user_data['type']=='pengurus') {
 							<div class="box-header with-border">
 								<h3 class="box-title">Tentang Saya</h3>
 							</div>
+							<?php $i=1; foreach ($bio as $u) {?>
 							<!-- /.box-header -->
 							<div class="box-body">
 								<strong><i class="fa fa-book margin-r-5"></i> Nama</strong>
 
-								<p class="text-muted"> </p>
+								<p class="text-muted"> <?php echo $u->user_name?> </p>
 
 								<hr>
 
 								<strong><i class="fa fa-intersex margin-r-5"></i>Jenis Kelamin</strong>
 
-								<p class="text-muted"> </p>
+								<p class="text-muted">  <?php echo $u->user_gender ?></p>
 
 								<hr>
 
 								<strong><i class="fa fa-pencil margin-r-5"></i> Email</strong>
 
-								<p class="text-muted"> </p>
+								<p class="text-muted"> <?php echo $u->email ?></p>
 
 								<hr>
 
 								<strong><i class="fa fa-map-marker margin-r-5"></i> No Telfon</strong>
 
-								<p class="text-muted"> </p>
+								<p class="text-muted"> <?php echo $u->user_phone?> </p>
 
 								<hr>
 
 								<strong><i class="fa fa-calendar"></i> Periode Kepengurusan </strong>
 
-								<p class="text-muted"> </p>
+								<p class="text-muted"><?php echo $u->periode?> </p>
 
 							</div>
 							<!-- /.box-body -->
+							<?php $i++; }  ?>
 						</div>
 						<!-- /.box-warning-->
 					</div>
@@ -107,7 +109,7 @@ if ($user_data['type']=='pengurus') {
 
 							<div class="tab-content">
 								<div class="tab-pane" id="ubahData">
-									<form action="<?php echo site_url('Klien_profile/ubahKlien') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
+									<form action="<?php echo site_url('') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
 										<input type="hidden" class="form-control" name="id_users" value=" ">
 
 										<div class="form-group">
@@ -189,69 +191,60 @@ if ($user_data['type']=='pengurus') {
 											tools to help create filler text for everyone from bacon lovers
 											to Charlie Sheen fans.
 										</p>
-										<ul class="list-inline">
-											<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-											<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-											</li>
-											<li class="pull-right">
-												<a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-													(5)</a></li>
-												</ul>
-
-												<input class="form-control input-sm" type="text" placeholder="Type a comment">
-											</div>
-											<!-- /.post -->
-
-										</div>
-
-										<div class="tab-pane" id="ubahPassword">
-											<form class="form-horizontal">
-												<div class="box-body">
-													<div class="form-group">
-														<div class="col-sm-3">
-															<label for="inputName">Password Baru</label>
-														</div>
-
-														<div class="col-sm-12">
-															<input type="email" class="form-control" id="inputName" placeholder="Masukkan Password Baru">
-														</div>
-													</div>
-
-													<div class="form-group">
-														<div class="col-sm-3">
-															<label for="inputEmail">Re-type Password</label>
-														</div>
-
-														<div class="col-sm-12">
-															<input type="email" class="form-control" id="inputEmail" placeholder="Re-type Password">
-														</div>
-													</div>
-
-													<div class="form-group">
-														<div class="col-sm-offset-10 col-sm-12">
-															<input type="submit" class="btn btn-success" value="Simpan">
-														</div>
-													</div>
-												</div>
-											</form>
-										</div>
-										<!-- /.tab-pane -->
+										
 									</div>
-									<!-- /.tab-content -->
+									<!-- /.post -->
+
 								</div>
-								<!-- /.nav-tabs-custom -->
+
+								<div class="tab-pane" id="ubahPassword">
+									<form class="form-horizontal">
+										<div class="box-body">
+											<div class="form-group">
+												<div class="col-sm-3">
+													<label for="inputName">Password Baru</label>
+												</div>
+
+												<div class="col-sm-12">
+													<input type="email" class="form-control" id="inputName" placeholder="Masukkan Password Baru">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="col-sm-3">
+													<label for="inputEmail">Re-type Password</label>
+												</div>
+
+												<div class="col-sm-12">
+													<input type="email" class="form-control" id="inputEmail" placeholder="Re-type Password">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="col-sm-offset-10 col-sm-12">
+													<input type="submit" class="btn btn-success" value="Simpan">
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!-- /.tab-pane -->
 							</div>
-							<!-- /.col -->
-							<!-- /.TAB PANE END -->
-
+							<!-- /.tab-content -->
 						</div>
-						<!-- /.row -->
-					</section>
-					<!-- /.content -->
+						<!-- /.nav-tabs-custom -->
+					</div>
+					<!-- /.col -->
+					<!-- /.TAB PANE END -->
+
 				</div>
-				<!-- /.content-wrapper -->
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
 
 
-				<?php
-				$this->load->view('foot_admin');
-				?>
+		<?php
+		$this->load->view('foot_admin');
+		?>

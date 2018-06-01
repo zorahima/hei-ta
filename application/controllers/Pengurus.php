@@ -7,6 +7,7 @@ class Pengurus extends CI_Controller{
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('Pengurus_model');
+		$this->load->model('Activity_model');
 		$this->load->helper('url');
 		$this->load->helper('form');
 
@@ -29,9 +30,19 @@ class Pengurus extends CI_Controller{
 		//
 	}
 
-	function profil(){
-		$this->load->view('user_profil');
+
+	function profil() {
+		$id = $this->session->userdata('user_id');
+		$data = array (
+			'bio'  => $this->Pengurus_model->getUserData($id),
+			/*'user' => $this->Invitation_model->getInvite()	*/
+			);
+
+		$this->load->view('user_profil',$data);
+		
 	}
+
+
 
 	function tambah_data(){
 		
@@ -79,36 +90,36 @@ class Pengurus extends CI_Controller{
 			$this->Pengurus_model->input_data($data,'user');
 			redirect('Pengurus/index');
 		}
-	
 
-	public function ubah_data()
-	{
-		$user_name = $this->input->post('user_name');
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
-		$type = $this->input->post('type');
-		$user_gender = $this->input->post('user_gender');
-		$user_phone = $this->input->post('user_phone');
-		$user_address = $this->input->post('user_address');
-		$periode_id = $this->input->post('periode_id');
 
-		$data = array(
+		public function ubah_data()
+		{
+			$user_name = $this->input->post('user_name');
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			$type = $this->input->post('type');
+			$user_gender = $this->input->post('user_gender');
+			$user_phone = $this->input->post('user_phone');
+			$user_address = $this->input->post('user_address');
+			$periode_id = $this->input->post('periode_id');
 
-			'user_name' => $user_name,
-			'email' => $email,
-			'password' => $password,
-			'type' => $type,
-			'user_gender' => $user_gender,
-			'user_phone' => $user_phone,
-			'user_address' => $user_address,
-			'periode_id' => $periode_id,
-			);
-		$this->Pengurus_model->input_data($data,'user');
-		redirect('Pengurus/index');
+			$data = array(
+
+				'user_name' => $user_name,
+				'email' => $email,
+				'password' => $password,
+				'type' => $type,
+				'user_gender' => $user_gender,
+				'user_phone' => $user_phone,
+				'user_address' => $user_address,
+				'periode_id' => $periode_id,
+				);
+			$this->Pengurus_model->input_data($data,'user');
+			redirect('Pengurus/index');
+
+
+		}
+
 
 
 	}
-
-	
-
-}
