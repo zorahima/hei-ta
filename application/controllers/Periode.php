@@ -38,6 +38,13 @@ class Periode extends CI_Controller{
 		redirect('Periode/index');
 	}
 
+
+	function update_active_periode($periode_id){
+		$result= $this->Periode_model->update_active_periode($periode_id);
+		redirect('Periode/index');
+	}
+ 
+
 	function update_deactive_periode($periode_id){
 		$result= $this->Periode_model->update_deactive_periode($periode_id);
 		redirect('Periode/index');

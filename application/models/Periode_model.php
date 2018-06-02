@@ -27,6 +27,11 @@ class Periode_model extends CI_Model{
         return $query->result();
     } 
 
+    function update_active_periode($periode_id) {
+        $this->db->where('periode_id',$periode_id);
+        $this->db->update('periode', array('periode_status'=> 'active'));
+    }
+
     function update_deactive_periode($periode_id) {
         $this->db->where('periode_id',$periode_id);
         $this->db->update('periode', array('periode_status'=> 'deactive'));

@@ -46,8 +46,12 @@ $this->load->view('sidebar_admin');
                     <td> <?php echo $p->periode_status ?> </td>
                     
                      <td class="text-center">
+
+
                  <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $p->periode_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
                    </button>
+
+                   <a href="<?php echo base_url ('Periode/update_active_periode/'.$p->periode_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
 
                    <a href="<?php echo base_url ('Periode/update_deactive_periode/'.$p->periode_id) ?> " class="btn btn-sm btn-info" style="background: #f44336; border-color: #fff"><i class="fa  fa fa-close"></i></a>
                  
