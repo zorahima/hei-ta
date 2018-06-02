@@ -37,5 +37,10 @@ class Periode extends CI_Controller{
 		$this->Periode_model->input_data($data,'periode');
 		redirect('Periode/index');
 	}
+
+	function update_deactive_periode($periode_id){
+		$result= $this->Periode_model->update_deactive_periode($periode_id);
+		redirect('Periode/index');
+	}
  
 }

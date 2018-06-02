@@ -32,8 +32,8 @@ $this->load->view('sidebar_admin');
                   <th>NO</th>
                   <th>Periode</th>
                   <th> Tahun Periode</th>
-                  <th> Status Periode </th>
                   <th> Jumlah Pengurus </th>
+                  <th> Status Periode </th>
                   <th> Operation </th>
                   
                 </tr>
@@ -42,12 +42,15 @@ $this->load->view('sidebar_admin');
                  <td> <?php echo $i; ?> </td>
                     <td> <?php echo $p->periode ?> </td>
                     <td> <?php echo $p->periode_tahun ?> </td>
-                    <td> <?php echo $p->periode_status ?> </td>
                     <td> <?php echo $p->banyak ?> </td>
+                    <td> <?php echo $p->periode_status ?> </td>
+                    
                      <td class="text-center">
                  <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $p->periode_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
                    </button>
-                   <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$p->periode_id ?> "> <i class="fa fa-trash"></i></a>
+
+                   <a href="<?php echo base_url ('Periode/update_deactive_periode/'.$p->periode_id) ?> " class="btn btn-sm btn-info" style="background: #f44336; border-color: #fff"><i class="fa  fa fa-close"></i></a>
+                 
 
                </td>
                  </tr>
