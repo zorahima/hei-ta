@@ -65,12 +65,7 @@ $this->load->view('sidebar_admin');
                 <label>Alamat</label>
                 <input type="text" class="form-control" id="user_address" name="user_address" placeholder="Alamat ">
               </div>
-               <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" id="user_picture" name="user_picture">
-                </div>
-
-
+          
               <div class="form-group">
                 <label> Periode Pengurus </label>
                 <select class="form-control" name="periode_id" id="periode_id">
