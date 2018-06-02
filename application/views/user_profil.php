@@ -32,7 +32,7 @@ if ($user_data['type']=='pengurus') {
 					<!-- Profile Image -->
 					<div class="box box-warning">
 						<div class="box-body box-profile">
-							<img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" alt="User profile picture">
+							<img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('assets/avatar/avatar9.png') ?>" alt="User profile picture">
 
 							<h3 class="profile-username text-center"> <!-- <?php echo $data->nama_users ?> --> </h3>
 
@@ -55,34 +55,38 @@ if ($user_data['type']=='pengurus') {
 						<!-- About Me Box -->
 						<div class="box box-solid">
 							<div class="box-header with-border">
+								<?php $i=1; foreach ($bio as $u) {?>
 								<h3 class="box-title">Tentang Saya</h3>
+								<button type="button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#ubah_bio<?php echo $u->user_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
+								</button>
 							</div>
-							<?php $i=1; foreach ($bio as $u) {?>
+							
+
 							<!-- /.box-header -->
 							<div class="box-body">
 								<strong><i class="fa fa-book margin-r-5"></i> Nama</strong>
 
 								<p class="text-muted"> <?php echo $u->user_name?> </p>
 
-								<hr>
+								<hr style="margin-top:-10px;margin-bottom: 10px;">
 
 								<strong><i class="fa fa-intersex margin-r-5"></i>Jenis Kelamin</strong>
 
 								<p class="text-muted">  <?php echo $u->user_gender ?></p>
 
-								<hr>
+								<hr style="margin-top:-10px;margin-bottom: 10px;">
 
 								<strong><i class="fa fa-pencil margin-r-5"></i> Email</strong>
 
 								<p class="text-muted"> <?php echo $u->email ?></p>
 
-								<hr>
+								<hr style="margin-top:-10px;margin-bottom: 10px;">
 
 								<strong><i class="fa fa-map-marker margin-r-5"></i> No Telfon</strong>
 
 								<p class="text-muted"> <?php echo $u->user_phone?> </p>
 
-								<hr>
+								<hr style="margin-top:-10px;margin-bottom: 10px;">
 
 								<strong><i class="fa fa-calendar"></i> Periode Kepengurusan </strong>
 
@@ -96,152 +100,141 @@ if ($user_data['type']=='pengurus') {
 					</div>
 					<!-- /.col-md-4 -->
 					<!-- <?php } ?>
-				-->
-				<!-- TAB PANE -->
-				<div class="col-md-8">
-					<div class="nav-tabs-custom">
-						<ul class="nav nav-tabs">
-							<li class="active"> 
-								<a href="#activity" data-toggle="tab">Activity </a></li>
-								<li><a href="#ubahData" data-toggle="tab"> Ubah Data </a></li>
-								<li><a href="#ubahPassword" data-toggle="tab">Ubah Password</a></li>
-							</ul>
+				
+					<!-- TAB PANE -->
+					<div class="col-md-8">
+						<div class="nav-tabs-custom">
+							<ul class="nav nav-tabs">
+								<li class="active"> 
+									<a href="#activity" data-toggle="tab">Activity </a></li>
+									<li><a href="#ubahData" data-toggle="tab"> Ubah Data </a></li>
+									<li><a href="#ubahPassword" data-toggle="tab">Ubah Password</a></li>
+								</ul>
 
-							<div class="tab-content">
-								<div class="tab-pane" id="ubahData">
-									<form action="<?php echo site_url('') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
-										<input type="hidden" class="form-control" name="id_users" value=" ">
+								<div class="tab-content">
+									<div class="tab-pane" id="ubahData">
+										<form action="<?php echo site_url('') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
 
-										<div class="form-group">
-											<label for="inputName" class="col-sm-2 control-label">Nama</label>
+										</form>
+									</div> 
 
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputName" name="nama_users" value=" ">
+									<?php $i=1; foreach ($activity as $b) {?>
+									<div  class=" active tab-pane" id="activity">
+										<!-- Post -->
+										<div class="post">
+											<div class="user-block">
+												<img class="img-circle img-bordered-sm" src="<?php echo base_url('assets/avatar/avatar9.png') ?>" alt="user image">
+												<span class="username">
+													<a href="#"><?php echo $b->user_name ?></a>
+													<a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+												</span>
+
+											</div>
+											<!-- /.user-block -->
+											<h4> <?php echo $b->activity_name ?></h4>
+											<p>
+												<?php echo $b->activity_desc ?>
+											</p>
+											<div>
+												<?php echo $b->activity_loc ?>
+												<?php echo $b->activity_date ?>
+												<?php echo $b->activity_times ?>
+
 											</div>
 										</div>
+										<!-- /.post -->
 
-										<div class="form-group">
-											<label class="col-sm-2 control-label">Jenis Kelamin</label>
-
-											<div class="col-sm-10"> 
-												<select class="form-control" name="jenis_kelamin">
-													<option value="Pria">Pria</option>
-													<option value="Wanita">Wanita</option>
-												</select>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-											<div class="col-sm-10">
-												<input type="email" class="form-control" name="email" value="">
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="inputTelp" class="col-sm-2 control-label">No Telpon</label>
-
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputName" name="no_telpon" value="">
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="inputTelp" class="col-sm-2 control-label">Instansi</label>
-
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputName" name="instansi" value="">
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="col-sm-2 control-label">Upload Foto</label>
-
-											<div class="col-sm-10">
-												<input type="file" name="foto" value="">
-											</div>
-										</div>
-
-										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
-												<input type="submit" class="btn btn-success pull-right" value="Simpan">
-											</div>
-										</div>
-									</form>
-								</div> 
-
-								<?php $i=1; foreach ($activity as $b) {?>
-								<div  class=" active tab-pane" id="activity">
-									<!-- Post -->
-									<div class="post">
-										<div class="user-block">
-											<img class="img-circle img-bordered-sm" src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" alt="user image">
-											<span class="username">
-												<a href="#"><?php echo $b->user_name ?></a>
-												<a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-											</span>
-											
-										</div>
-										<!-- /.user-block -->
-										<p>
-											<?php echo $b->activity_desc ?>
-										</p>
-										
 									</div>
-									<!-- /.post -->
+									<?php $i++; }  ?>
 
+									<div class="tab-pane" id="ubahPassword">
+										<form class="form-horizontal">
+											<div class="box-body">
+												<div class="form-group">
+													<div class="col-sm-3">
+														<label for="inputName">Password Baru</label>
+													</div>
+
+													<div class="col-sm-12">
+														<input type="email" class="form-control" id="inputName" placeholder="Masukkan Password Baru">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<div class="col-sm-3">
+														<label for="inputEmail">Re-type Password</label>
+													</div>
+
+													<div class="col-sm-12">
+														<input type="email" class="form-control" id="inputEmail" placeholder="Re-type Password">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<div class="col-sm-offset-10 col-sm-12">
+														<input type="submit" class="btn btn-success" value="Simpan">
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+									<!-- /.tab-pane -->
 								</div>
-								<?php $i++; }  ?>
-
-								<div class="tab-pane" id="ubahPassword">
-									<form class="form-horizontal">
-										<div class="box-body">
-											<div class="form-group">
-												<div class="col-sm-3">
-													<label for="inputName">Password Baru</label>
-												</div>
-
-												<div class="col-sm-12">
-													<input type="email" class="form-control" id="inputName" placeholder="Masukkan Password Baru">
-												</div>
-											</div>
-
-											<div class="form-group">
-												<div class="col-sm-3">
-													<label for="inputEmail">Re-type Password</label>
-												</div>
-
-												<div class="col-sm-12">
-													<input type="email" class="form-control" id="inputEmail" placeholder="Re-type Password">
-												</div>
-											</div>
-
-											<div class="form-group">
-												<div class="col-sm-offset-10 col-sm-12">
-													<input type="submit" class="btn btn-success" value="Simpan">
-												</div>
-											</div>
-										</div>
-									</form>
-								</div>
-								<!-- /.tab-pane -->
+								<!-- /.tab-content -->
 							</div>
-							<!-- /.tab-content -->
+							<!-- /.nav-tabs-custom -->
 						</div>
-						<!-- /.nav-tabs-custom -->
+						<!-- /.col -->
+						<!-- /.TAB PANE END -->
+
+						<div class="modal fade" id="ubah_bio<?php echo $u->user_id ?>">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title"> Ubah data diri </h4>
+                    </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal" method ="post"  id="formubahbio<?php echo $u->user_id ?>" action="<?php echo base_url('Todo/updateTodo'); ?>" role="form">
+                        <input type="hidden" name='proker_id' id='proker_id'>
+
+                        <div class="box-body">
+                          <label class="col-sm-2 control-label">Nama todo </label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Nama Todo" value="<?php echo $u->user_name ?>" >
+                            <input type="hidden" class="form-control" name="todo_id" value="<?php echo $u->user_id ?>" required>
+                          </div>
+                        </div>
+
+                
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <input type="submit"  class="btn btn-primary" value=" Save changes ">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+
+
+
+
 					</div>
-					<!-- /.col -->
-					<!-- /.TAB PANE END -->
-
-				</div>
-				<!-- /.row -->
-			</section>
-			<!-- /.content -->
-		</div>
-		<!-- /.content-wrapper -->
 
 
-		<?php
-		$this->load->view('foot_admin');
-		?>
+					<!-- /.row -->
+				</section>
+				<!-- /.content -->
+			</div>
+			<!-- /.content-wrapper -->
+
+
+			<?php
+			$this->load->view('foot_admin');
+			?>

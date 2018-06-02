@@ -54,8 +54,9 @@ if ($user_data['type']=='pengurus') {
         <p>
           <?php echo $activity->activity_desc ?>
         </p>
-        <span class="description"><i class="fa fa fa-calendar"></i> <?php echo $activity->activity_date ?> <i class="fa fa fa-clock-o"></i> <?php echo $activity->activity_times ?></span>
         <span class="description"><i class="fa fa fa-map-marker"></i> <?php echo $activity->activity_loc ?></span>
+        
+        <span class="description"><i class="fa fa fa-calendar"></i> <?php echo $activity->activity_date ?> <i class="fa fa fa-clock-o"></i> <?php echo $activity->activity_times ?></span>
         <ul class="list-inline">
           <li><a data-toggle="modal" class="link-black text-sm"  data-target="#tampil_invitation<?php echo $activity->activity_id ?>" ><i class="fa fa-user-circle"></i> 15 People </a></li>
 
