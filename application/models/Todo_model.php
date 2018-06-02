@@ -11,6 +11,15 @@ class Todo_model extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
+
+    function tampil_data_admin(){
+        $this->db->select('*');
+        $this->db->from('todo');
+        $this->db->join('proker', 'todo.proker_id = proker.proker_id');
+        $this->db->join('user', 'todo.user_id = user.user_id');
+        $query = $this->db->get();
+        return $query->result();
+    }
  
     function input_data($data,$table){
         $this->db->insert($table,$data);

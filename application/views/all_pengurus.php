@@ -42,7 +42,7 @@ $this->load->view('sidebar_admin');
                     <th> Periode User </th>
                     <th> Status User </th>
                     <th>Profil Picture</th>
-                    <th>Operation</th>
+                    <th width="50px">Operation</th>
                   </tr>
                   <?php $i=1; foreach ($user as $pengurus) {?>
                   <tr>
@@ -54,7 +54,17 @@ $this->load->view('sidebar_admin');
                    <td> <?php echo $pengurus->user_gender ?> </td>
                    <td> <?php echo $pengurus->periode ?> </td>
                    <td> <?php echo $pengurus->user_status ?> </td>
-                   <td>  </td>
+                   <td> 
+                   <?php 
+                    if($pengurus->user_picture != ''){
+                      echo $pengurus->user_picture; //tidak kosong
+                    } else{
+                      ?>
+                      <img src="<?php echo base_url('assets/avatar/avatar9.png') ?>" height="30px" class="img-circle text-center" alt="User Image">
+                      <?php
+                    }
+                   ?> 
+                   </td>
                    <td class="text-center">
                      <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah-user" style="background:#1a75ff; border-color:#fff" onclick="ubah-produk"><i class="fa fa-pencil"></i>
                      </button>

@@ -32,7 +32,7 @@
                 <ul class="treeview-menu">
 
                   <li><a href="<?php echo site_url('ProgramKerja/index') ?>"><i class="fa fa-briefcase"></i> Program Kerja </a></li>
-                  <li><a href="<?php echo site_url('User/getAllTodo') ?>"><i class="fa fa-check-square-o"></i> Todo </a></li>
+                  <li><a href="<?php echo site_url('Todo/index') ?>"><i class="fa fa-check-square-o"></i> Todo </a></li>
                   <li><a href="<?php echo site_url('Activity/index') ?>"><i class="fa fa-circle-o"></i> Activity </a></li>
                 </ul>
 

@@ -13,10 +13,15 @@ class Todo extends CI_Controller{
 
 	function index(){
 		$id = $this->session->userdata('user_id');
+		if($this->session->userdata('type') == 'pengurus'){
+			$todo = $this->Todo_model->tampil_data($id);
+		}elseif ($this->session->userdata('type') == 'admin') {
+			$todo = $this->Todo_model->tampil_data_admin();
+		}
 		$data = array (
 			'user' => $this->Proker_model->getUser(),	
 			'prokers'  => $this->Todo_model->getProker(),
-			'todo' => $this->Todo_model->tampil_data($id)	
+			'todo' => $todo,	
 			);
 
 		$this->load->view('all_todo',$data);
