@@ -188,39 +188,90 @@ if ($user_data['type']=='pengurus') {
 						<!-- /.TAB PANE END -->
 
 						<div class="modal fade" id="ubah_bio<?php echo $u->user_id ?>">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title"> Ubah data diri </h4>
-                    </div>
-                    <div class="modal-body">
-                      <form class="form-horizontal" method ="post"  id="formubahbio<?php echo $u->user_id ?>" action="<?php echo base_url('Todo/updateTodo'); ?>" role="form">
-                        <input type="hidden" name='proker_id' id='proker_id'>
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title"> Ubah data diri </h4>
+										</div>
+										<div class="modal-body">
+											<form class="form-horizontal" method ="post"  id="formubahbio<?php echo $u->user_id ?>" action="<?php echo base_url('Todo/updateTodo'); ?>" role="form">
+												<input type="hidden" name='proker_id' id='proker_id'>
 
-                        <div class="box-body">
-                          <label class="col-sm-2 control-label">Nama todo </label>
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Nama Todo" value="<?php echo $u->user_name ?>" >
-                            <input type="hidden" class="form-control" name="todo_id" value="<?php echo $u->user_id ?>" required>
-                          </div>
-                        </div>
+												<div class="box-body">
+													<label class="col-sm-2 control-label">Nama </label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="user_name" name="user_name" placeholder="Nama" value="<?php echo $u->user_name ?>" >
+														
+													</div>
+												</div>
 
-                
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <input type="submit"  class="btn btn-primary" value=" Save changes ">
-                      </div>
-                    </div>
-                  </div>
-                </form>
-                <!-- /.modal-content -->
-              </div>
-              <!-- /.modal-dialog -->
-            </div>
-            <!-- /.modal -->
+												<div class="box-body">
+													<label class="col-sm-2 control-label">Email </label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Email" value="<?php echo $u->email ?>" >
+														
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Jenis Kelamin</label>
+
+													<div class="col-sm-10"> 
+														<select class="form-control" name="jenis_kelamin">
+														<option value="laki-laki" <?php if($u->user_gender == "laki-laki") {echo "selected=selected";} ?>>Laki-laki</option>
+															<option value="perempuan" <?php if($u->user_gender == "perempuan") {echo "selected=selected";} ?>>Perempuan</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="box-body">
+													<label class="col-sm-2 control-label"> No Telepon </label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="user_phone" name="user_phone" placeholder="No HP" value="<?php echo $u->user_phone ?>" >
+														
+													</div>
+												</div>
+
+												<div class="box-body">
+													<label class="col-sm-2 control-label"> Periode Kepengurusan </label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="periode_id" name="periode_id" placeholder="Periode Kepengurusan" value="<?php echo $u->periode ?>"  disabled >
+														
+													</div>
+												</div>
+
+													<div class="form-group">
+											<label class="col-sm-2 control-label">Upload Foto</label>
+
+											<div class="col-sm-10">
+												<input type="file" name="foto" value="">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<div class="col-sm-offset-2 col-sm-10">
+												<input type="submit" class="btn btn-success pull-right" value="Simpan">
+											</div>
+										</div>
+									</form>
+
+
+
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+												<input type="submit"  class="btn btn-primary" value=" Save changes ">
+											</div>
+										</div>
+									</div>
+								</form>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal-dialog -->
+						</div>
+						<!-- /.modal -->
 
 
 
