@@ -40,6 +40,7 @@ $this->load->view('sidebar_admin');
                     <th>Phone</th>
                     <th>Gender</th>
                     <th> Periode User </th>
+                    <th> Status User </th>
                     <th>Profil Picture</th>
                     <th>Operation</th>
                   </tr>
@@ -52,12 +53,14 @@ $this->load->view('sidebar_admin');
                    <td> <?php echo $pengurus->user_phone ?> </td>
                    <td> <?php echo $pengurus->user_gender ?> </td>
                    <td> <?php echo $pengurus->periode ?> </td>
+                   <td> <?php echo $pengurus->user_status ?> </td>
                    <td>  </td>
                    <td class="text-center">
                      <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah-user" style="background:#1a75ff; border-color:#fff" onclick="ubah-produk"><i class="fa fa-pencil"></i>
                      </button>
-                     <a class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa fa-check"></i></a>
-                     <a class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-remove"></i></a>
+                     <a href="<?php echo base_url ('Pengurus/update_active_user/'.$pengurus->user_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
+
+                     <a href="<?php echo base_url ('Pengurus/update_deactive_user/'.$pengurus->user_id) ?> " class="btn btn-sm btn-info" style="background: #f44336; border-color: #fff"><i class="fa  fa fa-close"></i></a>
                    </td>
                  </tr>
 

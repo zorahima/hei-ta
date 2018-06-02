@@ -3,7 +3,7 @@ if(!defined('BASEPATH')) exit('No direct script allowed') ;
  
 class Pengurus_model extends CI_Model{
     function tampil_data(){
-        $this->db->select('user_name,email,user_address,user_gender,user_phone, user_picture, periode');
+        $this->db->select('*');
         $this->db->from('user');
         $this->db->join('periode', 'periode.periode_id = user.periode_id');
         
@@ -39,6 +39,16 @@ class Pengurus_model extends CI_Model{
        function update_user($id,$data){
         $this->db->where('user_id', $id);
         $this->db->update('user', $data);
+    }
+
+    function update_active_user($user_id) {
+        $this->db->where('user_id',$user_id);
+        $this->db->update('user', array('user_status'=> 'active'));
+    }
+
+    function update_deactive_user($user_id) {
+        $this->db->where('user_id',$user_id);
+        $this->db->update('user', array('user_status'=> 'deactive'));
     }
 
 

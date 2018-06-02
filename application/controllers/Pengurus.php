@@ -121,28 +121,39 @@ class Pengurus extends CI_Controller{
 
 		}
 
-	function updateBio() {
-		$user_id= $this->input->post('user_id');
-		$user_name= $this->input->post('user_name');
-		$email= $this->input->post('email');
-		$user_gender= $this->input->post('user_gender');
-		$user_phone= $this->input->post('user_phone');
-		$periode_id= $this->input->post('periode_id');
+		function updateBio() {
+			$user_id= $this->input->post('user_id');
+			$user_name= $this->input->post('user_name');
+			$email= $this->input->post('email');
+			$user_gender= $this->input->post('user_gender');
+			$user_phone= $this->input->post('user_phone');
+			$periode_id= $this->input->post('periode_id');
 
-		$user = array(
+			$user = array(
 			//"type" => 'pengurus',
-			"user_name" => $user_name,
-			"email" => $email,
-			"user_gender" => $user_gender,
-			"user_phone" => $user_phone,
-			"periode_id" => $periode_id,
-			
+				"user_name" => $user_name,
+				"email" => $email,
+				"user_gender" => $user_gender,
+				"user_phone" => $user_phone,
+				"periode_id" => $periode_id,
 
-			);
-		$this->db-> where('user_id', $user_id);
-		$this->db-> update('user', $user);
-		redirect('Pengurus/profil');
-	}
+
+				);
+			$this->db-> where('user_id', $user_id);
+			$this->db-> update('user', $user);
+			redirect('Pengurus/profil');
+		}
+
+		function update_active_user($user_id){
+			$result= $this->Pengurus_model->update_active_user($user_id);
+			redirect('Pengurus/index');
+		}
+
+
+		function update_deactive_user($user_id){
+			$result= $this->Pengurus_model->update_deactive_user($user_id);
+			redirect('Pengurus/index');
+		}
 
 
 
