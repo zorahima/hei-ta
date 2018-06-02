@@ -196,8 +196,8 @@ if ($user_data['type']=='pengurus') {
 											<h4 class="modal-title"> Ubah data diri </h4>
 										</div>
 										<div class="modal-body">
-											<form class="form-horizontal" method ="post"  id="formubahbio<?php echo $u->user_id ?>" action="<?php echo base_url('Todo/updateTodo'); ?>" role="form">
-												<input type="hidden" name='proker_id' id='proker_id'>
+											<form class="form-horizontal" method ="post"  id="formubahbio<?php echo $u->user_id ?>" action="<?php echo base_url('Pengurus/updateBio'); ?>" role="form">
+												<input type="hidden" name='user_id' id='user_id' value="<?php echo $u->user_id ?>" >
 
 												<div class="box-body">
 													<label class="col-sm-2 control-label">Nama </label>
@@ -210,7 +210,7 @@ if ($user_data['type']=='pengurus') {
 												<div class="box-body">
 													<label class="col-sm-2 control-label">Email </label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Email" value="<?php echo $u->email ?>" >
+														<input type="text" class="form-control" id="todo_name" name="email" placeholder="Email" value="<?php echo $u->email ?>" >
 														
 													</div>
 												</div>
@@ -219,7 +219,7 @@ if ($user_data['type']=='pengurus') {
 													<label class="col-sm-2 control-label">Jenis Kelamin</label>
 
 													<div class="col-sm-10"> 
-														<select class="form-control" name="jenis_kelamin">
+														<select class="form-control" name="user_gender">
 														<option value="laki-laki" <?php if($u->user_gender == "laki-laki") {echo "selected=selected";} ?>>Laki-laki</option>
 															<option value="perempuan" <?php if($u->user_gender == "perempuan") {echo "selected=selected";} ?>>Perempuan</option>
 														</select>
@@ -237,7 +237,8 @@ if ($user_data['type']=='pengurus') {
 												<div class="box-body">
 													<label class="col-sm-2 control-label"> Periode Kepengurusan </label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control" id="periode_id" name="periode_id" placeholder="Periode Kepengurusan" value="<?php echo $u->periode ?>"  disabled >
+														<input type="text" class="form-control" id="periode_id"  placeholder="Periode Kepengurusan" value="<?php echo $u->periode ?>"  readonly >
+														<input type="hidden" class="form-control" name="periode_id" value="<?php echo $u->periode_id ?>" required>
 														
 													</div>
 												</div>
@@ -249,20 +250,12 @@ if ($user_data['type']=='pengurus') {
 												<input type="file" name="foto" value="">
 											</div>
 										</div>
-
-										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
-												<input type="submit" class="btn btn-success pull-right" value="Simpan">
-											</div>
-										</div>
-									</form>
-
-
-
+									
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-												<input type="submit"  class="btn btn-primary" value=" Save changes ">
+												<input type="submit"  class="btn btn-primary" value=" Save changes">
+												
 											</div>
 										</div>
 									</div>

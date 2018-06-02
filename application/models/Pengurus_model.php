@@ -36,6 +36,11 @@ class Pengurus_model extends CI_Model{
         
     }
 
+       function update_user($id,$data){
+        $this->db->where('user_id', $id);
+        $this->db->update('user', $data);
+    }
+
 
  
 }
