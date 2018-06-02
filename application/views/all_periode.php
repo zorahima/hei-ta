@@ -34,15 +34,22 @@ $this->load->view('sidebar_admin');
                   <th> Tahun Periode</th>
                   <th> Status Periode </th>
                   <th> Jumlah Pengurus </th>
+                  <th> Operation </th>
                   
                 </tr>
-                <?php $i=1; foreach ($periode as $periode) {?>
+                <?php $i=1; foreach ($periode as $p) {?>
                 <tr>
                  <td> <?php echo $i; ?> </td>
-                    <td> <?php echo $periode->periode ?> </td>
-                    <td> <?php echo $periode->periode_tahun ?> </td>
-                    <td> <?php echo $periode->periode_status ?> </td>
-                    <td> <?php echo $periode->banyak ?> </td>
+                    <td> <?php echo $p->periode ?> </td>
+                    <td> <?php echo $p->periode_tahun ?> </td>
+                    <td> <?php echo $p->periode_status ?> </td>
+                    <td> <?php echo $p->banyak ?> </td>
+                     <td class="text-center">
+                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $p->periode_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
+                   </button>
+                   <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$p->periode_id ?> "> <i class="fa fa-trash"></i></a>
+
+               </td>
                  </tr>
                   <?php $i++; }  ?>
                 </tfoot>
