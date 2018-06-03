@@ -7,6 +7,7 @@ class Invitation extends CI_Controller{
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('Invitation_model');
+		$this->load->model('activity_model');
 		$this->load->helper('url');
  
 	}
@@ -34,8 +35,9 @@ class Invitation extends CI_Controller{
 		}
 		$data = array (
 			'confirmation'  => $confirmation,
-			'user' => $this->Invitation_model->getInvite()	
-			);
+			'user' => $this->Invitation_model->getInvite(),
+			'activity_model' => $this->activity_model
+		);
 
 		$this->load->view('all_confirmation',$data);
 		

@@ -43,18 +43,17 @@ class activity_model extends CI_Model{
         $this->db->order_by('activity_id');
 
         return $query->result();
-
-
     }
 
-    function modelGet($id)
+     public function modelGet($id)
     {
-        //Kodingan mirip kayak query biasa 
-        return $this->db->join('user','user.user_id=invitation.user_id')->where('activity_id',$id)->get('invitation')->result();
+        return 
+            $this->db
+            ->join('user','user.user_id=invitation.user_id')
+            ->where('activity_id',$id)
+            ->get('invitation')
+            ->result();
         
-
-
-
     }
 }
 

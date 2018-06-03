@@ -1,6 +1,6 @@
 <?php
 if(!defined('BASEPATH')) exit('No direct script allowed') ;
- 
+
 class Invitation_model extends CI_Model{
     function tampil_data($id){
         $this->db->select('*');
@@ -21,7 +21,7 @@ class Invitation_model extends CI_Model{
         return $query->result();
     }
 
-        function tampil_data_confirmation($id){
+    function tampil_data_confirmation($id){
         $this->db->select('*');
         $this->db->select('user.user_name as invited');
         $this->db->select('count(*) AS banyak');
@@ -37,12 +37,14 @@ class Invitation_model extends CI_Model{
     }
 
 
-        function tampil_data_confirmation_admin(){
+    function tampil_data_confirmation_admin(){
         $this->db->select('*');
         $this->db->select('user.user_name as invited');
+        $this->db->select('count(*) AS banyak');
         $this->db->from('invitation');
         $this->db->join('activity', 'invitation.activity_id = activity.activity_id ');
         $this->db->join('user', 'invitation.user_id = user.user_id ');
+        $this->db->group_by('invitation.activity_id');
         $query = $this->db->get();
         return $query->result();
     }
@@ -55,12 +57,12 @@ class Invitation_model extends CI_Model{
         return $query->result();
 
     }
- 
+
     function input_data($data,$table){
         $this->db->insert($table,$data);
     }
 
-         function getUser() {
+    function getUser() {
         $this->db->select('*');
         $this->db->from('user');
         //$this->db->where('type = pengurus');
@@ -86,6 +88,12 @@ class Invitation_model extends CI_Model{
     function update_absent_invitation($invitation_id) {
         $this->db->where('invitation_id',$invitation_id);
         $this->db->update('invitation', array('invitation_confirmation'=> 'absent'));
+    }
+    public function modelGet($id)
+    {
+        //Kodingan mirip kayak query biasa 
+        return $this->db->join('user','user.user_id=invitation.user_id')->where('activity_id',$id)->get('invitation')->result();
+
     }
 }
 
