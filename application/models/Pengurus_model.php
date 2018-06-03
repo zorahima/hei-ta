@@ -58,8 +58,28 @@ class Pengurus_model extends CI_Model{
         $this->db->join('user', 'activity.user_id = user.user_id');
         $query = $this->db->get();
         return $query->result();
-    
     }
+
+    function getCountPresent($id){
+        $this->db->select('count(*) AS banyak');
+        $this->db->from('invitation');
+        $this->db->where('invitation.user_id', $id);
+        $this->db->where('invitation_confirmation="present"');
+        $this->db->join('user', 'invitation.user_id = user.user_id');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+        function getCountAbsent($id){
+        $this->db->select('count(*) AS banyak');
+        $this->db->from('invitation');
+        $this->db->where('invitation_confirmation="absent"');
+        $this->db->where('invitation.user_id', $id);
+        $this->db->join('user', 'invitation.user_id = user.user_id');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
 
 
  

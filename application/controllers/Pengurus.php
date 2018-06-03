@@ -36,7 +36,9 @@ class Pengurus extends CI_Controller{
 		$data = array (
 			'bio'  => $this->Pengurus_model->getUserData($id),
 			'activity'  => $this->Activity_model->tampil_data($id),
-			'countAct' =>$this->Pengurus_model->getCountActivity($id),
+			'countAct' => $this->Pengurus_model->getCountActivity($id),
+			'countPresent' => $this->Pengurus_model->getCountPresent($id),
+			'countAbsent' => $this->Pengurus_model->getCountAbsent($id)
 			/*'user' => $this->Invitation_model->getInvite()	*/
 			);
 

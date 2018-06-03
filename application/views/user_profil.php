@@ -44,8 +44,17 @@
                      <li><a href="#">Activity <span class="pull-right badge bg-blue">
                   <?php echo $c->banyak?></span></a></li>
                   <?php $i++; }  ?>
-                  <li><a href="#">Present <span class="pull-right badge bg-aqua">5</span></a></li>
-                  <li><a href="#">Absent <span class="pull-right badge bg-green">12</span></a></li>
+
+                  <?php $i=1; foreach ($countPresent as $p) {?>  
+                  <li><a href="#">Present <span class="pull-right badge bg-aqua">
+                   <?php echo $p->banyak?></span></a></li>
+                  <?php $i++; }  ?>
+
+                  <?php $i=1; foreach ($countAbsent as $a) {?>
+                  <li><a href="#">Absent <span class="pull-right badge bg-green">
+                  <?php echo $a->banyak?></span></a></li>
+                  <?php $i++; }  ?>
+
                   <li><a href="#">Todo Finish <span class="pull-right badge bg-red">842</span></a></li>
                </ul>
             </div>
