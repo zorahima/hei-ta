@@ -12,10 +12,15 @@ class Invitation extends CI_Controller{
 	}
  	
 	function index(){
-
 		$id = $this->session->userdata('user_id');
-		$data['invitation'] = $this->Invitation_model->tampil_data($id);
-
+		if($this->session->userdata('type') == 'pengurus'){
+			$invitation = $this->Invitation_model->tampil_data($id);
+		}elseif ($this->session->userdata('type') == 'admin') {
+			$invitation = $this->Invitation_model->tampil_data_admin();
+		}
+		$data = array (
+			'invitation' => $invitation,	
+			);
 		$this->load->view('all_invitation',$data);
 	}
 

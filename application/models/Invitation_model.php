@@ -12,6 +12,15 @@ class Invitation_model extends CI_Model{
         return $query->result();
     }
 
+    function tampil_data_admin(){
+        $this->db->select('*');
+        $this->db->from('invitation');
+        $this->db->join('activity', 'invitation.activity_id = activity.activity_id ');
+        $this->db->join('user', 'invitation.user_id = user.user_id ');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
         function tampil_data_confirmation($id){
         $this->db->select('*');
         $this->db->select('user.user_name as invited');
@@ -21,6 +30,17 @@ class Invitation_model extends CI_Model{
         $this->db->where('activity.user_id', $id);
         //$this->db->group_by('activity.activity_id');
 
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+        function tampil_data_confirmation_admin(){
+        $this->db->select('*');
+        $this->db->select('user.user_name as invited');
+        $this->db->from('invitation');
+        $this->db->join('activity', 'invitation.activity_id = activity.activity_id ');
+        $this->db->join('user', 'invitation.user_id = user.user_id ');
         $query = $this->db->get();
         return $query->result();
     }
