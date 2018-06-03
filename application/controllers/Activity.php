@@ -13,7 +13,18 @@ class Activity extends CI_Controller{
  	
 	function index(){
 		$id = $this->session->userdata('user_id');
-		$data['activity'] = $this->Activity_model->tampil_data($id);
+		if($this->session->userdata('type') == 'pengurus'){
+			$activity = $this->Activity_model->tampil_data($id);
+		}elseif ($this->session->userdata('type') == 'admin') {
+			$activity = $this->Activity_model->tampil_data_admin();
+		}
+		$data = array (
+			'activity' => $activity,	
+			);
+
+
+
+
 		$this->load->view('all_activity',$data);
 	}
  

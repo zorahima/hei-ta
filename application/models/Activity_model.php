@@ -10,6 +10,14 @@ class activity_model extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
+
+    function tampil_data_admin(){
+        $this->db->select('*');
+        $this->db->from('activity');
+         $this->db->join('user', 'activity.user_id = user.user_id');
+        $query = $this->db->get();
+        return $query->result();
+    }
  
     function input_data($data,$table){
         //
