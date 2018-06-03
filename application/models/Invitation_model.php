@@ -24,10 +24,12 @@ class Invitation_model extends CI_Model{
         function tampil_data_confirmation($id){
         $this->db->select('*');
         $this->db->select('user.user_name as invited');
+        $this->db->select('count(*) AS banyak');
         $this->db->from('invitation');
         $this->db->join('activity', 'invitation.activity_id = activity.activity_id ');
         $this->db->join('user', 'invitation.user_id = user.user_id ');
         $this->db->where('activity.user_id', $id);
+        $this->db->group_by('invitation.activity_id');
         //$this->db->group_by('activity.activity_id');
 
         $query = $this->db->get();

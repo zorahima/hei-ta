@@ -44,8 +44,6 @@ if ($user_data['type']=='pengurus') {
                     <th>Activity ID</th>
                     <th>Activity name</th>
                     <th>People Invited </th>
-                    <th>Invitation Status</th>
-                    <th>Invitation Confirmation </th>
                     <th> Operation </th>
 
                     
@@ -55,9 +53,7 @@ if ($user_data['type']=='pengurus') {
                    <td> <?php echo $i; ?> </td>
                     <td> <?php echo $u->activity_id ?> </td>
                    <td> <?php echo $u->activity_name ?> </td>
-                   <td> <?php echo $u->invited ?> </td>
-                   <td> <?php echo $u->invitation_status ?> </td>
-                   <td> <?php echo $u->invitation_confirmation ?> </td>
+                   <td> <?php echo $u->banyak ?> </td>
                    <td class="text-center">
                   
                      <a href="<?php echo base_url ('Invitation/update_present_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
