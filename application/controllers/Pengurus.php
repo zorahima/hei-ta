@@ -122,12 +122,19 @@ class Pengurus extends CI_Controller{
 		}
 
 		function updateBio() {
+
+		$config['upload_path']="./assets/avatar"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+
 			$user_id= $this->input->post('user_id');
 			$user_name= $this->input->post('user_name');
 			$email= $this->input->post('email');
 			$user_gender= $this->input->post('user_gender');
 			$user_phone= $this->input->post('user_phone');
 			$periode_id= $this->input->post('periode_id');
+
+			
 
 			$user = array(
 			//"type" => 'pengurus',

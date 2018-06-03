@@ -22,7 +22,7 @@ class activity_model extends CI_Model{
      function getUser() {
         $this->db->select('*');
         $this->db->from('user');
-        //$this->db->where('type = pengurus');
+        $this->db->where('type = "pengurus"');
 
         $query =$this->db->get();
         return $query->result();
