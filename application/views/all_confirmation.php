@@ -60,12 +60,7 @@ if ($user_data['type']=='pengurus') {
                     <?php echo $u->banyak ?>
                   </td>
                   <td class="text-center">
-
-                    <!-- <a href="<?php echo base_url ('Invitation/update_present_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #00c0ef; border-color: #fff"><i class="fa   fa-eye"></i></a> -->
                     <a data-toggle="modal" class="btn btn-sm btn-info" data-target="#tampil_invitation<?php echo $u->activity_id ?>" style="background: #00c0ef; border-color: #fff"><i class="fa  fa-eye"></i></a>
-
-                    <!-- <a href="<?php echo base_url ('Invitation/update_present_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
-                    <a href="<?php echo base_url ('Invitation/update_absent_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-remove"></i></a> -->
                   </td>
                 </tr>
                   <?php $i++; }  ?>

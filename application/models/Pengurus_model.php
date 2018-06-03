@@ -51,6 +51,16 @@ class Pengurus_model extends CI_Model{
         $this->db->update('user', array('user_status'=> 'deactive'));
     }
 
+    function getCountActivity($id){
+        $this->db->select('count(*) AS banyak');
+        $this->db->from('activity');
+        $this->db->where('activity.user_id', $id);
+        $this->db->join('user', 'activity.user_id = user.user_id');
+        $query = $this->db->get();
+        return $query->result();
+    
+    }
+
 
  
 }
