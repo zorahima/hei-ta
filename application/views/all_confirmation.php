@@ -98,7 +98,9 @@ if ($user_data['type']=='pengurus') {
                         <tr>
                           <th>No</th>
                           <th>Name</th>
-
+                          <th>Status</th>
+                          <th>Confirmation</th>
+                          <th>Check Confirmation </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -110,6 +112,12 @@ if ($user_data['type']=='pengurus') {
                           <tr>
                            <td> <?php echo $i; ?> </td>
                            <td> <?php echo $t->user_name ?> </td>
+                           <td> <?php echo $t->invitation_status ?> </td>
+                           <td> <?php echo $t->invitation_confirmation ?> </td>
+                           <td class="text-center">
+                           <a href="<?php echo base_url ('Invitation/update_present_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
+                    <a href="<?php echo base_url ('Invitation/update_absent_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-remove"></i></a>
+                          </td>
                          </tr>
                          <?php  $i++; }  
                          ?>
@@ -133,3 +141,4 @@ if ($user_data['type']=='pengurus') {
       <?php
       $this->load->view('foot_admin');
       ?>
+
