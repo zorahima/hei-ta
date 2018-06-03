@@ -27,8 +27,13 @@ class Invitation extends CI_Controller{
 	//Index Confirmation
 	function index_confirmation() {
 		$id = $this->session->userdata('user_id');
+		if($this->session->userdata('type') == 'pengurus'){
+			$confirmation = $this->Invitation_model->tampil_data_confirmation($id);
+		}elseif ($this->session->userdata('type') == 'admin') {
+			$confirmation = $this->Invitation_model->tampil_data_confirmation_admin();
+		}
 		$data = array (
-			'confirmation'  => $this->Invitation_model->tampil_data_confirmation($id),
+			'confirmation'  => $confirmation,
 			'user' => $this->Invitation_model->getInvite()	
 			);
 
