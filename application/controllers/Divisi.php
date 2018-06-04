@@ -1,0 +1,40 @@
+<?php 
+require APPPATH. '/libraries/BaseController.php'; 
+ 
+ 
+class Divisi extends CI_Controller{
+ 
+	function __construct(){
+		parent::__construct();		
+		$this->load->model('Divisi_model');
+		$this->load->helper('url');
+ 
+	}
+ 	
+	function index(){
+		$data['divisi'] = $this->Divisi_model->tampil_data();
+		$this->load->view('all_divisi',$data);
+	}
+ 
+	function tambah(){
+		$this->load->view('add_periode');
+	}
+
+	function dasboard(){
+		$this->load->view('dasboard');
+	}
+
+	function tambah_data(){
+		$periode = $this->input->post('periode');
+		$periode_tahun = $this->input->post('periode_tahun');
+		
+ 
+		$data = array(
+			'periode' => $periode,
+			'periode_tahun' => $periode_tahun,
+			
+			);
+		$this->Periode_model->input_data($data,'periode');
+		redirect('Periode/index');
+	} 
+}

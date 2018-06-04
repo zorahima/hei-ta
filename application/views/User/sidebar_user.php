@@ -48,8 +48,6 @@
                 <a href="<?php echo site_url('Invitation/index') ?>">
                   <i class="fa fa-th"></i> <span>Invitation </span>
                 </a>
-
-
               </li>
 
                 <li>

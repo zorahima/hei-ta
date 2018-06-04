@@ -44,17 +44,21 @@
               </a>
             </li>
             <li>
+
              <a href="<?php echo site_url('Pengurus/index') ?>">
                 <i class="fa fa-users"></i> <span>Pengurus</span>
               </a>
-           
+
+              <li>
+                <a href="<?php echo site_url('Divisi/index') ?>">
+                  <i class="fa fa-th"></i> <span>Divisi </span>
+                </a>
+              </li>
 
               <li>
                 <a href="<?php echo site_url('Invitation/index') ?>">
                   <i class="fa fa-th"></i> <span>Invitation </span>
                 </a>
-
-
               </li>
 
                 <li>

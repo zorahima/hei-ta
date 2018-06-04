@@ -62,7 +62,7 @@
          <!-- About Me Box -->
          <div class="box box-solid">
             <div class="box-header with-border">
-               <?php $i=1; foreach ($bio as $u) {?>
+               <?php  $i=1; foreach ($bio as $u) {?>
                <h3 class="box-title">Tentang Saya</h3>
                <button type="button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#ubah_bio<?php echo $u->user_id ?>" style="background:#fff; border-color:#000	"><i class="fa fa-pencil" style="color: #000"></i>
                </button>
@@ -72,15 +72,23 @@
                <strong><i class="fa fa-book margin-r-5"></i> Nama</strong>
                <p class="text-muted"> <?php echo $u->user_name?> </p>
                <hr style="margin-top:-10px;margin-bottom: 10px;">
+
                <strong><i class="fa fa-intersex margin-r-5"></i>Jenis Kelamin</strong>
                <p class="text-muted">  <?php echo $u->user_gender ?></p>
                <hr style="margin-top:-10px;margin-bottom: 10px;">
+
                <strong><i class="fa fa-pencil margin-r-5"></i> Email</strong>
                <p class="text-muted"> <?php echo $u->email ?></p>
                <hr style="margin-top:-10px;margin-bottom: 10px;">
+
                <strong><i class="fa fa-map-marker margin-r-5"></i> No Telfon</strong>
                <p class="text-muted"> <?php echo $u->user_phone?> </p>
                <hr style="margin-top:-10px;margin-bottom: 10px;">
+
+               <strong><i class="fa fa-map-marker margin-r-5"></i> Divisi</strong>
+               <p class="text-muted"> <?php echo $u->divisi_name?> </p>
+               <hr style="margin-top:-10px;margin-bottom: 10px;">
+
                <strong><i class="fa fa-calendar"></i> Periode Kepengurusan </strong>
                <p class="text-muted"><?php echo $u->periode?> </p>
             </div>

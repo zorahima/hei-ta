@@ -6,8 +6,10 @@ class Pengurus_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('periode', 'periode.periode_id = user.periode_id');
+        $this->db->join('divisi', 'divisi.divisi_id = user.divisi_id');
         $this->db->where('type = "pengurus"');
         $query = $this->db->get();
+
         return $query->result();
         //'user', 'proker.user_id = user.user_id'
     }
@@ -29,9 +31,10 @@ class Pengurus_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('periode', 'periode.periode_id = user.periode_id');
+        $this->db->join('divisi', 'divisi.divisi_id = user.divisi_id');
         $this->db->where('user.user_id', $id);
-        
         $query = $this->db->get();
+
         return $query->result();
         
     }
