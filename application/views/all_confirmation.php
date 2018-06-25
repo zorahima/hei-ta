@@ -61,7 +61,7 @@ if ($user_data['type']=='pengurus') {
                   </td>
                   <td class="text-center">
 
-                    <a href="<?php echo site_url('Invitation/index_confirmation_detail/'.$u->activity_id) ?>" class="btn btn-sm btn-info" style="background:#1a75ff; border-color:#fff"> <i class="fa fa-pencil"></i>
+                    <a href="<?php echo site_url('Invitation/index_confirmation_detail/'.$u->activity_id) ?>" class="btn btn-sm btn-info" style="background:#1a75ff; border-color:#fff"> <i class="fa fa-list-ul"></i>
                     </button>
 
 
