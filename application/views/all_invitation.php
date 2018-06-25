@@ -64,9 +64,9 @@ if ($user_data['type']=='pengurus') {
                <td class="text-center">
 
                  <a href="<?php echo base_url ('Invitation/update_accept_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
-                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#input_cancelation<?php echo $u->activity_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
+                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#input_cancelation<?php echo $u->activity_id ?>" style="background:#d41912; border-color:#fff"><i class="fa fa fa-remove"></i>
                  </button>
-                 <a href="<?php echo base_url ('Invitation/update_decline_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #d41912; border-color: #fff"><i class="fa fa-remove"></i></a>
+                 
                </td>
              </tr>
 
@@ -80,17 +80,24 @@ if ($user_data['type']=='pengurus') {
                       <h4 class="modal-title"> Tambahkan Alasan Tidak Hadir </h4>
                     </div>
                     <div class="modal-body">
-                      <form class="form-horizontal" method ="post"  id="formtambahalasan<?php echo $u->activity_id ?>" action="<?php echo base_url('Todo/updateTodo'); ?>" role="form">
-                        <input type="hidden" name='proker_id' id='proker_id'>
+                      <form class="form-horizontal" method ="post"  id="formtambahalasan<?php echo $u->activity_id ?>" action="<?php echo base_url('Invitation/decline_detail'); ?>" role="form">
+                        <input type="text" name='invitation_id' id='invitation_id' value="<?php echo $u->invitation_id ?>">
 
                         <div class="box-body">
                           <label class="col-sm-3 control-label">Alasan Tidak Hadir </label>
                           <div class="col-sm-9">
-                          <textarea class="form-control" rows="3"  id="invitation_cancelation" name="invitation_cancelation" placeholder="Enter ..."></textarea>
+                          <input type="text" name="status" value="decline">
+                          <textarea class="form-control" rows="3"  id="invitation_cancelation" name="invitation_cancelation" placeholder="Enter ..." > <?php echo $u->invitation_cancelation ?> </textarea>
                           
                             <input type="hidden" class="form-control" name="activity_id" value="<?php echo $u->activity_id ?>" required>
                           </div>
                         </div>
+
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <input type="submit"  class="btn btn-primary" value=" Save changes ">
+                      </div>
+                      </form>
 
               <?php $i++; }  ?>
             </thead>

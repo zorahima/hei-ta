@@ -95,6 +95,11 @@ class Invitation_model extends CI_Model{
         return $this->db->join('user','user.user_id=invitation.user_id')->where('activity_id',$id)->get('invitation')->result();
 
     }
+
+    function update_cancelation($invitation_id, $data) {
+        $this->db->where('invitation_id',$invitation_id);
+        $this->db->update('invitation', $data );
+    }
 }
 
 

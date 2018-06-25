@@ -81,12 +81,12 @@ class Invitation extends CI_Controller{
 	}
 	function update_accept_invitation($invitation_id){
 		$result= $this->Invitation_model->update_accept_invitation($invitation_id);
-		redirect('Invitation/index');
+		redirect('Invitation/index_confirmation_detail/');
 	}
 
 	function update_decline_invitation($invitation_id){
 		$result= $this->Invitation_model->update_decline_invitation($invitation_id);
-		redirect('Invitation/index');
+		redirect('Invitation/index_confirmation_detail/');
 	}
 
 	function update_present_invitation($invitation_id){
@@ -103,5 +103,21 @@ class Invitation extends CI_Controller{
  		$data = $this->Invitation_model->tampil_data_confirmation($id);
  		
  		echo json_encode($data);
+ 	}
+
+ 	function decline_detail() {
+
+ 		$invitation_id = $this->input->post('invitation_id');
+ 		$status = $this->input->post('status');
+		$invitation_cancelation = $this->input->post('invitation_cancelation');
+		
+ 
+		$data = array(
+			'invitation_status' => $status,
+			'invitation_cancelation' => $invitation_cancelation,
+			
+			);
+		$this->Invitation_model->update_cancelation($invitation_id,$data);
+		redirect('Invitation/index');
  	}
 }
