@@ -66,6 +66,7 @@
 						$sessionArray = array(
 						'user_id'=>$res->user_id,
 						'user_name'=>$res->user_name,
+						'user_picture'=>$res->user_picture,
 						'email'=>$res->email,
 						'type'=>$res->type,
 						'isLoggedIn' => TRUE

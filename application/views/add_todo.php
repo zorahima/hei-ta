@@ -36,6 +36,14 @@ if ($user_data['type']=='pengurus') {
             <input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Nama Todo">
           </div>
         </div>
+
+        <div class="form-group">
+        <label class="col-sm-2 control-label">Deskripsi to-do </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="todo_desc" name="todo_desc" placeholder="Nama Todo">
+          </div>
+        </div>
+
         <div class="form-group">
           <label  class="col-sm-2 control-label">Tanggal deadline</label>
           <div class="col-sm-10">

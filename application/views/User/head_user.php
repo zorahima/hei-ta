@@ -91,7 +91,16 @@
               <ul class="dropdown-menu">
                 <!-- User image -->
                 <li class="user-header">
-                  <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image">
+                <?php 
+                    if ($this->session->userdata('user_picture') != ''){
+                      echo $this->session->userdata('user_picture');; //tidak kosong
+                    } else{
+                      ?>
+                      <img src="<?php echo base_url('assets/avatar/avatar9.png') ?>" height="30px" class="img-circle text-center" alt="User Image">
+                      <?php
+                    }
+                   ?> 
+                 <!--  <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image"> -->
 
                   <p>
                     <?php echo $this->session->userdata('user_name'); ?>
