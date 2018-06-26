@@ -81,22 +81,22 @@ class Invitation extends CI_Controller{
 	}
 	function update_accept_invitation($invitation_id){
 		$result= $this->Invitation_model->update_accept_invitation($invitation_id);
-		redirect('Invitation/index_confirmation_detail/');
+		redirect('Invitation/index_confirmation/');
 	}
 
 	function update_decline_invitation($invitation_id){
 		$result= $this->Invitation_model->update_decline_invitation($invitation_id);
-		redirect('Invitation/index_confirmation_detail/');
+		redirect('Invitation/index_confirmation/');
 	}
 
-	function update_present_invitation($invitation_id){
+	function update_present_invitation($invitation_id, $id){
 		$result= $this->Invitation_model->update_present_invitation($invitation_id);
-		redirect('Invitation/index_confirmation');
+		redirect('Invitation/index_confirmation_detail/'.$id);
 	}
 
-	function update_absent_invitation($invitation_id){
+	function update_absent_invitation($invitation_id, $id){
 		$result= $this->Invitation_model->update_absent_invitation($invitation_id);
-		redirect('Invitation/index_confirmation');
+		redirect('Invitation/index_confirmation_detail/'.$id);
 	}
  	
  	function get_data_invitation($id) {

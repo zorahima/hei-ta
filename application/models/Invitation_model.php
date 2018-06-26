@@ -72,12 +72,12 @@ class Invitation_model extends CI_Model{
     } 
     function update_accept_invitation($invitation_id) {
         $this->db->where('invitation_id',$invitation_id);
-        $this->db->update('invitation', array('invitation_status'=> 'accept'));
+        return $this->db->update('invitation', array('invitation_status'=> 'accept'));
     }
 
     function update_decline_invitation($invitation_id) {
         $this->db->where('invitation_id',$invitation_id);
-        $this->db->update('invitation', array('invitation_status'=> 'decline'));
+        return $this->db->update('invitation', array('invitation_status'=> 'decline'));
     }
 
     function update_present_invitation($invitation_id) {
