@@ -42,11 +42,12 @@ if ($user_data['type']=='pengurus') {
             <thead>
               <tr>
                 <th>No</th>
+                <th>Sender</th>
                 <th>Nama</th>
                 <th>Desctiption</th>
                 <th>Deadline</th>
                 <th>Program Kerja </th>
-                <th> PIC </th>
+                
                 <th> Status </th>
                 <th> Operation </th>
 
@@ -54,11 +55,12 @@ if ($user_data['type']=='pengurus') {
               <?php $i=1; foreach ($todo as $todos) {?>
               <tr>
                <td> <?php echo $i; ?> </td>
+               <td> <?php echo $todos->sender1 ?> </td>
                <td> <?php echo $todos->todo_name ?> </td>
                <td> <?php echo $todos->todo_desc ?> </td>
                <td> <?php echo $todos->todo_deadline ?> </td>
                <td> <?php echo $todos->proker_name ?> </td>
-               <td> <?php echo $todos->user_name ?> </td>
+               
                <td> <?php echo $todos->todo_status ?> </td>
                <td class="text-center">
                  <a href="<?php echo base_url ('Todo/update_finish_todo/'.$todos->todo_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
