@@ -37,7 +37,7 @@
               </li>
             </li>
             <li>
-              <a href="<?php echo site_url('profil/timeline') ?>">
+              <a href="<?php echo site_url('Timeline/index') ?>">
                 <i class="fa  fa-calendar"></i> <span>Timelime</span>
               </a>
             </li>
