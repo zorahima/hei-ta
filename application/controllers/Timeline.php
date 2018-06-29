@@ -11,6 +11,7 @@ class Timeline extends CI_Controller{
 
 	function index(){
 		$data['calendar']= $this->db->get('activity')->result();
+		$data['proker']= $this->db->get('proker')->result();
 
 		$this->load->view('timeline', $data);
 	}

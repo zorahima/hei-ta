@@ -29,13 +29,11 @@ if ($user_data['type']=='pengurus') {
     <section class="content">
       <div class="row">
         <div class="col-md-3">
-          <div class="box box-solid">
-           
-            <!-- /.box-body -->
+          <div class="box box-solid"> 
           </div>
-          <!-- /. box -->
           </div>
         </div>
+
         <!-- /.col -->
         <div class="col-md-12">
           <div class="box box-primary">
@@ -48,7 +46,6 @@ if ($user_data['type']=='pengurus') {
           <!-- /. box -->
         </div>
         <!-- /.col -->
-      </div>
       <!-- /.row -->
     </section>
     <!-- /.content -->
@@ -119,15 +116,33 @@ $this->load->view('foot_admin');
         {
           title          : <?php echo "'".$k->activity_name."'"; ?>,
           start          : <?php echo "'".$k->activity_date."'"; ?>,
-          backgroundColor: '#3c8dbc', //red
-          borderColor    : '#0000' //red
+          backgroundColor: '#3c8dbc', //blue
+          borderColor    : '#0000' //black
+        },
+
+        <?php 
+      }
+        ?>
+                <?php 
+        foreach ($proker as $p ) {
+          
+        
+
+        ?>
+        {
+          title          : <?php echo "'".$p->proker_name."'"; ?>,
+          start          : <?php echo "'".$p->proker_date."'"; ?>,
+          backgroundColor: '#eabe1e', //blue
+          borderColor    : '#0000' //black
         },
 
         <?php 
       }
         ?>
 
+
       ],
+      
       editable  : true,
       droppable : true, // this allows things to be dropped onto the calendar !!!
       drop      : function (date, allDay) { // this function is called when something is dropped
