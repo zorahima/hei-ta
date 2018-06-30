@@ -13,7 +13,7 @@ if ($user_data['type']=='pengurus') {
 ?>
 <!-- =============================================== -->
 
-        <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content --> 
 <div class="content-wrapper">
 <section class="content">
   <!-- Main content -->
@@ -99,17 +99,12 @@ if ($user_data['type']=='pengurus') {
     </form>
     </div>
   </div>
+  <!-- /.box-body -->
+
 </section>
 </div>
-  <!-- /.box-body -->
-  
-  <!-- <div class="box-footer"> -->
-    
-
-  <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-  
-<!-- </div>   -->
 <!-- /.content-wrapper -->
+  
 
 <script type="text/javascript">
   $('#activity_date').on('change', function(e){
