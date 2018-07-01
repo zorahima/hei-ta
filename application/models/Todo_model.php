@@ -27,9 +27,10 @@ class Todo_model extends CI_Model{
     function tampil_data_todo($id) {
         
         $this->db->select('*');
+        $this->db->select('user.user_name as penerima');
         $this->db->from('todo');
         $this->db->where('todo.sender_id', $id);
-
+        $this->db->join('user', 'todo.user_id = user.user_id');
         $query = $this->db->get();
         return $query->result(); 
 

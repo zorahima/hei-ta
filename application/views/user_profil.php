@@ -1,4 +1,5 @@
 <?php
+
    $user_data = $this->session->userdata();
    
    
@@ -11,6 +12,8 @@
    	$this->load->view('sidebar_admin');
    }
    ?>
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
@@ -109,33 +112,105 @@
                <li><a href="#tugas" data-toggle="tab"> Tugas</a></li>
             </ul>
             <div class="tab-content">
-               <?php $i=1; foreach ($activity as $b) {?>
-               <div  class=" active tab-pane" id="activity">
-                  <!-- Post -->
-                  <div class="post">
-                     <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="<?php echo base_url('assets/avatar/avatar9.png') ?>" alt="user image">
-                        <span class="username">
-                        <a href="#"><?php echo $b->user_name ?></a>
-                        <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                        </span>
+               <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                           <thead>
+                               <tr>
+                                 <th>No</th>
+                                 <th>Nama Kegiatan</th>
+                                 <th>Info </th>
+                                 
+                               </tr> 
+                                    <?php $i=1; foreach ($activity as $a) {?>
+                              <tr>
+                                <td> <?php echo $i; ?> </td>
+                                <td> <?php echo $a->activity_name ?> </td>
+                                <td class="text-center">
+
+                                    <button type="button" class="btn btn-sm btn-info " data-toggle="modal" data-target="#ubah_bio2<?php echo $a->activity_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-list-ul"></i>
+                                    </button>
+
+                              </td>
+<div class="modal fade" id="ubah_bio2<?php echo $a->activity_id ?>">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span></button>
+                           <!-- <h4 class="modal-title"> Ubah data Todo </h4> -->
+                           <!--                       //TAB PANE -->
+                           <ul class="nav nav-tabs">
+                                 <h4 class="modal-title">Lihat Detail Aktivitas  </h4>
+                              
+                           </ul>
+                           <div class="modal-body">
+                              <div class="tab-content">
+                                 <div id="ubahBio" class="tab-pane fade in active">
+                                    <form class="form-horizontal" method ="post"  id="formubahbio<?php echo $u->user_id ?>" action="<?php echo base_url('Pengurus/updateBio'); ?>" role="form">
+                                       <input type="hidden" name='user_id' id='user_id' value="<?php echo $u->user_id ?>" >
+                                       <div class="box-body">
+                                          <label class="col-sm-3 control-label">Nama Kegiatan </label>
+                                          <div class="col-sm-9">
+                                             <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Nama" value="<?php echo $a->activity_name ?>" >
+                                          </div>
+                                       </div>
+                                       <div class="box-body">
+                                          <label class="col-sm-3 control-label">Deskripsi </label>
+                                          <div class="col-sm-9">
+                                             <textarea class="form-control" rows="3"  id="invitation_cancelation" name="invitation_cancelation" placeholder="Enter ..." > <?php echo $a->activity_desc?> </textarea>
+                                          </div>
+                                       </div>
+                                       <div class="box-body">
+                                          <label class="col-sm-3 control-label">Tanggal </label>
+                                          <div class="col-sm-9">
+
+                                          <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Nama" value="<?php echo $a->activity_date ?>" >
+                                             
+                                          </div>
+                                       </div>
+                                       <div class="box-body">
+                                          <label class="col-sm-3 control-label"> Waktu </label>
+                                          <div class="col-sm-9">
+                                             <input type="text" class="form-control" id="user_phone" name="user_phone" placeholder="No HP" value="<?php echo $a->activity_times ?>" >
+                                          </div>
+                                       </div>
+
+                                           <div class="box-body">
+                                          <label class="col-sm-3 control-label"> Lokasi </label>
+                                          <div class="col-sm-9">
+                                             <input type="text" class="form-control" id="user_phone" name="user_phone" placeholder="No HP" value="<?php echo $a->activity_loc ?>" >
+                                          </div>
+                                       </div>
+                                 
+                                       <div class="box-body">
+                                          <div class="col-sm-offset-2 col-sm-10">
+                                             
+                                          </div>
+                                       </div>
+                                    </form>
+                                 </div>
+                  
+                           </div>
+                              <!-- modal -->
+                           </div>
+                           <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
                      </div>
-                     <!-- /.user-block -->
-                     <h4> <?php echo $b->activity_name ?></h4>
-                     <p>
-                        <?php echo $b->activity_desc ?>
-                     </p>
-                     <div>
-                        <?php echo $b->activity_loc ?>
-                        <?php echo $b->activity_date ?>
-                        <?php echo $b->activity_times ?>
-                     </div>
+                     <!-- /.nav-tabs-custom -->
                   </div>
-                  <!-- /.post -->
+                  <!--     <div class="modal-footer">
+                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                     <input type="submit"  class="btn btn-primary" value=" Save changes ">
+                     </div> -->
                </div>
+                                
+                                    <?php $i++; }  ?>
+                               </tr>     
+                        </table>
+                   </div>
 
-               <?php $i++; }  ?>
-
+                  
                      <!-- tab pane tugas -->
                      <div id="tugas" class="tab-pane fade">
                      <div class="box-body">
@@ -145,6 +220,7 @@
                                  <th>No</th>
                                  <th>Nama Tugas</th>
                                  <th>Status Tugas</th>
+                                 <th>Penerima</th>
                                </tr> 
                                     <?php $i=1; foreach ($tugas as $t) {?>
                               <tr>
@@ -157,17 +233,23 @@
                                     <?php }else{ ?>
                                       <span class="label label-warning"> process </span>
                                     <?php }?>
-                                  </td>
+                                 </td>
+                                 <td><?php echo $t->penerima ?></td>
+
+
             
                          <?php $i++; }  ?>
-                       
-                     </table>
+                        </table>
                    </div>
            
 
                      </div>
                <!-- /.col -->
                <!-- /.TAB PANE END -->
+
+               
+
+
                <div class="modal fade" id="ubah_bio<?php echo $u->user_id ?>">
                   <div class="modal-dialog">
                      <div class="modal-content">
