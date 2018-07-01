@@ -8,6 +8,7 @@ class Pengurus extends CI_Controller{
 		parent::__construct();		
 		$this->load->model('Pengurus_model');
 		$this->load->model('Activity_model');
+		$this->load->model('Todo_model');
 		$this->load->helper('url');
 		$this->load->helper('form');
 
@@ -34,6 +35,7 @@ class Pengurus extends CI_Controller{
 	function profil() {
 		$id = $this->session->userdata('user_id');
 		$data = array (
+			'tugas' => $this->Todo_model->tampil_data_todo($id),
 			'bio'  => $this->Pengurus_model->getUserData($id),
 			'activity'  => $this->Activity_model->tampil_data($id),
 			'countAct' => $this->Pengurus_model->getCountActivity($id),

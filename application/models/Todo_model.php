@@ -23,6 +23,19 @@ class Todo_model extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
+
+    function tampil_data_todo($id) {
+        
+        $this->db->select('*');
+        $this->db->from('todo');
+        $this->db->where('todo.sender_id', $id);
+
+        $query = $this->db->get();
+        return $query->result(); 
+
+    }
+
+
  
     function input_data($data,$table){
         $this->db->insert($table,$data);

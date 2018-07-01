@@ -106,7 +106,7 @@
                <li class="active"> 
                   <a href="#activity" data-toggle="tab">Activity </a>
                </li>
-               <li><a href="#ubahPassword" data-toggle="tab">Ubah Password</a></li>
+               <li><a href="#tugas" data-toggle="tab"> Tugas</a></li>
             </ul>
             <div class="tab-content">
                <?php $i=1; foreach ($activity as $b) {?>
@@ -133,7 +133,32 @@
                   </div>
                   <!-- /.post -->
                </div>
+
                <?php $i++; }  ?>
+
+                     <!-- tab pane tugas -->
+                     <div id="tugas" class="tab-pane fade">
+                     <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                           <thead>
+                               <tr>
+                                 <th>No</th>
+                                 <th>Nama Tugas</th>
+                                 <th>Status Tugas</th>
+                               </tr> 
+                                    <?php $i=1; foreach ($tugas as $t) {?>
+                              <tr>
+                                <td> <?php echo $i; ?> </td>
+                                <td> <?php echo $t->todo_name ?> </td>
+                                <td> <?php echo $t->todo_status ?> </td>
+            
+                         <?php $i++; }  ?>
+                       
+                     </table>
+                   </div>
+           
+
+                     </div>
                <!-- /.col -->
                <!-- /.TAB PANE END -->
                <div class="modal fade" id="ubah_bio<?php echo $u->user_id ?>">
@@ -203,24 +228,28 @@
                                     </form>
                                  </div>
                                  <div id="ubahPassword" class="tab-pane fade">
-                                    <div class="form-group">
-                                       <label for="inputEmail" class="col-sm-2 control-label">Password  Lama </label>
-                                       <div class="col-sm-10">
-                                          <input type="password" class="form-control" name="email" value="">
+                                      <div class="box-body">
+                                       <label class="col-sm-3 control-label">Password Lama </label>
+                                       <div class="col-sm-9">
+                                          <input type="password" class="form-control" id="newPass" name="newPass" placeholder="Masukan password Lama" value="" >
                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                       <label for="inputEmail" class="col-sm-2 control-label">Password  Baru</label>
-                                       <div class="col-sm-10">
-                                          <input type="password" class="form-control" name="email" value="">
+
+                                    <div class="box-body">
+                                       <label class="col-sm-3 control-label">Password Baru </label>
+                                       <div class="col-sm-9">
+                                          <input type="password" class="form-control" id="newPass" name="newPass" placeholder="Masukan password Baru" value="" >
                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                       <label for="inputEmail" class="col-sm-2 control-label">Ulangi Password Baru</label>
-                                       <div class="col-sm-10">
-                                          <input type="password" class="form-control" name="email" value="">
+
+                                    <div class="box-body">
+                                       <label class="col-sm-3 control-label">Ulangi Password Baru </label>
+                                       <div class="col-sm-9">
+                                          <input type="password" class="form-control" id="reTypePass" name="reTypePass" placeholder="Ulangi Password Baru" value="" >
                                        </div>
                                     </div>
+
+                           
                                  </div>
                               </div>
                               <!-- modal -->
