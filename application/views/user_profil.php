@@ -150,7 +150,14 @@
                               <tr>
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $t->todo_name ?> </td>
-                                <td> <?php echo $t->todo_status ?> </td>
+                                <td>
+                                    <?php if($t->todo_status=='finish') {
+                                      ?>
+                                      <span class="label label-success">finish</span>
+                                    <?php }else{ ?>
+                                      <span class="label label-warning"> process </span>
+                                    <?php }?>
+                                  </td>
             
                          <?php $i++; }  ?>
                        
