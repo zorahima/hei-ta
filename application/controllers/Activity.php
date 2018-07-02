@@ -41,7 +41,7 @@ class Activity extends CI_Controller{
 		$data = array(
 		'users' => $this->Activity_model->getUser(),
 		'page' => 'add_activity',
-		);
+		); 
 
 		
 		$this->load->view('add_activity',$data);
@@ -50,13 +50,16 @@ class Activity extends CI_Controller{
 	}
 
 	function tambah_data(){
+
+
 		$activity_name = $this->input->post('activity_name');
 		$activity_date = $this->input->post('activity_date');
 		$activity_times = $this->input->post('activity_times');
 		$activity_desc = $this->input->post('activity_desc');
 		$activity_loc = $this->input->post('activity_loc');
 		$tamu_undangan = $this->input->post('user_id') ;
-		$user_id = $this->session->userdata('user_id');;
+		$user_id = $this->session->userdata('user_id');
+
  		
 
 
@@ -78,12 +81,32 @@ class Activity extends CI_Controller{
 
 			);
 		$this->Activity_model->input_data($data2,'invitation');
-		 }
+		$getEmail = $this->Activity_model->getEmail($tamu);
+		 $config = Array(  
+                  'protocol' => 'smtp',  
+                  'smtp_host' => 'ssl://smtp.googlemail.com',  
+                  'smtp_port' => 465,  
+                  'smtp_user' => 'eventhimakomsi@gmail.com',   
+                  'smtp_pass' => '@himakomsi',   
+                  'mailtype' => 'html',   
+                  'charset' => 'iso-8859-1'  
+                  );  
+                   $this->load->library('email', $config);  
+                   $this->email->set_newline("\r\n");  
+                   $this->email->from('eventhimakomsi@gmail.com', 'Events Himakomsi');   
+                   $this->email->to($getEmail->email);   
+                   $this->email->subject('Undangan Kegiatan');   
+                   $this->email->message('Hai '.$getEmail->user_name.' kamu diundang dalam '.$activity_name.' '.$activity_date.' '.$activity_times.' '.$activity_loc.' , silahkan check undangan pada aplikasi ini ');  
+                   if (!$this->email->send()) {  
+                    show_error($this->email->print_debugger());   
+                  }else{  
+                    echo 'Success to send email';   
+                  }  
+                  var_dump($getEmail->email);exit();
+                }
+		 
 
-
-
-
-		
+	
 
 		redirect('Activity/index');
 	}

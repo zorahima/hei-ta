@@ -36,6 +36,11 @@ class activity_model extends CI_Model{
         return $query->result();
     } 
 
+    function getEmail($user_id) {
+        $this->db->where('user_id', $user_id);
+        return $this->db->get('user')->row();
+    }
+
     function getTamu()
     {
         $this->db->select_count('*');
