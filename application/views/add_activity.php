@@ -20,7 +20,7 @@ if ($user_data['type']=='pengurus') {
 
   <div class="box box-info">
     <div class="box-header with-border">
-      <h3 class="box-title"> Tambahkan Activity </h3>
+      <h3 class="box-title"> Tambahkan Kegiatan </h3>
     </div>
     <!-- /.box-header -->
 
@@ -31,7 +31,7 @@ if ($user_data['type']=='pengurus') {
         <label class="col-sm-2 control-label">Nama Kegiatan</label>
 
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="activity_name " name="activity_name" placeholder=" Nama Kegiatan">
+          <input type="text" class="form-control" id="activity_name " name="activity_name" placeholder=" Nama Kegiatan" required>
         </div>
       </div>
 
@@ -39,7 +39,7 @@ if ($user_data['type']=='pengurus') {
         <label class="col-sm-2 control-label">Tanggal Kegiatan</label>
         <div class="col-sm-10">
           <div class="input-group date" data-provide="datepicker" >
-            <input type="text" min="<?php echo date('Y-m-d') ?>" class="form-control" name="activity_date" id="activity_date">
+            <input type="text" min="<?php echo date('Y-m-d') ?>" class="form-control" name="activity_date" id="activity_date" required>
             <div class="input-group-addon">
               <span class="glyphicon glyphicon-th"></span>
             </div>
@@ -53,7 +53,7 @@ if ($user_data['type']=='pengurus') {
           <label for="date" class="col-sm-2 control-label">Waktu Kegiatan</label>
           <div class="col-sm-10">
           <div class="input-group">
-            <input type="text" id="timepicker" class="form-control timepicker" name="activity_times" id="activity_times">
+            <input type="text" id="timepicker" class="form-control timepicker" name="activity_times" id="activity_times" required>
             <div class="input-group-addon">
               <i class="fa fa-clock-o"></i>
             </div>
@@ -66,21 +66,21 @@ if ($user_data['type']=='pengurus') {
         <label for="text" class="col-sm-2 control-label"> Lokasi  Kegiatan</label>
 
         <div class="col-sm-10">
-          <input type="text_area" class="form-control" id="activity_loc"  name="activity_loc" placeholder="Lokasi">
+          <input type="text_area" class="form-control" id="activity_loc"  name="activity_loc" placeholder="Lokasi" required>
         </div>
       </div>
 
       <div class="form-group">
         <label for="text" class="col-sm-2 control-label">Deskripsi Kegiatan</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="activity_desc"  name="activity_desc" placeholder="Deskripsi">  </textarea>
+          <textarea class="form-control" id="activity_desc"  name="activity_desc" placeholder="Deskripsi" required>  </textarea>
         </div>
       </div>
 
       <div class="form-group">
         <label  class="col-sm-2 control-label"> Kirim Undangan </label>
         <div class="col-sm-10">
-          <select class="form-control select2" multiple="multiple" name="user_id[]"  id="user_id" style="width: 100%;">
+          <select class="form-control select2" multiple="multiple" name="user_id[]"  id="user_id" style="width: 100%;" >
            <?php  foreach ($users as $user) {
             ?>
             <option value="<?php echo $user->user_id ?>"> <?php echo $user->user_name ?> </option> 

@@ -27,9 +27,9 @@ if ($user_data['type']=='pengurus') {
           <div class="box-header">
 
 
-            <h3 class="box-title">Todo </h3>
+            <h3 class="box-title">Tugas </h3>
             <a href ="<?php echo site_url('Todo/tambah') ?>"  >
-              <button type="submit"  class="btn btn-info pull-right"> Tambah Todo </button>
+              <button type="submit"  class="btn btn-info pull-right"> Tambah Tugas </button>
             </a>
           </div> 
 

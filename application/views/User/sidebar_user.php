@@ -30,7 +30,7 @@
                   </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="<?php echo site_url('Todo/index') ?>"><i class="fa fa-check-square-o"></i> Todo </a></li>
+                  <li><a href="<?php echo site_url('Todo/index') ?>"><i class="fa fa-check-square-o"></i> Tugas </a></li>
                   <li><a href="<?php echo site_url('Activity/index') ?>"><i class="fa fa-circle-o"></i> Activity </a></li>
                 </ul>
 
@@ -52,7 +52,7 @@
 
                 <li>
                 <a href="<?php echo site_url('Invitation/index_confirmation') ?>">
-                  <i class="fa fa-th"></i> <span>Confirmation </span>
+                  <i class="fa fa-check-square"></i> <span>Confirmation </span>
                 </a>
 
 

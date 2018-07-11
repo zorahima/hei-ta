@@ -80,7 +80,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo site_url('Periode/index') ?> "><i class="fa fa-circle-o"></i> Lihat Periode </a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Tambah Periode </a></li>
+                
               </ul>
             </li>
   

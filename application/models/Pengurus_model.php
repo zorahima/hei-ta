@@ -27,6 +27,15 @@ class Pengurus_model extends CI_Model{
         return $query->result();
     } 
 
+        function getDivisi() {
+        $this->db->select('*');
+        $this->db->from('divisi');
+        //$this->db->where('type = pengurus');
+
+        $query =$this->db->get();
+        return $query->result();
+    } 
+
         function getUserData($id){
         $this->db->select('*');
         $this->db->from('user');

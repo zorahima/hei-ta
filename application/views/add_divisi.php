@@ -1,5 +1,7 @@
 <?php
 $this->load->view('head_admin');
+$this->load->view('sidebar_admin');
+
 ?>
 <!-- =============================================== -->
 
@@ -17,7 +19,7 @@ $this->load->view('head_admin');
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form method= "post" action="<?php echo base_url('ProgramKerja/tambah_data'); ?>"  class="form-horizontal" id="form2">
+    <form method= "post" action="<?php echo base_url('Divisi/tambah_data'); ?>"  class="form-horizontal" id="form2">
       <div class="box-body">
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Nama Divisi</label>

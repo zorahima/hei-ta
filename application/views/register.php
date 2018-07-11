@@ -22,7 +22,7 @@ $this->load->view('sidebar_admin');
               <div class="box-body">
                 <div class="form-group">
                   <label> Nama </label>
-                  <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Nama">
+                  <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Nama" required>
                 </div>
                 <div class="form-group">
                   <label> Email </label>
@@ -76,6 +76,22 @@ $this->load->view('sidebar_admin');
                      <?php  foreach ($periodes as $periode) {
                     ?>
                    <option value="<?php echo $periode->periode_id ;?>"><?php echo $periode->periode; ?> </option> 
+                    <?php
+                    } 
+                   ?>
+                  
+                  </select>
+                  
+                
+              </div>
+
+                     <div class="form-group">
+                <label> Divisi Pengurus </label>
+                <select class="form-control" name="divisi_id" id="divisi_id">
+
+                     <?php  foreach ($divisis as $div) {
+                    ?>
+                   <option value="<?php echo $div->divisi_id ;?>"><?php echo $div->divisi_name; ?> </option> 
                     <?php
                     } 
                    ?>

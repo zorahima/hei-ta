@@ -20,7 +20,7 @@ $this->load->view('sidebar_admin');
           <div class="box-header">
             <h3 class="box-title">Tabel data divisi</h3>
             <!-- <a href ="<?php echo site_url('profil/input_todo') ?>"  > -->
-            <a href ="<?php echo site_url('ProgramKerja/tambah') ?>"  >
+            <a href ="<?php echo site_url('Divisi/tambah') ?>"  >
               <button type="submit"  class="btn btn-info pull-right"> Tambah Divisi </button>
             </a>
           </div>
@@ -37,13 +37,7 @@ $this->load->view('sidebar_admin');
                 <tr>
                  <td> <?php echo $i; ?> </td>
                  <td> <?php echo $d->divisi_name ?> </td>
-                 
-
-                  
-                  
-               <!-- <a class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa fa-check"></i></a>
-             -->
-           </td>
+            </td>
 
          
         

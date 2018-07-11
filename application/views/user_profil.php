@@ -107,7 +107,7 @@
          <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                <li class="active"> 
-                  <a href="#activity" data-toggle="tab">Activity </a>
+                  <a href="#activity" data-toggle="tab">Kegiatan </a>
                </li>
                <li><a href="#tugas" data-toggle="tab"> Tugas</a></li>
             </ul>

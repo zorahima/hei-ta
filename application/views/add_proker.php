@@ -1,5 +1,6 @@
 <?php
 $this->load->view('head_admin');
+$this->load->view('sidebar_admin');
 ?>
 <!-- =============================================== -->
 
@@ -23,7 +24,7 @@ $this->load->view('head_admin');
           <label for="inputEmail3" class="col-sm-2 control-label">Nama Program Kerja</label>
 
           <div class="col-sm-10">
-            <input type="text" class="form-control" required name ="proker_name" id="proker_name" placeholder="Nama Program Kerja">
+            <input type="text" class="form-control" required name ="proker_name" id="proker_name" placeholder="Nama Program Kerja" required>
           </div>
         </div>
 

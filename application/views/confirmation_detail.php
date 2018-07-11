@@ -29,8 +29,8 @@ if ($user_data['type']=='pengurus') {
               <div class="box-header">
 
 
-                <h3 class="box-title">Tabel Undangan </h3>
-                nanti tambahi activity id / activity namenya
+                <h3 class="box-title"> Check Kehadiran Aggota </h3>
+                <!-- nanti tambahi activity id / activity namenya -->
                 
               </div> 
 

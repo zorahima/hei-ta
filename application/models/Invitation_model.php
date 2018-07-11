@@ -31,11 +31,9 @@ class Invitation_model extends CI_Model{
         $this->db->where('activity.user_id', $id);
         $this->db->group_by('invitation.activity_id');
         //$this->db->group_by('activity.activity_id');
-
         $query = $this->db->get();
         return $query->result();
     }
-
 
     function tampil_data_confirmation_admin(){
         $this->db->select('*');

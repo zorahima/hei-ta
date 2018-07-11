@@ -22,9 +22,6 @@ class Activity extends CI_Controller{
 			'activity' => $activity,	
 			);
 
-
-
-
 		$this->load->view('all_activity',$data);
 	}
  
@@ -42,7 +39,6 @@ class Activity extends CI_Controller{
 		'users' => $this->Activity_model->getUser(),
 		'page' => 'add_activity',
 		); 
-
 		
 		$this->load->view('add_activity',$data);
 
@@ -59,10 +55,6 @@ class Activity extends CI_Controller{
 		$activity_loc = $this->input->post('activity_loc');
 		$tamu_undangan = $this->input->post('user_id') ;
 		$user_id = $this->session->userdata('user_id');
-
- 		
-
-
 		$data = array(
 			'activity_name' => $activity_name,
 			'activity_date' => date('Y-m-d',strtotime($activity_date)),
@@ -102,12 +94,12 @@ class Activity extends CI_Controller{
                   }else{  
                     echo 'Success to send email';   
                   }  
-                  var_dump($getEmail->email);exit();
+                  
                 }
 		 
 
 	
-
+			$this->session->set_flashdata('success', 'Data berhasil ditambah');	
 		redirect('Activity/index');
 	}
  

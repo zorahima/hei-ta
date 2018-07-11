@@ -47,13 +47,15 @@ class Todo extends CI_Controller{
 		$todo_deadline = $this->input->post('todo_deadline');
 		$proker_id = $this->input->post('proker_id');
 		$user_id = $this->input->post('user_id');
+		$sender_id = $this->session->userdata('user_id');
 
 		$data = array(
 			'todo_name' => $todo_name,
 			'todo_desc' => $todo_desc,
 			'todo_deadline' => $todo_deadline,
 			'proker_id' => $proker_id,
-			'user_id' => $user_id
+			'user_id' => $user_id,
+			'sender_id' => $sender_id
 
 			);
 		$this->Todo_model->input_data($data,'todo');

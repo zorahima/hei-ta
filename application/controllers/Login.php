@@ -44,7 +44,6 @@
     public function loginMe()
     {
 			$this->load->library('form_validation');
-			
 			$this->form_validation->set_rules('email', 'email', 'required|trim');
 			$this->form_validation->set_rules('password', 'password', 'required');
 			
@@ -52,8 +51,7 @@
 			{
 				$this->index();
 			}
-			else
-			{
+			else{
 				$username = $this->input->post('email');
 				$password = $this->input->post('password');
 
@@ -85,11 +83,9 @@
 						
 					}
 				}
-				else
-				{
-					$this->session->set_flashdata('error', 'Email or password mismatch');
-					
-					redirect('Admin');
+				else {
+					$this->session->set_flashdata('auth', 'Email or password mismatch');
+					redirect('login');
 				}
 			}
 		}

@@ -23,24 +23,24 @@ if ($user_data['type']=='pengurus') {
 
   <div class="box box-info">
     <div class="box-header with-border">
-      <h3 class="box-title"> Tambahkan Todo </h3>
+      <h3 class="box-title"> Tambahkan Tugas </h3>
     </div>
     <!-- /.box-header -->
     <!-- form start -->
     <form method= "post" action="<?php echo base_url('Todo/tambah_data'); ?>"  class="form-horizontal">
       <div class="box-body">
         <div class="form-group">
-          <label class="col-sm-2 control-label">Nama to-do </label>
+          <label class="col-sm-2 control-label">Nama tugas </label>
 
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Nama Todo">
+            <input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Nama tugas" required="">
           </div>
         </div>
 
         <div class="form-group">
-        <label class="col-sm-2 control-label">Deskripsi to-do </label>
+        <label class="col-sm-2 control-label">Deskripsi tugas </label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="todo_desc" name="todo_desc" placeholder="Nama Todo">
+            <input type="text" class="form-control" id="todo_desc" name="todo_desc" placeholder="Deskripsi tugas" required="">
           </div>
         </div>
 
@@ -65,7 +65,7 @@ if ($user_data['type']=='pengurus') {
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">PIC</label>
+        <label for="inputPassword3" class="col-sm-2 control-label">Diberikan kepada</label>
         <div class="col-sm-10">
           <select class="form-control select2" name="user_id" id="user_id" style="width: 80%;">
            <?php  foreach ($users as $user) {

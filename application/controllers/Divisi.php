@@ -17,7 +17,7 @@ class Divisi extends CI_Controller{
 	}
  
 	function tambah(){
-		$this->load->view('add_periode');
+		$this->load->view('add_divisi');
 	}
 
 	function dasboard(){
@@ -25,16 +25,16 @@ class Divisi extends CI_Controller{
 	}
 
 	function tambah_data(){
-		$periode = $this->input->post('periode');
-		$periode_tahun = $this->input->post('periode_tahun');
+		$divisi_name = $this->input->post('divisi_name');
+		
 		
  
 		$data = array(
-			'periode' => $periode,
-			'periode_tahun' => $periode_tahun,
+			'divisi_name' => $divisi_name,
+			
 			
 			);
-		$this->Periode_model->input_data($data,'periode');
-		redirect('Periode/index');
+		$this->Divisi_model->input_data($data,'divisi');
+		redirect('Divisi/index');
 	} 
 }

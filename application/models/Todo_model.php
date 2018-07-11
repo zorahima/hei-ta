@@ -16,10 +16,12 @@ class Todo_model extends CI_Model{
     }
 
     function tampil_data_admin(){
-        $this->db->select('*');
+        $this->db->select('todo.*,proker.*,user.*,x.user_name as sender1');
+        $this->db->select('todo.sender_id as sender');
         $this->db->from('todo');
         $this->db->join('proker', 'todo.proker_id = proker.proker_id');
         $this->db->join('user', 'todo.user_id = user.user_id');
+        $this->db->join('user x', 'todo.sender_id = x.user_id');
         $query = $this->db->get();
         return $query->result();
     }

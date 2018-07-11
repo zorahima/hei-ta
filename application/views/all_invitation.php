@@ -81,7 +81,7 @@ if ($user_data['type']=='pengurus') {
                     </div>
                     <div class="modal-body">
                       <form class="form-horizontal" method ="post"  id="formtambahalasan<?php echo $u->activity_id ?>" action="<?php echo base_url('Invitation/decline_detail'); ?>" role="form">
-                        <input type="text" name='invitation_id' id='invitation_id' value="<?php echo $u->invitation_id ?>">
+                        <!-- <input type="text" name='invitation_id' id='invitation_id' value="<?php echo $u->invitation_id ?>"> -->
 
                         <div class="box-body">
                           <label class="col-sm-3 control-label">Alasan Tidak Hadir </label>

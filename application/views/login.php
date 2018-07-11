@@ -37,6 +37,13 @@
 						Login 
 					</span>
 					
+					<div>
+						<?php if($this->session->flashdata('auth')){ ?>
+            			<div class="alert alert-danger alert-dismissible">
+              				<p><?php echo $this->session->flashdata('auth') ;?></p>
+            			</div>
+          				<?php } ?>
+					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email" id = "email">
