@@ -47,13 +47,7 @@ $this->load->view('sidebar_admin');
                    <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_proker<?php echo $prokers->proker_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
                    </button>
                    <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$prokers->proker_id ?> "> <i class="fa fa-trash"></i></a>
-
-
-                  
-                  
-               <!-- <a class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa fa-check"></i></a>
-             -->
-           </td>
+                </td>
 
          </tr> 
          <div class="modal fade" id="ubah_proker<?php echo $prokers->proker_id ?>">
@@ -66,7 +60,6 @@ $this->load->view('sidebar_admin');
                 </div>
                 <div class="modal-body">
                   <form method ="post"  id="formubahproker<?php echo $prokers->proker_id ?>" action="<?php echo base_url('ProgramKerja/updateProker'); ?>" role="form">
-                    <!-- <?php foreach ($proker as $proker)?> -->
                     <input type="hidden" name='proker_id' id='proker_id'>
                     <div class="box-body">
                     <input type="hidden" class="form-control" name="proker_id" value="<?php echo $prokers->proker_id ?>" required>

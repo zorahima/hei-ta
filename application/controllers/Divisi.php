@@ -26,15 +26,23 @@ class Divisi extends CI_Controller{
 
 	function tambah_data(){
 		$divisi_name = $this->input->post('divisi_name');
-		
-		
- 
 		$data = array(
 			'divisi_name' => $divisi_name,
-			
-			
 			);
 		$this->Divisi_model->input_data($data,'divisi');
 		redirect('Divisi/index');
+	}
+
+		function updateDivisi() {
+		$divisi_id= $this->input->post('divisi_id');
+		$divisi_name= $this->input->post('divisi_name');
+
+		$divisi = array(
+			"divisi_name" => $divisi_name,
+			);
+		$this->db-> where('divisi_id', $divisi_id);
+		$this->db-> update('divisi', $divisi);
+		redirect('Divisi/index');
 	} 
+
 }

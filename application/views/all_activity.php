@@ -1,6 +1,6 @@
 <?php
 $user_data = $this->session->userdata();
-$this->load->view('head_admin');
+$this->load->view('head_user');
 if ($user_data['type']=='pengurus') {
   $this->load->view('User/sidebar_user');
 } elseif ($user_data['type']=='admin') {

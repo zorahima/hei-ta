@@ -86,10 +86,10 @@ if ($user_data['type']=='pengurus') {
                         <div class="box-body">
                           <label class="col-sm-3 control-label">Alasan Tidak Hadir </label>
                           <div class="col-sm-9">
-                          <input type="text" name="status" value="decline">
+                          <input type="text" name="status" id="status" value="decline">
                           <textarea class="form-control" rows="3"  id="invitation_cancelation" name="invitation_cancelation" placeholder="Enter ..." > <?php echo $u->invitation_cancelation ?> </textarea>
                           
-                            <input type="hidden" class="form-control" name="activity_id" value="<?php echo $u->activity_id ?>" required>
+                            <input type="text" class="form-control" name="invitation_id" value="<?php echo $u->invitation_id ?>" required>
                           </div>
                         </div>
 

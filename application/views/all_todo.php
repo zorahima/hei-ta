@@ -49,7 +49,7 @@ if ($user_data['type']=='pengurus') {
                 <th>Program Kerja </th>
                 
                 <th> Status </th>
-                <th> Operation </th>
+                <th> Aksi </th>
 
               </tr>
               <?php $i=1; foreach ($todo as $todos) {?>
@@ -116,9 +116,6 @@ if ($user_data['type']=='pengurus') {
                             </select>
                           </div>
                         </div>
-
-                        
-
                         <div class="box-body">
                           <label class="col-sm-2 control-label"> PIC </label>
                           <div class="col-sm-10">
@@ -146,8 +143,6 @@ if ($user_data['type']=='pengurus') {
               <!-- /.modal-dialog -->
             </div>
             <!-- /.modal -->
-
-
 
             <?php $i++; }  ?>
           </thead>

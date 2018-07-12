@@ -81,7 +81,7 @@ class Invitation extends CI_Controller{
 	}
 	function update_accept_invitation($invitation_id){
 		$result= $this->Invitation_model->update_accept_invitation($invitation_id);
-		redirect('Invitation/index_confirmation/');
+		redirect('Invitation/index');
 	}
 
 	function update_decline_invitation($invitation_id){

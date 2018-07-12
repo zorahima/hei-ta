@@ -19,6 +19,7 @@ $this->load->view('sidebar_admin');
         <div class="box">
           <div class="box-header">
             <h3 class="box-title">Tabel data divisi</h3>
+            <!-- <a href ="<?php echo site_url('profil/input_todo') ?>"  > -->
             <a href ="<?php echo site_url('Divisi/tambah') ?>"  >
               <button type="submit"  class="btn btn-info pull-right"> Tambah Divisi </button>
             </a>
@@ -29,57 +30,17 @@ $this->load->view('sidebar_admin');
               <!--   <?php var_dump($proker); ?> -->
               <thead>
                 <tr>
-                  <th> NO</th>
-                  <th> Nama Divisi</th>
-                  <th> Aksi </th>
-
+                  <th>NO</th>
+                  <th>Nama Divisi</th>
                 </tr> 
                 <?php $i=1; foreach ($divisi as $d) {?>
                 <tr>
                  <td> <?php echo $i; ?> </td>
                  <td> <?php echo $d->divisi_name ?> </td>
-                 <td class="text-center">
-                              
-                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_divisi<?php echo $d->divisi_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
-                 </button>
-                 <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$d->divisi_id ?> "> <i class="fa fa-trash"></i></a>
-               </td>
+            </td>
 
-                  <div class="modal fade" id="ubah_divisi<?php echo $d->divisi_id ?>">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title"> Ubah divisi </h4>
-                          </div>
-                          <div class="modal-body">
-                            <form method ="post"  id="formubahdivisi<?php echo $d->divisi_id ?>" action="<?php echo base_url('Divisi/updateDivisi'); ?>" role="form">
-                              <input type="hidden" name='divisi_id' id='divisi_id'>
-                              <div class="box-body">
-                              <input type="hidden" class="form-control" name="divisi_id" value="<?php echo $d->divisi_id ?>" required>
-
-
-                                <div class="form-group">
-                                  <label> Nama  Program Kerja </label>
-                                  <input type="text" class="form-control" name ="divisi_name" id="divisi_name" placeholder="Nama Divisi" value="<?php echo $d->divisi_name ?>" >
-                                </div>
-
-                              </div>
-                            
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                            <input type="submit"  class="btn btn-primary" value=" Save changes ">
-                          </div>
-                        </div>
-                        </form>
-                        <!-- /.modal-content -->
-                      </div>
-                      <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.modal -->
-                  
+         
+        
           <?php $i++; }  ?>
         </tfoot>
       </table>

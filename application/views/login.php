@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V18</title>
+	<title> HIMAKOMSI </title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -61,9 +61,6 @@
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
 						</div>
 
 						<div>
@@ -79,22 +76,14 @@
 							Login
 						</button>
 					</div>
-					
-					
-
-				
 				</form>
 
 				<div class="login100-more" style="background-image: url('<?php echo base_url(
-				'assets/user/images/bg-01.jpg') ?>');">
+				'assets/images/himakomsi.jpg') ?>');">
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	
-
-	
 	
 <!--===============================================================================================-->
 	<script src="<?php echo base_url('assets/user/vendor/jquery/jquery-3.2.1.min.js')  ?>"></script>

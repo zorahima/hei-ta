@@ -4,8 +4,6 @@
    
    
    $this->load->view('head_admin');
-   
-   
    if ($user_data['type']=='pengurus') {
    	$this->load->view('User/sidebar_user');
    } elseif ($user_data['type']=='admin') {
@@ -119,6 +117,7 @@
                                  <th>No</th>
                                  <th>Nama Kegiatan</th>
                                  <th>Info </th>
+
                                  
                                </tr> 
                                     <?php $i=1; foreach ($activity as $a) {?>
@@ -221,6 +220,8 @@
                                  <th>Nama Tugas</th>
                                  <th>Status Tugas</th>
                                  <th>Penerima</th>
+                                 <th>Aksi </th>
+
                                </tr> 
                                     <?php $i=1; foreach ($tugas as $t) {?>
                               <tr>
@@ -235,6 +236,11 @@
                                     <?php }?>
                                  </td>
                                  <td><?php echo $t->penerima ?></td>
+                                 <td class="text-center">
+                                   <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_todo<?php echo $t->todo_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
+                                   </button>
+                                   <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$t->todo_id ?> "> <i class="fa fa-trash"></i></a>
+                                 </td>
 
 
             
@@ -246,6 +252,76 @@
                      </div>
                <!-- /.col -->
                <!-- /.TAB PANE END -->
+
+               <!-- //Modal ubah todo -->
+                            <!-- Modal -->
+             <div class="modal fade" id="ubah_todo<?php echo $t->todo_id ?>">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title"> Ubah data Todo </h4>
+                    </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal" method ="post"  id="formubahtodo<?php echo $t->todo_id ?>" action="<?php echo base_url('Todo/updateTodo'); ?>" role="form">
+                        <input type="hidden" name='proker_id' id='proker_id'>
+
+                        <div class="box-body">
+                          <label class="col-sm-2 control-label">Nama todo </label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="todo_name" name="todo_name" placeholder="Nama Todo" value="<?php echo $t->todo_name ?>" >
+                            <input type="hidden" class="form-control" name="todo_id" value="<?php echo $t->todo_id ?>" required>
+                          </div>
+                        </div>
+
+                        <div class="box-body">
+                          <label class="col-sm-2 control-label">Tanggal deadline</label>
+                          <div class="col-sm-10">
+                            <input type="date" class="form-control" id="todo_deadline" name="todo_deadline" value="<?php echo $t->todo_deadline ?>">
+                          </div>
+                        </div>
+
+                        <div class="box-body">
+                          <label class="col-sm-2 control-label"> Program Kerja </label>
+                          <div class="col-sm-10">
+                            <select class="form-control select2"  name="proker_id" id="proker_id" style="width: 80%;">
+                                <?php /*var_dump($users);*/ foreach ($prokers as $proker){
+                                  ?>
+                                  <option <?php if ($t->proker_id == $proker->proker_id) {echo 'selected';} ?> value="<?php echo $proker->proker_id ?>"> <?php echo $proker->proker_name ?> </option> 
+                                  <?php
+                                } 
+                                ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                          <label class="col-sm-2 control-label"> PIC </label>
+                          <div class="col-sm-10">
+                            <select class="form-control select2"  name="user_id" id="user_id" style="width: 100%;">
+                              <?php /*var_dump($users);*/ foreach ($user as $users){
+                                ?>
+                                <option <?php if ($t->user_id == $users->user_id) {echo 'selected';} ?> value="<?php echo $users->user_id ?>"> <?php echo $users->user_name ?> </option> 
+                                <?php
+                              } 
+                              ?>
+                            </select>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <input type="submit"  class="btn btn-primary" value=" Save changes ">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
 
                
 

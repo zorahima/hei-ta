@@ -13,15 +13,11 @@ class Periode extends CI_Controller{
  	
 	function index(){
 		$data['periode'] = $this->Periode_model->tampil_data();
-		$this->load->view('all_periode',$data);
+		$this->load->view('Admin/all_periode',$data);
 	}
  
 	function tambah(){
 		$this->load->view('add_periode');
-	}
-
-	function dasboard(){
-		$this->load->view('dasboard');
 	}
 
 	function tambah_data(){
@@ -49,6 +45,22 @@ class Periode extends CI_Controller{
 	function update_deactive_periode($periode_id){
 		$result= $this->Periode_model->update_deactive_periode($periode_id);
 		$result2= $this->Periode_model->update_deactivate_user($periode_id);
+		redirect('Periode/index');
+	}
+
+		function updatePeriode() {
+		$periode_id= $this->input->post('periode_id');
+		$periode= $this->input->post('periode');
+		$periode_tahun= $this->input->post('periode_tahun');
+	
+		$periodes = array(
+			
+			"periode" => $periode,
+			"periode_tahun" => $periode_tahun,
+	
+			);
+		$this->db-> where('periode_id', $periode_id);
+		$this->db-> update('periode', $periodes);
 		redirect('Periode/index');
 	}
  
