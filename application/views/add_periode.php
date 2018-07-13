@@ -24,14 +24,14 @@ $this->load->view('sidebar_admin');
                   <label for="inputEmail3" class="col-sm-2 control-label">Periode </label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="periode"  name= "periode" placeholder="Periode Example : 2016/2017">
+                    <input type="text" class="form-control" id="periode"  name= "periode" placeholder="Periode Example : 2016/2017" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label"> Tahun Periode </label>
 
                   <div class="col-sm-10">
-                    <input type="year" class="form-control" id="periode_tahun" name="periode_tahun" placeholder="Tahun">
+                    <input type="year" class="form-control" id="periode_tahun" name="periode_tahun" placeholder="Tahun" required>
                   </div>
                 </div>
              
