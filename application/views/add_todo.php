@@ -47,7 +47,7 @@ if ($user_data['type']=='pengurus') {
         <div class="form-group">
           <label  class="col-sm-2 control-label">Tanggal deadline</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" id="todo_deadline" name="todo_deadline">
+            <input type="date" class="form-control" id="todo_deadline" name="todo_deadline" required>
           </div>
         </div>
         <div class="form-group">
@@ -56,7 +56,7 @@ if ($user_data['type']=='pengurus') {
             <select class="form-control select2" name="proker_id" id="proker_id" style="width: 80%;">
              <?php  foreach ($prokers as $proker) {
               ?>
-              <option value="<?php echo $proker->proker_id ?>"> <?php echo $proker->proker_name ?> </option> 
+              <option value="<?php echo $proker->proker_id ?>" required> <?php echo $proker->proker_name ?> </option> 
               <?php
             } 
             ?>
@@ -70,7 +70,7 @@ if ($user_data['type']=='pengurus') {
           <select class="form-control select2" name="user_id" id="user_id" style="width: 80%;">
            <?php  foreach ($users as $user) {
             ?>
-            <option value="<?php echo $user->user_id ?>"> <?php echo $user->user_name ?> </option> 
+            <option value="<?php echo $user->user_id ?> " required> <?php echo $user->user_name ?> </option> 
             <?php
           } 
           ?>

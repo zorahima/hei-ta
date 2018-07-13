@@ -26,16 +26,16 @@ $this->load->view('sidebar_admin');
                 </div>
                 <div class="form-group">
                   <label> Email </label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder=" Email">
+                  <input type="email" class="form-control" id="email" name="email" placeholder=" Email" required>
                 </div>
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
                 <label> Jenis User </label>
                 <!-- <select class="form-control" name="agama" id="agama" value="<?php echo set_value('agama');?>" required> -->
-                  <select class="form-control" name="type" id="type">
+                  <select class="form-control" name="type" id="type" required>
                     <option value="admin">Admin </option>
                     <option value="pengurus "> Pengurus </option>
 
@@ -47,7 +47,7 @@ $this->load->view('sidebar_admin');
 
                 <div class="form-group">
                   <label>Jenis Kelamin</label>
-                  <select class="form-control" name="user_gender" id="user_gender">
+                  <select class="form-control" name="user_gender" id="user_gender" required>
                     <option value="Laki-laki"> Laki-laki </option>
                     <option value="Perempuan"> Perempuan </option>
 
@@ -59,16 +59,16 @@ $this->load->view('sidebar_admin');
               </div>
               <div class="form-group">
                 <label> Nomor Telepon</label>
-                <input type="text" class="form-control" id="user_phone" name="user_phone" placeholder="Nomor Telepon ">
+                <input type="text" class="form-control" id="user_phone" name="user_phone" placeholder="Nomor Telepon " required>
               </div>
               <div class="form-group">
                 <label>Alamat</label>
-                <input type="text" class="form-control" id="user_address" name="user_address" placeholder="Alamat ">
+                <input type="text" class="form-control" id="user_address" name="user_address" placeholder="Alamat " required>
               </div>
           
               <div class="form-group">
                 <label> Periode Pengurus </label>
-                <select class="form-control" name="periode_id" id="periode_id">
+                <select class="form-control" name="periode_id" id="periode_id" required>
 
                 <!--  <?php foreach($companies as $company){ ?>
                     <option value="<?php echo $company->id_company ;?>"><?php echo $company->name; ?></option>
@@ -91,7 +91,7 @@ $this->load->view('sidebar_admin');
 
                      <?php  foreach ($divisis as $div) {
                     ?>
-                   <option value="<?php echo $div->divisi_id ;?>"><?php echo $div->divisi_name; ?> </option> 
+                   <option value="<?php echo $div->divisi_id ;?> " required><?php echo $div->divisi_name; ?> </option> 
                     <?php
                     } 
                    ?>

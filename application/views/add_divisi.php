@@ -25,7 +25,7 @@ $this->load->view('sidebar_admin');
           <label for="inputEmail3" class="col-sm-2 control-label">Nama Divisi</label>
 
           <div class="col-sm-10">
-            <input type="text" class="form-control" required name ="divisi_name" id="divisi_name" placeholder="Nama Divisi">
+            <input type="text" class="form-control" required name ="divisi_name" id="divisi_name" placeholder="Nama Divisi" required>
           </div>
         </div>
 

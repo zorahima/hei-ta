@@ -83,7 +83,7 @@ if ($user_data['type']=='pengurus') {
           <select class="form-control select2" multiple="multiple" name="user_id[]"  id="user_id" style="width: 100%;" >
            <?php  foreach ($users as $user) {
             ?>
-            <option value="<?php echo $user->user_id ?>"> <?php echo $user->user_name ?> </option> 
+            <option value="<?php echo $user->user_id ?>" required> <?php echo $user->user_name ?> </option> 
             <?php
           } 
           ?>

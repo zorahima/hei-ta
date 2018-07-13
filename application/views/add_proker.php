@@ -33,7 +33,7 @@ $this->load->view('sidebar_admin');
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
-          <input type="date" class="form-control pull-right" required name="proker_date" id="proker">
+          <input type="date" class="form-control pull-right" required name="proker_date" id="proker" required>
         </div>
 
         <label for="inputEmail3" class="col-sm-2 control-label"> Penganggung Jawab </label>
@@ -42,7 +42,7 @@ $this->load->view('sidebar_admin');
         <select class="form-control select2"  name="user_id" id="user_id" style="width: 80%;">
          <?php  foreach ($users as $user) {
           ?>
-          <option value="<?php echo $user->user_id ?>"> <?php echo $user->user_name ?> </option> 
+          <option value="<?php echo $user->user_id ?>" required> <?php echo $user->user_name ?> </option> 
           <?php
         } 
         ?>
