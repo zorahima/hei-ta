@@ -30,6 +30,7 @@ class Divisi extends CI_Controller{
 			'divisi_name' => $divisi_name,
 			);
 		$this->Divisi_model->input_data($data,'divisi');
+		$this->session->set_flashdata('success', 'Data berhasil ditambah');	
 		redirect('Divisi/index');
 	}
 

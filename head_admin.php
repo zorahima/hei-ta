@@ -41,6 +41,7 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url('AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/style.css')?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

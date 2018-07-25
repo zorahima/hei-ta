@@ -17,7 +17,6 @@
           <li class="header">MAIN NAVIGATION</li>
           <li class="treeview">
             <a href=" <?php echo site_url('User/index') ?>">
-              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             </a>
             <li>
               <li class="treeview">
@@ -32,14 +31,14 @@
                 <ul class="treeview-menu">
 
                   <li><a href="<?php echo site_url('ProgramKerja/index') ?>"><i class="fa fa-briefcase"></i> Program Kerja </a></li>
-                  <li><a href="<?php echo site_url('Todo/index') ?>"><i class="fa fa-check-square-o"></i> Todo </a></li>
-                  <li><a href="<?php echo site_url('Activity/index') ?>"><i class="fa fa-circle-o"></i> Activity </a></li>
+                  <li><a href="<?php echo site_url('Todo/index') ?>"><i class="fa fa-check-square-o"></i> Tugas </a></li>
+                  <li><a href="<?php echo site_url('Activity/index') ?>"><i class="fa fa-circle-o"></i> Kegiatan </a></li>
                 </ul>
 
               </li>
             </li>
             <li>
-              <a href="<?php echo site_url('profil/timeline') ?>">
+              <a href="<?php echo site_url('Timeline/index') ?>">
                 <i class="fa  fa-calendar"></i> <span>Timelime</span>
               </a>
             </li>
@@ -55,15 +54,15 @@
                 </a>
               </li>
 
-              <li>
+           <!--    <li>
                 <a href="<?php echo site_url('Invitation/index') ?>">
-                  <i class="fa fa-th"></i> <span>Invitation </span>
+                  <i class="fa fa-th"></i> <span>Undangan </span>
                 </a>
-              </li>
+              </li> -->
 
                 <li>
                 <a href="<?php echo site_url('Invitation/index_confirmation') ?>">
-                  <i class="fa fa-th"></i> <span>Confirmation </span>
+                  <i class="fa fa-th"></i> <span>Konfirmasi </span>
                 </a>
 
 

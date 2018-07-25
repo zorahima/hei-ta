@@ -27,11 +27,21 @@ if ($user_data['type']=='pengurus') {
           <div class="box-header">
 
 
+
+
             <h3 class="box-title">Tugas </h3>
             <a href ="<?php echo site_url('Todo/tambah') ?>"  >
               <button type="submit"  class="btn btn-info pull-right"> Tambah Tugas </button>
             </a>
           </div> 
+
+          <div>
+            <?php if($this->session->flashdata('success')){ ?>
+                  <div class="alert alert-success alert-dismissible">
+                      <p><?php echo $this->session->flashdata('success') ;?></p>
+                  </div>
+                  <?php } ?>
+          </div>
 
 
 
@@ -42,10 +52,10 @@ if ($user_data['type']=='pengurus') {
             <thead>
               <tr>
                 <th>No</th>
-                <th>Sender</th>
+                <th>Pengirim</th>
                 <th>Nama</th>
-                <th>Desctiption</th>
-                <th>Deadline</th>
+                <th>Deskripsi</th>
+                <th>Batas Waktu</th>
                 <th>Program Kerja </th>
                 
                 <th> Status </th>
@@ -65,9 +75,9 @@ if ($user_data['type']=='pengurus') {
                <td class="text-center">
                  <a href="<?php echo base_url ('Todo/update_finish_todo/'.$todos->todo_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
                  
-                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_todo<?php echo $todos->todo_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
-                 </button>
-                 <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$todos->todo_id ?> "> <i class="fa fa-trash"></i></a>
+               <!--   <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ubah_todo<?php echo $todos->todo_id ?>" style="background:#1a75ff; border-color:#fff"><i class="fa fa-pencil"></i>
+                 </button> -->
+                 <!-- <a style="background:#f44336; border-color: #fff" class="btn btn-sm btn-info"  href="<?php base_url() ?>hapus/<?=$todos->todo_id ?> "> <i class="fa fa-trash"></i></a> -->
                </td>
 
              </tr>

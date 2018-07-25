@@ -78,6 +78,20 @@ if ($user_data['type']=='pengurus') {
       </div>
 
       <div class="form-group">
+        <label  class="col-sm-2 control-label"> Kirim Undangan  ke Grup </label>
+        <div class="col-sm-10">
+          <select class="form-control select2" multiple="multiple" name="divisi_id[]"  id="divisi_id" style="width: 100%;" >
+           <?php var_dump($divisi);  foreach ($divisi as $div) {
+            ?>
+            <option value="<?php echo $div->divisi_id ?>" required> <?php echo $div->divisi_name ?> </option> 
+            <?php
+          } 
+          ?>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label  class="col-sm-2 control-label"> Kirim Undangan </label>
         <div class="col-sm-10">
           <select class="form-control select2" multiple="multiple" name="user_id[]"  id="user_id" style="width: 100%;" >
@@ -107,23 +121,42 @@ if ($user_data['type']=='pengurus') {
   
 
 <script type="text/javascript">
-  $('#activity_date').on('change', function(e){
-    e.preventDefault()
-    let inputtedDate = new Date(this.value)
-    let q = new Date()
-    let d = q.getDate()
-    let m = q.getMonth()
-    let y = q.getFullYear()
-    let date = new Date(y,m,d)
+  $(document).ready(function(){
 
-    console.log(date, inputtedDate)
+    $('#activity_date').on('change', function(e){
+      e.preventDefault()
+      let inputtedDate = new Date(this.value)
+      let q = new Date()
+      let d = q.getDate()
+      let m = q.getMonth()
+      let y = q.getFullYear()
+      let date = new Date(y,m,d)
 
-    $('#activity_date').val('')
-    if(inputtedDate > date)
-      // console.log('olololo')
-    $('#activity_date').val(`${inputtedDate.getFullYear()}-${inputtedDate.getMonth()+1}-${inputtedDate.getDate()}`)
-      // this.val(inputtedDate)
+      console.log(date, inputtedDate)
+
+      $('#activity_date').val('')
+      if(inputtedDate > date)
+        // console.log('olololo')
+      $('#activity_date').val(`${inputtedDate.getFullYear()}-${inputtedDate.getMonth()+1}-${inputtedDate.getDate()}`)
+        // this.val(inputtedDate)
     })
+
+    $('#divisi_id').on('change', function(e){
+      let id_divisi = e.target.value
+      $.get('<?php echo base_url();?>' + '/Activity/getUserByDivisi/' + id_divisi)
+        .then(function(data){
+          let dataUser = JSON.parse(data)
+          let userElement = $('#user_id')
+          userElement.html('')
+          dataUser.users.map(function(user){
+            userElement.append('<option value="'+ user.user_id +'" selected   >'+ user.user_name +'</option>')
+          })
+        })
+        .catch(function(err){
+          console.error(err)
+        })
+    })
+  })
   </script>
 
   <?php

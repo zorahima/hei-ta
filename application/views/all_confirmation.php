@@ -25,7 +25,7 @@ if ($user_data['type']=='pengurus') {
         <div class="box">
           <div class="box-header">
 
-            <h3 class="box-title">Tabel Check Kehadiran </h3>
+            <h3 class="box-title">Tabel Kehadiran  Kegiatan </h3>
 
           </div>
 
@@ -36,10 +36,10 @@ if ($user_data['type']=='pengurus') {
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Activity ID</th>
-                  <th>Activity name</th>
-                  <th>People Invited </th>
-                  <th> Operation </th>
+                  <!-- <th>Activity ID</th> -->
+                  <th>Nama Kegiatan</th>
+                  <th>Jumlah Undangan </th>
+                  <th> Aksi </th>
 
                 </tr>
                 </thead>
@@ -50,9 +50,9 @@ if ($user_data['type']=='pengurus') {
                   <td>
                     <?php echo $i; ?>
                   </td>
-                  <td>
+                  <!-- <td>
                     <?php echo $u->activity_id ?>
-                  </td>
+                  </td> -->
                   <td>
                     <?php echo $u->activity_name ?>
                   </td>

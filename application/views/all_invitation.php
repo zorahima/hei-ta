@@ -31,6 +31,24 @@ if ($user_data['type']=='pengurus') {
 
             <h3 class="box-title">Tabel Undangan </h3>
 
+            <div>
+              <?php if($this->session->flashdata('success')){ ?>
+              <div class="alert alert-success alert-dismissible">
+                <p><?php echo $this->session->flashdata('success') ;?></p>
+              </div>
+              <?php } ?>
+            </div>
+
+            <div>
+            <?php if($this->session->flashdata('decline')){ ?>
+              <div class="alert alert-warning alert-dismissible">
+                <p><?php echo $this->session->flashdata('decline') ;?></p>
+              </div>
+              <?php } ?>
+            </div>
+
+
+
           </div> 
 
 
@@ -43,12 +61,12 @@ if ($user_data['type']=='pengurus') {
               <tr>
                 <th>No</th>
 
-                <th>Invitation Name</th>
-                <th>Invitation Desciption </th>
-                <th>Invitation Time</th>
-                <th>Invitation Loc</th>
-                <th>Invitation Confirmation</th>
-                <th> Operation </th>
+                <th> Nama Kegiatan </th>
+                <th> Tanggal Kegiatan </th>
+                <th> Waktu Kegiatan</th>
+                <th> Lokasi Kegiatan</th>
+                <th> Konfirmasi Kegiatan </th>
+                <th> Aksi </th>
 
 
               </tr>
@@ -56,17 +74,19 @@ if ($user_data['type']=='pengurus') {
               <tr>
                <td> <?php echo $i; ?> </td>
                <td> <?php echo $u->activity_name ?> </td>
-               <td> <?php echo $u->activity_desc ?> </td>
+               <td> <?php echo $u->activity_date ?> </td>
                <td> <?php echo $u->activity_times ?> </td>
                <td> <?php echo $u->activity_loc ?> </td>
                <td> <?php echo $u->invitation_status ?> </td>
 
                <td class="text-center">
-
+                  <?php if($u->activity_date  >= date('Y-m-d')) { ?>
                  <a href="<?php echo base_url ('Invitation/update_accept_invitation/'.$u->invitation_id) ?> " class="btn btn-sm btn-info" style="background: #4e9e02; border-color: #fff"><i class="fa  fa-check-circle"></i></a>
                  <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#input_cancelation<?php echo $u->activity_id ?>" style="background:#d41912; border-color:#fff"><i class="fa fa fa-remove"></i>
                  </button>
-                 
+                 <?php } else {?>
+                 <label class="label label-success">  selesai </label>
+                 <?php } ?>
                </td>
              </tr>
 
@@ -86,10 +106,10 @@ if ($user_data['type']=='pengurus') {
                         <div class="box-body">
                           <label class="col-sm-3 control-label">Alasan Tidak Hadir </label>
                           <div class="col-sm-9">
-                          <input type="text" name="status" id="status" value="decline">
+                          <input type="hidden" name="status" id="status" value="decline">
                           <textarea class="form-control" rows="3"  id="invitation_cancelation" name="invitation_cancelation" placeholder="Enter ..." > <?php echo $u->invitation_cancelation ?> </textarea>
                           
-                            <input type="text" class="form-control" name="invitation_id" value="<?php echo $u->invitation_id ?>" required>
+                            <input type="hidden" class="form-control" name="invitation_id" value="<?php echo $u->invitation_id ?>" required>
                           </div>
                         </div>
 

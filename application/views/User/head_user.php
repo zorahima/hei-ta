@@ -43,17 +43,19 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<!-- jQuery 3 -->
+ <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
 <body class="hold-transition skin-blue sidebar-mini">
   <!-- base wrapper -->
   <div class="wrapper">
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="<?php echo base_url('assets/index2.html') ?>" class="logo">
+      <a href="" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>H</b>EI</span>
+        <span class="logo-mini"><b>H</b>IMAKOMSI</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>HEI</b></span>
+        <span class="logo-lg"><b>HIMAKOMSI</b></span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top" role="navigation">

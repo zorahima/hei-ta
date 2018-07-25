@@ -31,6 +31,7 @@ class Periode extends CI_Controller{
 			
 			);
 		$this->Periode_model->input_data($data,'periode');
+		$this->session->set_flashdata('success', 'Data berhasil ditambah');	
 		redirect('Periode/index');
 	}
 

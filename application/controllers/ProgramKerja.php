@@ -117,6 +117,7 @@ class ProgramKerja extends CI_Controller{
 		//$this->Proker_model->input_data($data,'proker');
 		$this->db->insert('proker', $data);
 		// return view
+		$this->session->set_flashdata('success', 'Data berhasil ditambah');	
 		redirect('ProgramKerja/index');
 	}
 

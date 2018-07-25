@@ -18,14 +18,19 @@ $this->load->view('sidebar_admin');
             <div class="box">
               <div class="box-header">
 
-
                 <h3 class="box-title">Tabel data pengurus</h3>
                 <a href ="<?php echo site_url('Pengurus/tambah') ?>"  >
                   <button type="submit"  class="btn btn-info pull-right"> Tambah Pengurus </button>
                 </a>
               </div> 
 
-
+              <div>
+                 <?php if($this->session->flashdata('success')){ ?>
+                  <div class="alert alert-success alert-dismissible">
+                      <p><?php echo $this->session->flashdata('success') ;?></p>
+                  </div>
+                  <?php } ?>
+              </div>
 
               <!-- /.box-header -->
               <div class="box-body">

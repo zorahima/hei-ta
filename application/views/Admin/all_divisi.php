@@ -24,6 +24,14 @@ $this->load->view('sidebar_admin');
               <button type="submit"  class="btn btn-info pull-right"> Tambah Divisi </button>
             </a>
           </div>
+
+           <div>
+                  <?php if($this->session->flashdata('success')){ ?>
+                  <div class="alert alert-success alert-dismissible">
+                      <p><?php echo $this->session->flashdata('success') ;?></p>
+                  </div>
+                  <?php } ?>
+          </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="example2" class="table table-bordered table-hover">

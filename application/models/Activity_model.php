@@ -60,6 +60,24 @@ class activity_model extends CI_Model{
             ->result();
         
     }
+         function getDivisi() {
+        $this->db->select('*');
+        $this->db->from('divisi');
+
+        $query =$this->db->get();
+        return $query->result();
+    }
+
+    public function getUserByDivisi($id){
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('divisi_id', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+    
+
 }
 
 

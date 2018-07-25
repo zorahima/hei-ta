@@ -37,12 +37,22 @@ class Activity extends CI_Controller{
 	function tambah(){
 		$data = array(
 		'users' => $this->Activity_model->getUser(),
+		'divisi' => $this->Activity_model->getDivisi(),
 		'page' => 'add_activity',
-		); 
+		);
+
 		
 		$this->load->view('add_activity',$data);
 
 		//
+	}
+
+	function getUserByDivisi($id = '0'){
+		$data = array(
+			'users' => $this->Activity_model->getUserByDivisi($id)
+		);
+
+		echo json_encode($data);
 	}
 
 	function tambah_data(){
@@ -88,17 +98,13 @@ class Activity extends CI_Controller{
                    $this->email->from('eventhimakomsi@gmail.com', 'Events Himakomsi');   
                    $this->email->to($getEmail->email);   
                    $this->email->subject('Undangan Kegiatan');   
-                   $this->email->message('Hai '.$getEmail->user_name.' kamu diundang dalam '.$activity_name.' '.$activity_date.' '.$activity_times.' '.$activity_loc.' , silahkan check undangan pada aplikasi ini ');  
+                   $this->email->message('Hai '.$getEmail->user_name.' kamu diundang dalam '.$activity_name.'  pada '.$activity_date.' pukul'.$activity_times.' di '.$activity_loc.' , silahkan cek undangan kegiatan milik anda. Terimakasih ');  
                    if (!$this->email->send()) {  
                     show_error($this->email->print_debugger());   
                   }else{  
                     echo 'Success to send email';   
                   }  
-                  
                 }
-		 
-
-	
 			$this->session->set_flashdata('success', 'Data berhasil ditambah');	
 		redirect('Activity/index');
 	}

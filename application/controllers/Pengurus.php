@@ -74,6 +74,7 @@ class Pengurus extends CI_Controller{
 				'divisi_id' => $divisi_id
 				);
 			$this->Pengurus_model->input_data($data,'user');
+			$this->session->set_flashdata('success', 'Data berhasil ditambah');	
 			redirect('Pengurus/index');
 		}
 

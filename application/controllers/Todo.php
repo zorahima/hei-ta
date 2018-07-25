@@ -59,6 +59,7 @@ class Todo extends CI_Controller{
 
 			);
 		$this->Todo_model->input_data($data,'todo');
+		$this->session->set_flashdata('success', 'Data berhasil ditambah');	
 		redirect('Todo/index');
 	}
 

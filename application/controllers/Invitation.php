@@ -81,7 +81,9 @@ class Invitation extends CI_Controller{
 	}
 	function update_accept_invitation($invitation_id){
 		$result= $this->Invitation_model->update_accept_invitation($invitation_id);
+		$this->session->set_flashdata('success', 'Anda bersedia hadir dalam undangan kegiatan ini ');	
 		redirect('Invitation/index');
+		
 	}
 
 	function update_decline_invitation($invitation_id){
@@ -118,6 +120,7 @@ class Invitation extends CI_Controller{
 			
 			);
 		$this->Invitation_model->update_cancelation($invitation_id,$data);
+		$this->session->set_flashdata('decline', 'Anda mengkonfirmasi tidak hadir undangan kegiatan ini ');	
 		redirect('Invitation/index');
  	}
 }
